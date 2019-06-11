@@ -1,0 +1,3 @@
+author = NuovaPrime, Orian34, Sapharan, Blockaroz
+version = 0.1
+displayName = Survivaria - A survival mode mod
