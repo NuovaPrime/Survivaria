@@ -2,10 +2,16 @@ using Terraria.ModLoader;
 
 namespace Survivaria
 {
-	class Survivaria : Mod
+	public class Survivaria : Mod
 	{
 		public Survivaria()
 		{
-		}
+            Properties = new ModProperties()
+            {
+                Autoload = true,
+                AutoloadGores = true,
+                AutoloadSounds = true
+            };
+        }
 	}
 }
