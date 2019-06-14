@@ -37,6 +37,9 @@
     <Compile Include="Items\Food\FoodItem.cs" />
     <Compile Include="Items\SurvivariaItem.cs" />
     <Compile Include="Players\SurvivariaPlayer.cs" />
+    <Compile Include="Players\SurvivariaPlayer.Thirst.cs" />
+    <Compile Include="Players\SurvivariaPlayer.Sanity.cs" />
+    <Compile Include="Players\SurvivariaPlayer.Temperature.cs" />
     <Compile Include="Players\SurvivariaPlayer.Hunger.cs" />
     <Compile Include="Survivaria.cs" />
   </ItemGroup>

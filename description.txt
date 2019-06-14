@@ -1,1 +1,7 @@
-Survivaria - A survival mode mod is a pretty cool mod, it does...this. Modify this file with a description of your mod.
+Survivaria is a unique mod that adds in multiple new survival mechanics, tons of new items and more.
+
+Features:
+
+Multiple new survival mechanics, such as hunger, thirst, temperature and sanity.
+Tons of new food items, drink items and other misc items.
+Immersive visual effects and sounds.

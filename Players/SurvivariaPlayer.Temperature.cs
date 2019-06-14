@@ -9,14 +9,11 @@ namespace Survivaria.Players
 {
     public partial class SurvivariaPlayer : ModPlayer
     {
-        internal void ResetHungerEffects()
+        internal void ResetTemperatureEffects()
         {
-            HungerLossRate = 1;
-            MaximumHunger = 100;
+            CurrentTemperature = 0;
         }
 
-        public int HungerLossRate { get; set; }
-        public float CurrentHunger { get; set; }
-        public float MaximumHunger { get; set; }
+        public float CurrentTemperature { get; set; }
     }
 }

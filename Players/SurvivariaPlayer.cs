@@ -10,6 +10,13 @@ namespace Survivaria.Players
 {
     public partial class SurvivariaPlayer : ModPlayer
     {
+        public override void PostUpdate()
+        {
+            if (CurrentHunger > MaximumHunger)
+                CurrentHunger = MaximumHunger;
+            if (CurrentHunger < 0)
+                CurrentHunger = 0;
+        }
 
         public override void ResetEffects()
         {
