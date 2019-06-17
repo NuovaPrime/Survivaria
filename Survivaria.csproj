@@ -42,6 +42,9 @@
     <Compile Include="Players\SurvivariaPlayer.Temperature.cs" />
     <Compile Include="Players\SurvivariaPlayer.Hunger.cs" />
     <Compile Include="Survivaria.cs" />
+    <Compile Include="UI\GFX.cs" />
+    <Compile Include="UI\HungerIndicator.cs" />
+    <Compile Include="UI\ResourceMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
@@ -70,7 +73,6 @@
     <Folder Include="Items\Drinks\" />
     <Folder Include="Items\Misc\" />
     <Folder Include="Items\Plants\" />
-    <Folder Include="UI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
