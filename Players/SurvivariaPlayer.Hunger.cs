@@ -15,7 +15,18 @@ namespace Survivaria.Players
             MaximumHunger = 100;
         }
 
-        public int HungerLossRate { get; set; }
+        int hungerLossTimer = 0;
+        internal void UpdateHunger()
+        {
+            hungerLossTimer++;
+            if(hungerLossTimer >= 1200)
+            {
+                CurrentHunger -= HungerLossRate;
+                hungerLossTimer = 0;
+            }
+        }
+
+        public float HungerLossRate { get; set; }
         public float CurrentHunger { get; set; }
         public float MaximumHunger { get; set; }
     }

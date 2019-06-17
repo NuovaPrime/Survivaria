@@ -16,6 +16,8 @@ namespace Survivaria.Players
                 CurrentHunger = MaximumHunger;
             if (CurrentHunger < 0)
                 CurrentHunger = 0;
+
+            UpdateHunger();
         }
 
         public override void ResetEffects()
