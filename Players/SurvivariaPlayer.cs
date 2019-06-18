@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Survivaria.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.GameInput;
 using Terraria.ModLoader;
 
 namespace Survivaria.Players
@@ -24,6 +26,12 @@ namespace Survivaria.Players
 			}
 
             UpdateHunger(); //toggles timer and tick hunger removal;
+        }
+
+        public override void ProcessTriggers(TriggersSet triggersSet)
+        {
+            if (Survivaria.Instance.resourceMenuKey.JustPressed)
+                ResourceMenu.visible = !ResourceMenu.visible;
         }
 
         public override void ResetEffects()
