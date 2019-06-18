@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Players;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
-using Terraria.UI;
 
 namespace Survivaria.UI
 {

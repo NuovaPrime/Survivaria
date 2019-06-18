@@ -11,27 +11,29 @@ namespace Survivaria.Players
 
         internal void UpdateHunger() //Called every single tick;
 		{
-			hungerLossTimer++;
+			HungerLossTimer++;
 
 			CurrentHunger -= HungerLossRate();
-			ResetHungerEffects();
         }
 
 		public double HungerLossRate()
 		{
-			if (hungerLossTimer >= 1200)
+			if (HungerLossTimer >= 1200)
 			{
 				_h = 0.001;
 
 				if (player.moveSpeed >= 20 && !player.controlMount)
 					_h *= 2; //Gets doubled;
 			}
+
 			return _h;
 		}
 
-		private double _h = 0;
-		private int hungerLossTimer = 0; //I swear to God Nuova, if I see you not storing all variables at one point in small code...
-		public double HungerMaximum { get; set; } 
+		private double _h = 0; // Someone comment on what this is.
+
+        public int HungerLossTimer { get; private set; }
+
+        public double HungerMaximum { get; set; } 
         public double CurrentHunger { get; set; }
     }
 }
