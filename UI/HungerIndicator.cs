@@ -30,7 +30,7 @@ namespace Survivaria.UI
             SurvivariaPlayer player = Main.LocalPlayer.GetModPlayer<SurvivariaPlayer>();
 
             int frameHeight = texture.Height / 8;
-            int frame = (int)(player.CurrentHunger / player.MaximumHunger * 7);
+            int frame = (int)(player.CurrentHunger / player.MaximumHunger * 7) * 100;
             texture = GFX.hungerIndicatorTexture;
             _drawPosition = new Vector2(PaddingX, PaddingY);
 
