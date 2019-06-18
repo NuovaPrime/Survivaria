@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace Survivaria.Players
 {
@@ -11,23 +6,27 @@ namespace Survivaria.Players
     {
         internal void ResetHungerEffects()
         {
-            HungerLossRate = 1;
+            HungerLossRate = 0.01;
             MaximumHunger = 100;
         }
 
-        int hungerLossTimer = 0;
         internal void UpdateHunger()
         {
             hungerLossTimer++;
-            if(hungerLossTimer >= 1200)
-            {
-                CurrentHunger -= HungerLossRate;
-                hungerLossTimer = 0;
-            }
+
+			if (player.active)
+			{
+				if (hungerLossTimer >= 1200)
+				{
+					CurrentHunger -= HungerLossRate;
+					hungerLossTimer = 0;
+				}
+			}
         }
 
-        public float HungerLossRate { get; set; }
-        public float CurrentHunger { get; set; }
-        public float MaximumHunger { get; set; }
+		int hungerLossTimer = 0; //I swear to God Nuova, if I see you not storing all variables at one point in small code...
+		public double HungerLossRate { get; set; }
+        public double CurrentHunger { get; set; }
+        public double MaximumHunger { get; set; }
     }
 }

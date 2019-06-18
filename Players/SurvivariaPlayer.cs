@@ -14,15 +14,24 @@ namespace Survivaria.Players
         {
             if (CurrentHunger > MaximumHunger)
                 CurrentHunger = MaximumHunger;
+
             if (CurrentHunger < 0)
                 CurrentHunger = 0;
 
-            UpdateHunger();
+			if (!player.active)
+			{
+				ResetEffects();
+			}
+
+            UpdateHunger(); //toggles timer and tick hunger removal;
         }
 
         public override void ResetEffects()
         {
             ResetHungerEffects();
+			ResetSanityEffects();
+			ResetTemperatureEffects();
+			ResetThirstEffects();
         }
     }
 }
