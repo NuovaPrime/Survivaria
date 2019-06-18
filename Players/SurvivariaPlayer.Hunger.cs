@@ -6,27 +6,32 @@ namespace Survivaria.Players
     {
         internal void ResetHungerEffects()
         {
-            HungerLossRate = 0.01;
-            MaximumHunger = 100;
+			_h = 0;
         }
 
-        internal void UpdateHunger()
-        {
-            hungerLossTimer++;
+        internal void UpdateHunger() //Called every single tick;
+		{
+			hungerLossTimer++;
 
-			if (player.active)
+			CurrentHunger -= HungerLossRate();
+			ResetHungerEffects();
+        }
+
+		public double HungerLossRate()
+		{
+			if (hungerLossTimer >= 1200)
 			{
-				if (hungerLossTimer >= 1200)
-				{
-					CurrentHunger -= HungerLossRate;
-					hungerLossTimer = 0;
-				}
-			}
-        }
+				_h = 0.001;
 
-		int hungerLossTimer = 0; //I swear to God Nuova, if I see you not storing all variables at one point in small code...
-		public double HungerLossRate { get; set; }
+				if (player.moveSpeed >= 20 && !player.controlMount)
+					_h *= 2; //Gets doubled;
+			}
+			return _h;
+		}
+
+		private double _h = 0;
+		private int hungerLossTimer = 0; //I swear to God Nuova, if I see you not storing all variables at one point in small code...
+		public double HungerMaximum { get; set; } 
         public double CurrentHunger { get; set; }
-        public double MaximumHunger { get; set; }
     }
 }

@@ -1,9 +1,5 @@
 ﻿using Survivaria.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.GameInput;
 using Terraria.ModLoader;
@@ -14,18 +10,32 @@ namespace Survivaria.Players
     {
         public override void PostUpdate()
         {
-            if (CurrentHunger > MaximumHunger)
-                CurrentHunger = MaximumHunger;
-
-            if (CurrentHunger < 0)
-                CurrentHunger = 0;
-
-			if (!player.active)
+			if (player.active)
 			{
-				ResetEffects();
-			}
+				#region Failsafe measures.
+				if (CurrentHunger > HungerMaximum)
+					CurrentHunger = HungerMaximum;
 
-            UpdateHunger(); //toggles timer and tick hunger removal;
+				if (CurrentHunger < 0)
+					CurrentHunger = 0;
+
+				if (CurrentSanity < 0)
+					CurrentSanity = 0;
+
+				if (CurrentSanity > SanityMaximum)
+					CurrentSanity = SanityMaximum;
+				#endregion
+
+				#region Debuffs/Buffs if parameter...
+				if (CurrentHunger <= 10)
+				{
+					player.meleeSpeed /= 2;
+				}
+				#endregion
+
+				UpdateSanity();
+				UpdateHunger(); //toggles timer and tick hunger removal;
+			}
         }
 
         public override void ProcessTriggers(TriggersSet triggersSet)
