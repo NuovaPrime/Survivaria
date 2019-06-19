@@ -11,9 +11,20 @@ namespace Survivaria.Players
     {
         internal void ResetTemperatureEffects()
         {
-            CurrentTemperature = 0;
+
         }
 
-        public float CurrentTemperature { get; set; }
+		public double GetTemperature()
+		{
+			if (player.ZoneDesert)
+			{
+				_t += 0.005;
+			}
+
+			return _t;
+		}
+
+		private double _t = 0;
+        public double CurrentTemperature { get; set; }
     }
 }

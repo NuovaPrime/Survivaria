@@ -12,7 +12,7 @@ namespace Survivaria.Players
 		internal void UpdateSanity()
 		{
 			CurrentSanity -= SanityLossRate();
-			ResetSanityEffects();
+			_s = 0;
 		}
 
 		public double SanityLossRate()

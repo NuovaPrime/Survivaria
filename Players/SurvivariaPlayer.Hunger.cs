@@ -13,20 +13,23 @@ namespace Survivaria.Players
 		{
 			hungerLossTimer++;
 
-			CurrentHunger -= HungerLossRate();
-			ResetHungerEffects();
+			CurrentHunger -= HungerLossRate;
+			_h = 0;
         }
 
-		public double HungerLossRate()
+		public double HungerLossRate
 		{
-			if (hungerLossTimer >= 1200)
+			get
 			{
-				_h = 0.001;
+				if (hungerLossTimer >= 1200)
+				{
+					_h = 0.001;
 
-				if (player.moveSpeed >= 20 && !player.controlMount)
-					_h *= 2; //Gets doubled;
+					if (player.moveSpeed >= 20 && !player.controlMount)
+						_h *= 2; //Gets doubled;
+				}
+				return _h;
 			}
-			return _h;
 		}
 
 		private double _h = 0;
