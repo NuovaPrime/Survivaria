@@ -1,6 +1,4 @@
 ﻿using Survivaria.UI;
-using System;
-using Terraria;
 using Terraria.GameInput;
 using Terraria.ModLoader;
 

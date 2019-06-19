@@ -12,8 +12,7 @@ namespace Survivaria.Players
 		internal void UpdateSanity()
 		{
 			CurrentSanity -= SanityLossRate();
-			ResetSanityEffects();
-		}
+        }
 
 		public double SanityLossRate()
 		{
@@ -29,6 +28,7 @@ namespace Survivaria.Players
 		}
 
 		private double _s = 0;
+
 		public double SanityMaximum { get; set; }
         public double CurrentSanity { get; set; }
     }

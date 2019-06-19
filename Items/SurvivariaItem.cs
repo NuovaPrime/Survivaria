@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Survivaria.Items
 {
+    // Taken from Dragonball Terraria by Webmilio.
     public abstract class SurvivariaItem : ModItem
     {
         private readonly string _displayName, _tooltip;
@@ -15,6 +13,9 @@ namespace Survivaria.Items
         {
             _displayName = displayName;
             _tooltip = tooltip;
+
+            _width = width;
+            _height = height;
 
             Value = value;
             Rarity = rarity;
