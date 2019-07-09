@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Players;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
-using Terraria.UI;
 
 namespace Survivaria.UI
 {
@@ -30,7 +29,7 @@ namespace Survivaria.UI
             SurvivariaPlayer player = Main.LocalPlayer.GetModPlayer<SurvivariaPlayer>();
 
             int frameHeight = texture.Height / 8;
-            int frame = (int)(player.CurrentHunger / player.MaximumHunger * 7) * 100;
+            int frame = (int)(player.CurrentHunger / player.MaximumHunger * 100 / 12);
             texture = GFX.hungerIndicatorTexture;
             _drawPosition = new Vector2(PaddingX, PaddingY);
 
