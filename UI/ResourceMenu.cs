@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Survivaria.Players;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.UI;
@@ -9,10 +10,11 @@ namespace Survivaria.UI
     internal class ResourceMenu : UIState
     {
         public UIPanel backPanel;
+        Vector2 _drawPosition;
         public static bool visible = false;
 
         public const int
-            PaddingX = -12,
+            PaddingX = -6,
             PaddingY = PaddingX;
 
         public override void OnInitialize()
@@ -48,6 +50,7 @@ namespace Survivaria.UI
         }
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
+            SurvivariaPlayer player = Main.LocalPlayer.GetModPlayer<SurvivariaPlayer>();
             Vector2 mousePosition = new Vector2((float)Main.mouseX, (float)Main.mouseY);
             if (backPanel.ContainsPoint(mousePosition))
             {
@@ -59,16 +62,30 @@ namespace Survivaria.UI
                 backPanel.Top.Set(mousePosition.Y - _offset.Y, 0f);
                 Recalculate();
             }
+            DrawHungerIndicator(spriteBatch, player);
+            DrawThirstIndicator(spriteBatch, player);
         }
-        public override void Update(GameTime gameTime)
-        {
-            base.Update(gameTime); // don't remove.
 
-            // Checking ContainsPoint and then setting mouseInterface to true is very common. This causes clicks on this UIElement to not cause the player to use current items. 
-            if (ContainsPoint(Main.MouseScreen))
-            {
-                Main.LocalPlayer.mouseInterface = true;
-            }
+        public void DrawHungerIndicator(SpriteBatch spriteBatch, SurvivariaPlayer player)
+        {
+            Texture2D texture = GFX.hungerIndicatorTexture;
+            int frameHeight = texture.Height / 8;
+			int frame = (int)(player.CurrentHunger / player.HungerMaximum * 100 / 13 * 1.04 - 0.01);
+            _drawPosition = new Vector2(backPanel.Left.Pixels - PaddingX, backPanel.Top.Pixels - PaddingY);
+
+			Rectangle sourceRectangle = new Rectangle(0, frameHeight * frame, texture.Width, frameHeight);
+            spriteBatch.Draw(texture, _drawPosition, sourceRectangle, Color.White);
+        }
+
+        public void DrawThirstIndicator(SpriteBatch spriteBatch, SurvivariaPlayer player)
+        {
+            Texture2D texture = GFX.thirstIndicatorTexture;
+            int frameHeight = texture.Height / 5;
+            int frame = (int)(player.CurrentThirst / player.MaximumThirst * 100 / 21);
+            _drawPosition = new Vector2(backPanel.Left.Pixels - PaddingX * 8, backPanel.Top.Pixels - PaddingY);
+
+            Rectangle sourceRectangle = new Rectangle(0, frameHeight * frame, texture.Width, frameHeight);
+            spriteBatch.Draw(texture, _drawPosition, sourceRectangle, Color.White);
         }
     }
 }

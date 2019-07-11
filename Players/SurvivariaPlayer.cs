@@ -1,6 +1,7 @@
 ﻿using Survivaria.UI;
 using Terraria.GameInput;
 using Terraria.ModLoader;
+using Terraria;
 
 namespace Survivaria.Players
 {
@@ -10,20 +11,6 @@ namespace Survivaria.Players
         {
 			if (player.active)
 			{
-				#region Failsafe measures.
-				if (CurrentHunger > HungerMaximum)
-					CurrentHunger = HungerMaximum;
-
-				if (CurrentHunger < 0)
-					CurrentHunger = 0;
-
-				if (CurrentSanity < 0)
-					CurrentSanity = 0;
-
-				if (CurrentSanity > SanityMaximum)
-					CurrentSanity = SanityMaximum;
-				#endregion
-
 				#region Debuffs/Buffs if parameter...
 				if (CurrentHunger <= 10)
 				{
@@ -33,6 +20,8 @@ namespace Survivaria.Players
 
 				UpdateSanity();
 				UpdateHunger(); //toggles timer and tick hunger removal;
+                UpdateThirst();
+				FailSafes();
 			}
         }
 
@@ -49,5 +38,32 @@ namespace Survivaria.Players
 			ResetTemperatureEffects();
 			ResetThirstEffects();
         }
+
+		public void FailSafes()
+		{
+			if (HungerMaximum < 0)
+				HungerMaximum = 100;
+
+			if (CurrentHunger > 100)
+				CurrentHunger = 100;
+			else if (CurrentHunger < 0)
+				CurrentHunger = 0;
+
+			if (SanityMaximum < 0)
+				SanityMaximum = 100;
+
+			if (CurrentSanity > 100)
+				CurrentSanity = 100;
+			else if (CurrentSanity < 0)
+				CurrentSanity = 0;
+
+			if (MaximumThirst < 0)
+				MaximumThirst = 100;
+
+			if (CurrentThirst < 0)
+				CurrentThirst = 0;
+			else if (CurrentThirst > 100)
+				CurrentThirst = 100;
+		}
     }
 }

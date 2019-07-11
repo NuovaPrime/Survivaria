@@ -12,7 +12,7 @@ namespace Survivaria.Items.Food
     {
         public string FoodSize = null;
 
-        protected FoodItem(string displayName, string tooltip, int width, int height, int hungerAmount, LegacySoundStyle eatSound, int maxStack, int buffApplied = 0, int buffTime = 0, int value = 0, int rarity = ItemRarityID.White) : base(displayName, tooltip, width, height)
+        protected FoodItem(string displayName, string tooltip, int width, int height, int hungerAmount, LegacySoundStyle eatSound, int maxStack, int value = 0, int rarity = ItemRarityID.Blue, int buffApplied = 0, int buffTime = 0) : base(displayName, tooltip, width, height, value, rarity)
         {
             HungerAmount = hungerAmount;
             EatSound = eatSound;
@@ -30,6 +30,9 @@ namespace Survivaria.Items.Food
             item.buffType = BuffApplied;
             item.buffTime = BuffTime;
             item.maxStack = MaxStack;
+            item.potion = false;
+            item.useStyle = 2;
+
             base.SetDefaults();
         }
 
@@ -61,9 +64,10 @@ namespace Survivaria.Items.Food
             base.ModifyTooltips(tooltips);
         }
 
-        public override void OnConsumeItem(Player player)
+        public override bool UseItem(Player player)
         {
             player.GetModPlayer<SurvivariaPlayer>().CurrentHunger += HungerAmount;
+            return true;
         }
 
         public LegacySoundStyle EatSound { get; set; }

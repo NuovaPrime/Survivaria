@@ -1,4 +1,5 @@
-﻿using Terraria.ModLoader;
+﻿using Terraria;
+using Terraria.ModLoader;
 
 namespace Survivaria.Players
 {
@@ -6,12 +7,36 @@ namespace Survivaria.Players
     {
         internal void ResetThirstEffects()
         {
-            ThirstLossRate = 1;
+            _t = 0;
             MaximumThirst = 100;
         }
 
-        public int ThirstLossRate { get; set; }
-        public float CurrentThirst { get; set; }
-        public float MaximumThirst { get; set; }
+        internal void UpdateThirst() //Called every single tick;
+        {
+            ThirstLossTimer++;
+
+            Main.NewText("Thirst is : " + CurrentThirst);
+
+            CurrentThirst -= ThirstLossRate();
+        }
+
+        public double ThirstLossRate()
+        {
+            if (ThirstLossTimer >= 30)//1200
+            {
+                _t = 1;//0.001
+
+                if (player.moveSpeed >= 20 && !player.controlMount)
+                    _t *= 2; //Gets doubled;
+
+                ThirstLossTimer = 0;
+            }
+
+            return _t;
+        }
+        private double _t = 0;
+        public int ThirstLossTimer { get; set; }
+        public double CurrentThirst { get; set; } = 100;
+        public double MaximumThirst { get; set; }
     }
 }
