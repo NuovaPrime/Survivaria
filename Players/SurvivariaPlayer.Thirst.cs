@@ -13,18 +13,16 @@ namespace Survivaria.Players
 
         internal void UpdateThirst() //Called every single tick;
         {
-            ThirstLossTimer++;
-
-            Main.NewText("Thirst is : " + CurrentThirst);
+            ThirstLossTimer++;//Do NOT include debugging in separate files. Include in player file.
 
             CurrentThirst -= ThirstLossRate();
         }
 
         public double ThirstLossRate()
         {
-            if (ThirstLossTimer >= 30)//1200
+            if (ThirstLossTimer >= 1200)//1200, 30 for debug
             {
-                _t = 1;//0.001
+                _t = 0.002;//0.002, 1 for debug
 
                 if (player.moveSpeed >= 20 && !player.controlMount)
                     _t *= 2; //Gets doubled;

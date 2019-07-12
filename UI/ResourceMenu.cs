@@ -62,30 +62,30 @@ namespace Survivaria.UI
                 backPanel.Top.Set(mousePosition.Y - _offset.Y, 0f);
                 Recalculate();
             }
-            DrawHungerIndicator(spriteBatch, player);
-            DrawThirstIndicator(spriteBatch, player);
+			DrawBar(spriteBatch, player, GFX.hungerIndicatorTexture, 8, (int)(player.CurrentHunger / player.HungerMaximum * 100 / 13 * 1.04 - 0.01));
+			DrawBar(spriteBatch, player, GFX.thirstIndicatorTexture, 5, (int)(player.CurrentThirst / player.MaximumThirst * 100 / 21), 8);
+			DrawBar(spriteBatch, player, GFX.sanityIndicatorTexture, 5, (int)(player.CurrentSanity / player.MaximumSanity * 100 / 21), 1, 8);
         }
 
-        public void DrawHungerIndicator(SpriteBatch spriteBatch, SurvivariaPlayer player)
-        {
-            Texture2D texture = GFX.hungerIndicatorTexture;
-            int frameHeight = texture.Height / 8;
-			int frame = (int)(player.CurrentHunger / player.HungerMaximum * 100 / 13 * 1.04 - 0.01);
-            _drawPosition = new Vector2(backPanel.Left.Pixels - PaddingX, backPanel.Top.Pixels - PaddingY);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="spriteBatch">Spritebatch.</param>
+		/// <param name="player">Inst. player.</param>
+		/// <param name="_texture">Bar texture.</param>
+		/// <param name="divideBy">Divide by the amount of frames required to find the height of each frame.</param>
+		/// <param name="frameFormula">The formula for frame display.</param>
+		/// <param name="drawPosX">Modify the PosX draw. Do always divisible by 8. *8, *16, *24</param>
+		/// <param name="drawPosY">Modify the PosY draw. Do always divisible by 8. *8, *16, *24</param>
+		public void DrawBar(SpriteBatch spriteBatch, SurvivariaPlayer player, Texture2D _texture, int divideBy, int frameFormula, int drawPosX = 1, int drawPosY = 1)
+		{
+			Texture2D texture = _texture;
+			int frameHeight = texture.Height / divideBy;
+			int frame = frameFormula;
+			_drawPosition = new Vector2(backPanel.Left.Pixels - PaddingX * drawPosX, backPanel.Top.Pixels - PaddingY * drawPosY);
 
 			Rectangle sourceRectangle = new Rectangle(0, frameHeight * frame, texture.Width, frameHeight);
-            spriteBatch.Draw(texture, _drawPosition, sourceRectangle, Color.White);
-        }
-
-        public void DrawThirstIndicator(SpriteBatch spriteBatch, SurvivariaPlayer player)
-        {
-            Texture2D texture = GFX.thirstIndicatorTexture;
-            int frameHeight = texture.Height / 5;
-            int frame = (int)(player.CurrentThirst / player.MaximumThirst * 100 / 21);
-            _drawPosition = new Vector2(backPanel.Left.Pixels - PaddingX * 8, backPanel.Top.Pixels - PaddingY);
-
-            Rectangle sourceRectangle = new Rectangle(0, frameHeight * frame, texture.Width, frameHeight);
-            spriteBatch.Draw(texture, _drawPosition, sourceRectangle, Color.White);
-        }
+			spriteBatch.Draw(texture, _drawPosition, sourceRectangle, Color.White);
+		}
     }
 }

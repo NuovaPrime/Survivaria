@@ -22,6 +22,13 @@ namespace Survivaria.Players
 				UpdateHunger(); //toggles timer and tick hunger removal;
                 UpdateThirst();
 				FailSafes();
+
+				//Do not remove. Comment out.
+				///* 
+				Main.NewText("Thirst is : " + CurrentThirst, 62, 32, 255);
+				Main.NewText("Temperature is : " + CurrentTemperature, 255, 30, 0);
+				Main.NewText("Hunger is : " + CurrentHunger, 255, 150, 0);
+				Main.NewText("Sanity is : " + CurrentSanity, 0, 255, 50);//*/
 			}
         }
 
@@ -49,8 +56,8 @@ namespace Survivaria.Players
 			else if (CurrentHunger < 0)
 				CurrentHunger = 0;
 
-			if (SanityMaximum < 0)
-				SanityMaximum = 100;
+			if (MaximumSanity < 0)
+				MaximumSanity = 100;
 
 			if (CurrentSanity > 100)
 				CurrentSanity = 100;

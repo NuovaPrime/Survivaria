@@ -15,16 +15,14 @@ namespace Survivaria.Players
 		{
 			HungerLossTimer++;
 
-			Main.NewText("Hunger is : " + CurrentHunger);
-
 			CurrentHunger -= HungerLossRate();
         }
 
 		public double HungerLossRate()
 		{
-			if (HungerLossTimer >= 30)//1200
+			if (HungerLossTimer >= 1200)//1200, 30 for debug
 			{
-				_h = 1;//0.001
+				_h = 0.001;//0.001, 1 for debug
 
 				if (player.moveSpeed >= 20 && !player.controlMount)
 					_h *= 2; //Gets doubled;
