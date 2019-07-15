@@ -42,7 +42,7 @@ namespace Survivaria
         {
             Instance = null;
             GFX.UnloadGFX();
-            ResourceMenu.visible = false;
+            ResourceMenu.visible = true;
         }
         public static void ActivateResourceMenu()
         {

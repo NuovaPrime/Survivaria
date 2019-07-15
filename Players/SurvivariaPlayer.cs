@@ -18,9 +18,12 @@ namespace Survivaria.Players
 				}
 				#endregion
 
-				UpdateSanity();
-				UpdateHunger(); //toggles timer and tick hunger removal;
-                UpdateThirst();
+                if (mod.GetConfig<SurvivariaConfigServer>().SanityEnabled)
+                    UpdateSanity();
+                if (mod.GetConfig<SurvivariaConfigServer>().HungerEnabled)
+                    UpdateHunger(); //toggles timer and tick hunger removal;
+                if (mod.GetConfig<SurvivariaConfigServer>().ThirstEnabled)
+                    UpdateThirst();
 				FailSafes();
 
 				//Do not remove. Comment out.

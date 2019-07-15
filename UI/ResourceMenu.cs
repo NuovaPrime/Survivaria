@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Players;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
+using Terraria.ModLoader;
 using Terraria.UI;
 
 namespace Survivaria.UI
@@ -11,7 +12,7 @@ namespace Survivaria.UI
     {
         public UIPanel backPanel;
         Vector2 _drawPosition;
-        public static bool visible = false;
+        public static bool visible = true;
 
         public const int
             PaddingX = -6,
@@ -50,6 +51,7 @@ namespace Survivaria.UI
         }
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
+            Mod mod = Survivaria.Instance;
             SurvivariaPlayer player = Main.LocalPlayer.GetModPlayer<SurvivariaPlayer>();
             Vector2 mousePosition = new Vector2((float)Main.mouseX, (float)Main.mouseY);
             if (backPanel.ContainsPoint(mousePosition))
@@ -62,9 +64,12 @@ namespace Survivaria.UI
                 backPanel.Top.Set(mousePosition.Y - _offset.Y, 0f);
                 Recalculate();
             }
-			DrawBar(spriteBatch, player, GFX.hungerIndicatorTexture, 8, (int)(player.CurrentHunger / player.HungerMaximum * 100 / 13 * 1.04 - 0.01));
-			DrawBar(spriteBatch, player, GFX.thirstIndicatorTexture, 5, (int)(player.CurrentThirst / player.MaximumThirst * 100 / 21), 8);
-			DrawBar(spriteBatch, player, GFX.sanityIndicatorTexture, 5, (int)(player.CurrentSanity / player.MaximumSanity * 100 / 21), 1, 8);
+            if (mod.GetConfig<SurvivariaConfigServer>().SanityEnabled)
+                DrawBar(spriteBatch, player, GFX.sanityIndicatorTexture, 5, (int)(player.CurrentSanity / player.MaximumSanity * 100 / 21), 1, 8);
+            if (mod.GetConfig<SurvivariaConfigServer>().HungerEnabled)
+                DrawBar(spriteBatch, player, GFX.hungerIndicatorTexture, 8, (int)(player.CurrentHunger / player.HungerMaximum * 100 / 13 * 1.04 - 0.01));
+            if (mod.GetConfig<SurvivariaConfigServer>().ThirstEnabled)
+                DrawBar(spriteBatch, player, GFX.thirstIndicatorTexture, 5, (int)(player.CurrentThirst / player.MaximumThirst * 100 / 21), 8);
         }
 
 		/// <summary>
