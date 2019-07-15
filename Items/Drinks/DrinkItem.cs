@@ -6,11 +6,11 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Survivaria.Items.Food
+namespace Survivaria.Items.Drinks
 {
-    public abstract class FoodItem : SurvivariaItem
+    public abstract class DrinkItem : SurvivariaItem
     {
-        protected FoodItem(string displayName, string tooltip, int width, int height, int value = 0, int rarity = 0, int hungerAmount = 0, int thirstAmount = 0, LegacySoundStyle eatSound = null, int buffApplied = 0, int buffTime = 0) : base(displayName, tooltip, width, height, value, rarity, hungerAmount, thirstAmount, eatSound, buffApplied, buffTime)
+        protected DrinkItem(string displayName, string tooltip, int width, int height, int value = 0, int rarity = 0, int hungerAmount = 0, int thirstAmount = 0, LegacySoundStyle eatSound = null, int buffApplied = 0, int buffTime = 0) : base(displayName, tooltip, width, height, value, rarity, hungerAmount, thirstAmount, eatSound, buffApplied, buffTime)
         {
         }
 
