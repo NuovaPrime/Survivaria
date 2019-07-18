@@ -24,11 +24,13 @@ namespace Survivaria.Players
                     UpdateHunger(); //toggles timer and tick hunger removal;
                 if (mod.GetConfig<SurvivariaConfigServer>().ThirstEnabled)
                     UpdateThirst();
-				FailSafes();
-
-				//Do not remove. Comment out.
-				///* 
-				Main.NewText("Thirst is : " + CurrentThirst, 62, 32, 255);
+                if (mod.GetConfig<SurvivariaConfigServer>().TemperatureEnabled)
+                    UpdateTemperature();
+                FailSafes();
+                CalculatePlayerTemperature();
+                //Do not remove. Comment out.
+                ///* 
+                Main.NewText("Thirst is : " + CurrentThirst, 62, 32, 255);
 				Main.NewText("Temperature is : " + CurrentTemperature, 255, 30, 0);
 				Main.NewText("Hunger is : " + CurrentHunger, 255, 150, 0);
 				Main.NewText("Sanity is : " + CurrentSanity, 0, 255, 50);//*/

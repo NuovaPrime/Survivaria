@@ -1,31 +1,29 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Design;
 using Survivaria.Players;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;
 using Terraria.UI;
+using ReLogic.Graphics;
+using System.Collections.Generic;
+using System.Linq;
+using System;
 
 namespace Survivaria.UI
 {
     internal class ResourceMenu : UIState
     {
-        public UIPanel backPanel;
-        Vector2 _drawPosition;
-        public static bool visible = true;
-
-        public const int
-            PaddingX = -6,
-            PaddingY = PaddingX;
-
         public override void OnInitialize()
         {
             backPanel = new UIPanel();
             backPanel.Width.Set(182, 0f);
-            backPanel.Height.Set(84, 0f);
-            backPanel.Left.Set(Main.screenWidth / 2f - backPanel.Width.Pixels / 2f, 0f);
-            backPanel.Top.Set(Main.screenHeight / 2f - backPanel.Height.Pixels / 2f, 0f);
+            backPanel.Height.Set(124, 0f);
+            backPanel.Left.Set(1508, 0f);
+            backPanel.Top.Set(82, 0f);
             backPanel.BackgroundColor = new Color(0, 0, 0, 0);
+            backPanel.BorderColor = new Color(0, 0, 0, 0);
             backPanel.OnMouseDown += new MouseEvent(DragStart);
             backPanel.OnMouseUp += new MouseEvent(DragEnd);
             Append(backPanel);
@@ -65,32 +63,107 @@ namespace Survivaria.UI
                 Recalculate();
             }
             if (mod.GetConfig<SurvivariaConfigServer>().SanityEnabled)
-                DrawBar(spriteBatch, player, GFX.sanityIndicatorTexture, 5, (int)(player.CurrentSanity / player.MaximumSanity * 100 / 21), 1, 8);
+                DrawBar(spriteBatch, player, GFX.sanityIndicatorTexture, 5, (int)(player.CurrentSanity / player.MaximumSanity * 100 / 21), 1, 10);
             if (mod.GetConfig<SurvivariaConfigServer>().HungerEnabled)
                 DrawBar(spriteBatch, player, GFX.hungerIndicatorTexture, 8, (int)(player.CurrentHunger / player.HungerMaximum * 100 / 13 * 1.04 - 0.01));
             if (mod.GetConfig<SurvivariaConfigServer>().ThirstEnabled)
-                DrawBar(spriteBatch, player, GFX.thirstIndicatorTexture, 5, (int)(player.CurrentThirst / player.MaximumThirst * 100 / 21), 8);
+                DrawBar(spriteBatch, player, GFX.thirstIndicatorTexture, 5, (int)(player.CurrentThirst / player.MaximumThirst * 100 / 21), 1.6f, 5);
+            if (mod.GetConfig<SurvivariaConfigServer>().TemperatureEnabled)
+                DrawTemperatureFill(spriteBatch, player, -0.4f, 14.5f);
+
         }
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="spriteBatch">Spritebatch.</param>
-		/// <param name="player">Inst. player.</param>
-		/// <param name="_texture">Bar texture.</param>
-		/// <param name="divideBy">Divide by the amount of frames required to find the height of each frame.</param>
-		/// <param name="frameFormula">The formula for frame display.</param>
-		/// <param name="drawPosX">Modify the PosX draw. Do always divisible by 8. *8, *16, *24</param>
-		/// <param name="drawPosY">Modify the PosY draw. Do always divisible by 8. *8, *16, *24</param>
-		public void DrawBar(SpriteBatch spriteBatch, SurvivariaPlayer player, Texture2D _texture, int divideBy, int frameFormula, int drawPosX = 1, int drawPosY = 1)
-		{
-			Texture2D texture = _texture;
-			int frameHeight = texture.Height / divideBy;
-			int frame = frameFormula;
-			_drawPosition = new Vector2(backPanel.Left.Pixels - PaddingX * drawPosX, backPanel.Top.Pixels - PaddingY * drawPosY);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="spriteBatch">Spritebatch.</param>
+        /// <param name="player">Inst. player.</param>
+        /// <param name="_texture">Bar texture.</param>
+        /// <param name="divideBy">Divide by the amount of frames required to find the height of each frame.</param>
+        /// <param name="frameFormula">The formula for frame display.</param>
+        /// <param name="drawPosX">Modify the PosX draw. Do always divisible by 8. *8, *16, *24</param>
+        /// <param name="drawPosY">Modify the PosY draw. Do always divisible by 8. *8, *16, *24</param>
+        public void DrawBar(SpriteBatch spriteBatch, SurvivariaPlayer player, Texture2D _texture, int divideBy, int frameFormula, float drawPosX = 1, float drawPosY = 1)
+        {
+            Texture2D texture = _texture;
+            int frameHeight = texture.Height / divideBy;
+            int frame = frameFormula;
+            _drawPosition = new Vector2(backPanel.Left.Pixels - PaddingX * drawPosX, backPanel.Top.Pixels - PaddingY * drawPosY);
 
-			Rectangle sourceRectangle = new Rectangle(0, frameHeight * frame, texture.Width, frameHeight);
-			spriteBatch.Draw(texture, _drawPosition, sourceRectangle, Color.White);
-		}
+            Rectangle sourceRectangle = new Rectangle(0, frameHeight * frame, texture.Width, frameHeight);
+            spriteBatch.Draw(texture, _drawPosition, sourceRectangle, Color.White);
+        }
+        public void DrawTemperatureIndicator(SpriteBatch spriteBatch, SurvivariaPlayer player, float drawPosX = 1f, float drawPosY = 1f)
+        {
+            _drawPosition = new Vector2(backPanel.Left.Pixels - PaddingX * drawPosX, backPanel.Top.Pixels - PaddingY * drawPosY);
+            spriteBatch.Draw(GFX.temperatureBorderTexture, _drawPosition, Color.White);
+            DrawTemperatureText(spriteBatch, player, drawPosX * -1.4f, drawPosY * 1.15f);
+
+        }
+        public void DrawTemperatureFill(SpriteBatch spriteBatch, SurvivariaPlayer player, float drawPosX = 1f, float drawPosY = 1f)
+        {
+            _drawPosition = new Vector2(backPanel.Left.Pixels - PaddingX * drawPosX, backPanel.Top.Pixels - PaddingY * drawPosY);
+            spriteBatch.Draw(GFX.temperatureFillTexture, _drawPosition, insideColor);
+            DrawTemperatureIndicator(spriteBatch, player, drawPosX, drawPosY);
+        }
+        public void DrawTemperatureText(SpriteBatch spriteBatch, SurvivariaPlayer player, float drawPosX = 1f, float drawPosY = 1f)
+        {
+            _drawPosition = new Vector2(backPanel.Left.Pixels - PaddingX * drawPosX, backPanel.Top.Pixels - PaddingY * drawPosY);
+            spriteBatch.DrawString(Main.fontDeathText, delayedTemperature + "°", _drawPosition, Color.Black, 0, new Vector2(0, 0), 0.4f, SpriteEffects.None, 1);
+        }
+        public override void Update(GameTime gameTime)
+        {
+            Player player = Main.LocalPlayer;
+            SurvivariaPlayer modPlayer = player.GetModPlayer<SurvivariaPlayer>();
+
+            changeTimer++;
+            if (delayedTemperature < modPlayer.CurrentTemperature && changeTimer > 6)
+            {
+                delayedTemperature++;
+                changeTimer = 0;
+            }
+            if (delayedTemperature > modPlayer.CurrentTemperature && changeTimer > 6)
+            {
+                delayedTemperature--;
+                changeTimer = 0;
+            }
+
+            if (delayedTemperature < 0)
+            {
+                colorDifferenceBlue = delayedTemperature;
+                colorDifferenceRed = 0;
+            }
+            if (delayedTemperature > 24)
+            {
+                colorDifferenceRed = delayedTemperature;
+                colorDifferenceBlue = 0;
+            }
+            else if (modPlayer.CurrentTemperature == 24)
+            {
+                colorDifferenceBlue = 0;
+                colorDifferenceRed = 0;
+            }
+
+            insideColor = new Color(224 + colorDifferenceBlue * 3, 224 + colorDifferenceBlue * 3 - colorDifferenceRed * 3, 224 - colorDifferenceRed * 3);
+
+            Main.NewText("The inside colors are: " + "R: " + insideColor.R + " " + "G: " + insideColor.G + " " + "B: " + insideColor.B);
+            Main.NewText("The blue color difference is: " + colorDifferenceBlue);
+            Main.NewText("The red color difference is: " + colorDifferenceRed);
+
+            base.Update(gameTime);
+        }
+
+        public UIPanel backPanel { get; set; }
+        internal int delayedTemperature { get; set; } = 24;
+        int colorDifferenceBlue { get; set; } = 0;
+        int colorDifferenceRed { get; set; } = 0;
+        int changeTimer { get; set; } = 0;
+        Color insideColor { get; set; }
+        Vector2 _drawPosition { get; set; }
+        public static bool visible { get; set; } = true;
+
+        public const float
+            PaddingX = -6,
+            PaddingY = PaddingX;
     }
 }
