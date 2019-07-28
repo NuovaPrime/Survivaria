@@ -19,7 +19,7 @@ namespace Survivaria.Items.Drinks
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Cactus, 2);
-            recipe.AddIngredient(ItemID.BottledWater);
+            recipe.AddIngredient(ItemID.Bottle);
             recipe.AddTile(TileID.Bottles);
             recipe.SetResult(this);
             recipe.AddRecipe();
