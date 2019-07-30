@@ -1,6 +1,8 @@
-﻿using Survivaria.Items.Food.BiomeSpecific.Desert;
+﻿using Survivaria.Items.BossItems;
+using Survivaria.Items.Food.BiomeSpecific.Desert;
 using Survivaria.Items.Food.BiomeSpecific.Jungle;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
+using Survivaria.Items.Materials;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,16 @@ namespace Survivaria
 {
     public class SurvivariaGlobalItem : GlobalItem
     {
+        public override void OpenVanillaBag(string context, Player player, int arg)
+        {
+            if (Main.rand.Next(10) == 0)
+            {
+                if (context == "bossBag" && arg == ItemID.KingSlimeBossBag)
+                {
+                    player.QuickSpawnItem(mod.ItemType<TubofSlime>());
+                }
+            }
+        }
     }
 
     public class SurvivariaGlobalTile : GlobalTile
@@ -33,6 +45,10 @@ namespace Survivaria
                 if (type == TileID.Trees && (Main.tile[i, j + 1].type == TileID.Mud || Main.tile[i, j + 1].type == TileID.JungleGrass))
                 {
                     Item.NewItem(i * 16, (j - 5) * 16, 32, 32, mod.ItemType<DragonFruit>(), Main.rand.Next(0, 3));
+                }
+                if (Main.tile[i, j - 1].type == TileID.Grass && type != TileID.Trees && type != TileID.MushroomPlants && type != 0)
+                {
+                    Item.NewItem(i * 16, (j - 5) * 16, 32, 32, mod.ItemType<BlossomWheat>(), Main.rand.Next(0, 3));
                 }
             }
             return base.Drop(i, j, type);
