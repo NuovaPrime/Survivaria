@@ -43,6 +43,8 @@ namespace Survivaria.Players
                 CurrentTemperature = 52;
             if (player.ZoneJungle)
                 CurrentTemperature = 30;
+            if (player.ZoneRain)
+                CurrentTemperature = 18;
             else if (player.ZoneOverworldHeight && !player.ZoneBeach && !player.ZoneDesert && !player.ZoneJungle && !player.ZoneSnow && !player.ZoneUnderworldHeight && !player.ZoneCorrupt && !player.ZoneCrimson && !player.ZoneMeteor && !player.ZoneGlowshroom && !player.ZoneDungeon && !player.ZoneDirtLayerHeight && !player.ZoneHoly && !player.ZoneRockLayerHeight && !player.ZoneSkyHeight && !player.ZoneOldOneArmy && !player.ZoneUndergroundDesert && !player.ZoneRain && !player.ZoneSandstorm && !player.ZoneWaterCandle && !player.ZonePeaceCandle)
                 CurrentTemperature = 24;
         }

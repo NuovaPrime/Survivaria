@@ -20,8 +20,8 @@ namespace Survivaria.UI
             backPanel = new UIPanel();
             backPanel.Width.Set(182, 0f);
             backPanel.Height.Set(124, 0f);
-            backPanel.Left.Set(1508, 0f);
-            backPanel.Top.Set(82, 0f);
+            backPanel.Left.Set(Main.screenWidth / 1.154f, 0f);
+            backPanel.Top.Set(Main.screenHeight / 12f, 0f);
             backPanel.BackgroundColor = new Color(0, 0, 0, 0);
             backPanel.BorderColor = new Color(0, 0, 0, 0);
             backPanel.OnMouseDown += new MouseEvent(DragStart);
@@ -31,6 +31,10 @@ namespace Survivaria.UI
 
         Vector2 _offset;
         public bool dragging = false;
+        private int displayRCol;
+        private int displayGCol;
+        private int displayBCol;
+
         private void DragStart(UIMouseEvent evt, UIElement listeningElement)
         {
             _offset = new Vector2(evt.MousePosition.X - backPanel.Left.Pixels, evt.MousePosition.Y - backPanel.Top.Pixels);
@@ -117,38 +121,60 @@ namespace Survivaria.UI
             SurvivariaPlayer modPlayer = player.GetModPlayer<SurvivariaPlayer>();
 
             changeTimer++;
-            if (delayedTemperature < modPlayer.CurrentTemperature && changeTimer > 6)
+            if (delayedTemperature < modPlayer.CurrentTemperature && changeTimer > 2)
             {
                 delayedTemperature++;
                 changeTimer = 0;
             }
-            if (delayedTemperature > modPlayer.CurrentTemperature && changeTimer > 6)
+            if (delayedTemperature > modPlayer.CurrentTemperature && changeTimer > 2)
             {
                 delayedTemperature--;
                 changeTimer = 0;
             }
 
-            if (delayedTemperature < 0)
+            int temp24 = (int)modPlayer.CurrentTemperature - 24;
+            RCol = ((250 + temp24 * 4 - Math.Abs(temp24) * 4) + RCol * 32) / 33;
+            GCol = ((250 - Math.Abs(temp24) * 3) + GCol * 32) / 33;
+            BCol = ((250 - temp24 * 4 - Math.Abs(temp24 * 4) + BCol * 32) / 33);
+
+            displayRCol = (RCol + displayRCol) / 2;
+            displayGCol = (GCol + displayGCol) / 2;
+            displayBCol = (BCol + displayBCol) / 2;
+
+            /*changeTimer2++;
+            if (modPlayer.CurrentTemperature < 24)
             {
-                colorDifferenceBlue = delayedTemperature;
-                colorDifferenceRed = 0;
+                if (changeTimer2 > 6)
+                {
+                    if (colorDifferenceRed != 0)
+                        colorDifferenceRed--;
+                    colorDifferenceBlue--;
+                    changeTimer2 = 0;
+                }
+                
             }
-            if (delayedTemperature > 24)
+            if (modPlayer.CurrentTemperature > 24)
             {
-                colorDifferenceRed = delayedTemperature;
-                colorDifferenceBlue = 0;
+                if (changeTimer2 > 12)
+                {
+                    if (colorDifferenceBlue != 0)
+                        colorDifferenceBlue++;
+                    colorDifferenceRed++;
+                    changeTimer2 = 0;
+                }
             }
             else if (modPlayer.CurrentTemperature == 24)
             {
                 colorDifferenceBlue = 0;
                 colorDifferenceRed = 0;
-            }
+            }*/
 
-            insideColor = new Color(224 + colorDifferenceBlue * 3, 224 + colorDifferenceBlue * 3 - colorDifferenceRed * 3, 224 - colorDifferenceRed * 3);
+            //insideColor = new Color(224 + colorDifferenceBlue * 3, 224 + colorDifferenceBlue * 3 - colorDifferenceRed * 3, 224 - colorDifferenceRed * 3);
+            insideColor = new Color(displayRCol, displayGCol, displayBCol);
 
-            Main.NewText("The inside colors are: " + "R: " + insideColor.R + " " + "G: " + insideColor.G + " " + "B: " + insideColor.B);
-            Main.NewText("The blue color difference is: " + colorDifferenceBlue);
-            Main.NewText("The red color difference is: " + colorDifferenceRed);
+            //Main.NewText("The inside colors are: " + "R: " + insideColor.R + " " + "G: " + insideColor.G + " " + "B: " + insideColor.B);
+            //Main.NewText("The blue color difference is: " + colorDifferenceBlue);
+            //Main.NewText("The red color difference is: " + colorDifferenceRed);
 
             base.Update(gameTime);
         }
@@ -158,9 +184,13 @@ namespace Survivaria.UI
         int colorDifferenceBlue { get; set; } = 0;
         int colorDifferenceRed { get; set; } = 0;
         int changeTimer { get; set; } = 0;
+        int changeTimer2 { get; set; } = 0;
         Color insideColor { get; set; }
         Vector2 _drawPosition { get; set; }
         public static bool visible { get; set; } = true;
+        public int RCol { get; private set; }
+        public int GCol { get; private set; }
+        public int BCol { get; private set; }
 
         public const float
             PaddingX = -6,
