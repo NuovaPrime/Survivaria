@@ -20,7 +20,7 @@ namespace Survivaria.UI
             backPanel = new UIPanel();
             backPanel.Width.Set(182, 0f);
             backPanel.Height.Set(124, 0f);
-            backPanel.Left.Set(Main.screenWidth / 1.154f, 0f);
+            backPanel.Left.Set(Main.screenWidth - Main.miniMapWidth - 10, 0f); //Main.screenWidth / 1.154f
             backPanel.Top.Set(Main.screenHeight / 12f, 0f);
             backPanel.BackgroundColor = new Color(0, 0, 0, 0);
             backPanel.BorderColor = new Color(0, 0, 0, 0);
@@ -121,21 +121,26 @@ namespace Survivaria.UI
             SurvivariaPlayer modPlayer = player.GetModPlayer<SurvivariaPlayer>();
 
             changeTimer++;
-            if (delayedTemperature < modPlayer.CurrentTemperature && changeTimer > 2)
+            changeTimer2++;
+            if (delayedTemperature < modPlayer.CurrentTemperature && changeTimer > 8)
             {
                 delayedTemperature++;
                 changeTimer = 0;
             }
-            if (delayedTemperature > modPlayer.CurrentTemperature && changeTimer > 2)
+            if (delayedTemperature > modPlayer.CurrentTemperature && changeTimer > 8)
             {
                 delayedTemperature--;
                 changeTimer = 0;
             }
 
             int temp24 = (int)modPlayer.CurrentTemperature - 24;
-            RCol = ((250 + temp24 * 4 - Math.Abs(temp24) * 4) + RCol * 32) / 33;
-            GCol = ((250 - Math.Abs(temp24) * 3) + GCol * 32) / 33;
-            BCol = ((250 - temp24 * 4 - Math.Abs(temp24 * 4) + BCol * 32) / 33);
+            if (changeTimer2 > 8)
+            {
+                RCol = ((250 + temp24 * 4 - Math.Abs(temp24) * 4) + RCol * 32) / 33;
+                GCol = ((250 - Math.Abs(temp24) * 3) + GCol * 32) / 33;
+                BCol = ((250 - temp24 * 4 - Math.Abs(temp24 * 4) + BCol * 32) / 33);
+                changeTimer2 = 0;
+            }
 
             displayRCol = (RCol + displayRCol) / 2;
             displayGCol = (GCol + displayGCol) / 2;

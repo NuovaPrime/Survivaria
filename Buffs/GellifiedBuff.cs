@@ -22,7 +22,7 @@ namespace Survivaria.Buffs
         public override void Update(Player player, ref int buffIndex)
         {
             player.jumpSpeedBoost += 0.2f;
-            foreach (var ID in SlimeIDs)
+            foreach (int ID in SlimeIDs)
             {
                 player.npcTypeNoAggro[ID] = true;
             }

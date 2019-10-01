@@ -58,6 +58,10 @@ namespace Survivaria.Items
             item.buffType = BuffApplied;
             item.buffTime = BuffTime;
 
+            item.useTime = 20;
+            item.useAnimation = 20;
+            item.useStyle = 2;
+
             base.SetDefaults();
         }
 
