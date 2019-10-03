@@ -9,9 +9,9 @@ using Terraria.ID;
 
 namespace Survivaria.Items.Materials
 {
-    public class BlossomWheat : SurvivariaItem
+    public class Reece : SurvivariaItem
     {
-        public BlossomWheat() : base("Blossom Wheat", "A commonly used plant that spreads seeds as the wind blows.", 20, 30, Item.buyPrice(0, 0, 1, 0), ItemRarityID.Blue, 0, 0)
+        public Reece() : base("Reece", "Its polyvalence has made ancient civilizations use those in all parts of their lives.", 20, 30, Item.buyPrice(0, 0, 1, 0), ItemRarityID.Blue, 0, 0)
         {
         }
     }
