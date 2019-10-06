@@ -31,7 +31,7 @@ namespace Survivaria.Players
                 //Do not remove. Comment out.
                 ///* 
                 //Main.NewText("Thirst is : " + CurrentThirst, 62, 32, 255);
-				Main.NewText("Temperature is : " + CurrentTemperature, 255, 30, 0);
+				//Main.NewText("Temperature is : " + CurrentTemperature, 255, 30, 0);
 				//Main.NewText("Hunger is : " + CurrentHunger, 255, 150, 0);
 				//Main.NewText("Sanity is : " + CurrentSanity, 0, 255, 50);//*/
 			}
