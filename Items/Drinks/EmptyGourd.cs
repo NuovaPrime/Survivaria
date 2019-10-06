@@ -11,7 +11,7 @@ namespace Survivaria.Items.Drinks
 {
     public class EmptyGourd : SurvivariaItem
     {
-        public EmptyGourd() : base("Empty Gourd", "A weathered but still usable refillable gourd.", 20, 26, Item.buyPrice(0, 1, 50, 0), ItemRarityID.Green, 0, 0)
+        public EmptyGourd() : base("Empty Gourd", "A weathered gourd, still capable of holding a bit of water.", 20, 26, Item.buyPrice(0, 1, 50, 0), ItemRarityID.Green, 0, 0)
         {
         }
 
@@ -19,6 +19,10 @@ namespace Survivaria.Items.Drinks
         {
             base.SetDefaults();
             item.consumable = false;
+
+            item.useTime = 0;
+            item.useAnimation = 0;
+            item.useStyle = 0;
         }
     }
 }

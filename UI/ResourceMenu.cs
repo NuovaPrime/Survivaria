@@ -53,7 +53,7 @@ namespace Survivaria.UI
         }
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            Mod mod = Survivaria.Instance;
+            Mod mod = SurvivariaMod.Instance;
             SurvivariaPlayer player = Main.LocalPlayer.GetModPlayer<SurvivariaPlayer>();
             Vector2 mousePosition = new Vector2((float)Main.mouseX, (float)Main.mouseY);
             if (backPanel.ContainsPoint(mousePosition))

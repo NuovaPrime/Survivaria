@@ -39,7 +39,7 @@ namespace Survivaria.Players
 
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
-            if (Survivaria.Instance.resourceMenuKey.JustPressed)
+            if (SurvivariaMod.Instance.resourceMenuKey.JustPressed)
                 ResourceMenu.visible = !ResourceMenu.visible;
         }
 

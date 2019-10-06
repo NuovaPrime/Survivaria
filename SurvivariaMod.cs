@@ -7,13 +7,13 @@ using Terraria.UI;
 
 namespace Survivaria
 {
-	public class Survivaria : Mod
+	public class SurvivariaMod : Mod
 	{
         internal ModHotKey resourceMenuKey;
         private static ResourceMenu _resourceMenu;
         private static UserInterface _resourceMenuInterface;
 
-        public Survivaria()
+        public SurvivariaMod()
 		{
             Properties = new ModProperties()
             {
@@ -78,6 +78,6 @@ namespace Survivaria
             }
         }
 
-        internal static Survivaria Instance { get; private set; }
+        public static SurvivariaMod Instance { get; set; }
     }
 }
