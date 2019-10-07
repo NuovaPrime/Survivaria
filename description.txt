@@ -2,6 +2,15 @@ Survivaria is a unique mod that adds in multiple new survival mechanics, tons of
 
 Features:
 
-Multiple new survival mechanics, such as hunger, thirst, temperature and sanity.
-Tons of new food items, drink items and other misc items.
-Immersive visual effects and sounds.
+Hunger - One of the 2 main resources in the mod, decreases slowly over time and gives increasing negative effects as it gets lower. The better food you eat the more hunger it will restore and the better bonuses you recieve.
+
+Thirst - The other main resource in the mod, also decreases slowly overtime and faster in hot environments, also gives more negative effects as it gets lower. Drinking more revitalizing drinks keeps you refreshed for longer and gives better effects.
+
+Sanity - One of the 2 secondary resources in the mod, decreases in hostile environments or when in stressful situations and increases when in soothing areas and when you're near max hunger and thirst. You might start seeing things that aren't there and hearing odd noises when your sanity gets too low...
+
+Temperature - The other secondary resource in the mod, decreases in cold environments and increases in hot ones, some places such as hell or space require extra protection to be able to survive in due to extreme temperatures. Having an extreme temperature for too long could lead to detrimental effects, reduced vision and increased hunger and thirst drain rates.
+
+
+New food items - Over 92+ new foods and drinks to eat, the more time you spend making better meals the better the bonuses are. Don't slack on your diet!
+
+New crafing stations and survival items - A handful of new stations which assist in creating better food. Also don't forget your handy survival items that assist you in many ways!

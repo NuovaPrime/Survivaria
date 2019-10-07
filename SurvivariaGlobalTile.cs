@@ -1,6 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Survivaria.Items.Food.BiomeSpecific.Corruption;
+using Survivaria.Items.Food.BiomeSpecific.Crimson;
 using Survivaria.Items.Food.BiomeSpecific.Desert;
+using Survivaria.Items.Food.BiomeSpecific.Hallow;
 using Survivaria.Items.Food.BiomeSpecific.Jungle;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
 using Survivaria.Items.Materials;
@@ -40,6 +43,18 @@ namespace Survivaria
                 {
                     Item.NewItem(i * 16, (j - 5) * 16, 32, 32, mod.ItemType<DragonFruit>(), Main.rand.Next(1, 2));
                 }
+                if (type == TileID.Trees && (Main.tile[i, j + 1].type == TileID.CorruptGrass))
+                {
+                    Item.NewItem(i * 16, (j - 5) * 16, 32, 32, mod.ItemType<PutridOlives>(), Main.rand.Next(1, 2));
+                }
+                if (type == TileID.Trees && (Main.tile[i, j + 1].type == TileID.FleshGrass))
+                {
+                    Item.NewItem(i * 16, (j - 5) * 16, 32, 32, mod.ItemType<Greneyede>(), Main.rand.Next(1, 2));
+                }
+                if (type == TileID.Trees && (Main.tile[i, j + 1].type == TileID.HallowedGrass))
+                {
+                    Item.NewItem(i * 16, (j - 5) * 16, 32, 32, mod.ItemType<RockCandy>(), Main.rand.Next(1, 2));
+                }
                 if ((Main.tile[i, j].type == TileID.Plants || Main.tile[i, j - 1].type == TileID.Plants2) && type != TileID.Trees && type != TileID.MushroomPlants && type != 0)
                 {
                     if (Main.rand.Next(5) == 0)
@@ -63,6 +78,34 @@ namespace Survivaria
                 if (Main.rand.Next(100) == 0)
                 {
                     WorldGen.PlaceTile(i, j - 1, mod.TileType<CorneyPlant>(), true, true);
+                }
+            }
+            if (Main.tile[i, j].type == TileID.JungleGrass && !Main.tile[i, j + 1].active() && Main.tile[i, j].slope() == 0)
+            {
+                if (Main.rand.Next(100) == 0)
+                {
+                    WorldGen.PlaceTile(i, j + 1, mod.TileType<EnigmaticRootPlant>(), true, true);
+                }
+            }
+            if ((Main.tile[i, j].type == TileID.MushroomGrass || Main.tile[i, j].type == TileID.MushroomPlants) && !Main.tile[i, j - 1].active() && Main.tile[i, j].slope() == 0)
+            {
+                if (Main.rand.Next(100) == 0)
+                {
+                    WorldGen.PlaceTile(i, j - 1, mod.TileType<MushyCarrotPlant>(), true, true);
+                }
+            }
+            if ((Main.tile[i, j].type == TileID.CorruptGrass || Main.tile[i, j].type == TileID.CorruptPlants) && !Main.tile[i, j - 1].active() && Main.tile[i, j].slope() == 0 && !Main.dayTime)
+            {
+                if (Main.rand.Next(100) == 0)
+                {
+                    WorldGen.PlaceTile(i, j - 1, mod.TileType<CursedEggplantPlant>(), true, true);
+                }
+            }
+            if ((Main.tile[i, j].type == TileID.FleshGrass || Main.tile[i, j].type == TileID.FleshWeeds) && !Main.tile[i, j - 1].active() && Main.tile[i, j].slope() == 0 && !Main.dayTime)
+            {
+                if (Main.rand.Next(1) == 0)
+                {
+                    WorldGen.PlaceTile(i, j - 1, mod.TileType<BleedRootPlant>(), true, true);
                 }
             }
             base.RandomUpdate(i, j, type);

@@ -13,7 +13,7 @@ namespace Survivaria.Tiles.Plants
 			Main.tileFrameImportant[Type] = true;
 			Main.tileCut[Type] = true;
 			Main.tileNoFail[Type] = true;
-			TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
+			TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
 			TileObjectData.newTile.AnchorValidTiles = new[]
 			{
 				2, //TileID.Grass
@@ -25,11 +25,11 @@ namespace Survivaria.Tiles.Plants
 			};
 			TileObjectData.addTile(Type);
 		}
-		public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
+		/*public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
 			if (i % 2 == 1) {
 				spriteEffects = SpriteEffects.FlipHorizontally;
 			}
-		}
+		}*/
 
 		public override bool Drop(int i, int j) {
 			int stage = Main.tile[i, j].frameX / 18 * 2;
@@ -41,10 +41,10 @@ namespace Survivaria.Tiles.Plants
 
 		public override void RandomUpdate(int i, int j) {
 			if (Main.tile[i, j].frameX == 0) {
-				Main.tile[i, j].frameX += 18;
+				Main.tile[i, j].frameX += 36;
 			}
-			else if (Main.tile[i, j].frameX == 18) {
-				Main.tile[i, j].frameX += 18;
+			else if (Main.tile[i, j].frameX == 36) {
+				Main.tile[i, j].frameX += 36;
 			}
 		}
 		//public override void RightClick(int i, int j)
