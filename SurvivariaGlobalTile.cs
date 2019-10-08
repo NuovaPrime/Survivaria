@@ -65,45 +65,45 @@ namespace Survivaria
         }
         public override void RandomUpdate(int i, int j, int type)
         {
-            if ((Main.tile[i, j].type == TileID.Grass || Main.tile[i, j].type == TileID.Plants || Main.tile[i, j].type == TileID.Plants2) && !Main.tile[i, j - 1].active() && Main.tile[i, j].slope() == 0 && Main.dayTime)
+            if ((Main.tile[i, j].type == TileID.Grass && (Main.tile[i, j - 1].type == TileID.Plants || Main.tile[i, j - 1].type == TileID.Plants2 || Main.tile[i, j - 1].type < 0)) && Main.tile[i, j].slope() == 0 && Main.dayTime)
             {
-                if (Main.rand.Next(100) == 0)
+                if (Main.rand.Next(50) == 0)
                 {
-                    WorldGen.PlaceTile(i, j - 1, mod.TileType<PeppermintPlant>(), true, true);
+                    WorldGen.PlaceTile(i, j - 2, mod.TileType<PeppermintPlant>(), true, true);
                     //Main.NewText("Plant placed at: " + new Vector2(i, j));
                 }
             }
-            if ((Main.tile[i, j].type == TileID.JungleGrass || Main.tile[i, j].type == TileID.JunglePlants || Main.tile[i, j].type == TileID.JunglePlants2) && !Main.tile[i, j - 1].active() && Main.tile[i, j].slope() == 0 && Main.dayTime)
+            if ((Main.tile[i, j].type == TileID.JungleGrass && (Main.tile[i, j - 1].type == TileID.JunglePlants || Main.tile[i, j - 1].type == TileID.JunglePlants2 || Main.tile[i, j - 1].type < 0)) && Main.tile[i, j].slope() == 0 && Main.dayTime)
             {
-                if (Main.rand.Next(100) == 0)
+                if (Main.rand.Next(50) == 0)
                 {
-                    WorldGen.PlaceTile(i, j - 1, mod.TileType<CorneyPlant>(), true, true);
+                    WorldGen.PlaceTile(i, j - 2, mod.TileType<CorneyPlant>(), true, true);
                 }
             }
-            if (Main.tile[i, j].type == TileID.JungleGrass && !Main.tile[i, j + 1].active() && Main.tile[i, j].slope() == 0)
+            if (Main.tile[i, j].type == TileID.JungleGrass && (Main.tile[i, j + 1].type == TileID.JunglePlants || Main.tile[i, j + 1].type == TileID.JunglePlants2 || Main.tile[i, j + 1].type == TileID.JungleVines || Main.tile[i, j + 1].type < 0) && Main.tile[i, j].slope() == 0)
             {
-                if (Main.rand.Next(100) == 0)
+                if (Main.rand.Next(30) == 0)
                 {
                     WorldGen.PlaceTile(i, j + 1, mod.TileType<EnigmaticRootPlant>(), true, true);
                 }
             }
-            if ((Main.tile[i, j].type == TileID.MushroomGrass || Main.tile[i, j].type == TileID.MushroomPlants) && !Main.tile[i, j - 1].active() && Main.tile[i, j].slope() == 0)
+            if ((Main.tile[i, j].type == TileID.MushroomGrass && (Main.tile[i, j - 1].type == TileID.MushroomPlants || Main.tile[i, j - 1].type < 0) && Main.tile[i, j].slope() == 0))
             {
-                if (Main.rand.Next(100) == 0)
+                if (Main.rand.Next(25) == 0)
                 {
                     WorldGen.PlaceTile(i, j - 1, mod.TileType<MushyCarrotPlant>(), true, true);
                 }
             }
-            if ((Main.tile[i, j].type == TileID.CorruptGrass || Main.tile[i, j].type == TileID.CorruptPlants) && !Main.tile[i, j - 1].active() && Main.tile[i, j].slope() == 0 && !Main.dayTime)
+            if ((Main.tile[i, j].type == TileID.CorruptGrass && (Main.tile[i, j - 1].type == TileID.CorruptPlants || Main.tile[i, j - 1].type < 0) && Main.tile[i, j].slope() == 0 && !Main.dayTime))
             {
-                if (Main.rand.Next(100) == 0)
+                if (Main.rand.Next(50) == 0)
                 {
                     WorldGen.PlaceTile(i, j - 1, mod.TileType<CursedEggplantPlant>(), true, true);
                 }
             }
-            if ((Main.tile[i, j].type == TileID.FleshGrass || Main.tile[i, j].type == TileID.FleshWeeds) && !Main.tile[i, j - 1].active() && Main.tile[i, j].slope() == 0 && !Main.dayTime)
+            if ((Main.tile[i, j].type == TileID.FleshGrass || (Main.tile[i, j - 1].type == TileID.FleshWeeds || Main.tile[i, j - 1].type < 0) && Main.tile[i, j].slope() == 0 && !Main.dayTime))
             {
-                if (Main.rand.Next(1) == 0)
+                if (Main.rand.Next(50) == 0)
                 {
                     WorldGen.PlaceTile(i, j - 1, mod.TileType<BleedRootPlant>(), true, true);
                 }

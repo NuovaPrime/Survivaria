@@ -34,7 +34,7 @@ namespace Survivaria.Tiles.Plants
 		}
 
 		public override bool Drop(int i, int j) {
-			int stage = Main.tile[i, j].frameX / 18 * 2;
+			int stage = Main.tile[i, j].frameX / 18;
 			if (stage == 2) {
 				Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<MushyCarrot>());
 			}
