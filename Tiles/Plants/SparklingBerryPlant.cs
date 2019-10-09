@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework.Graphics;
+using Survivaria.Items.Food.BiomeSpecific.Hallow;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
 using Terraria;
 using Terraria.DataStructures;
@@ -9,7 +10,7 @@ using Terraria.ObjectData;
 
 namespace Survivaria.Tiles.Plants
 {
-	public class PeppermintPlant : ModTile
+	public class SparklingBerryPlant : ModTile
 	{
 		public override void SetDefaults() {
 			Main.tileFrameImportant[Type] = true;
@@ -24,7 +25,7 @@ namespace Survivaria.Tiles.Plants
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.newTile.AnchorValidTiles = new[]
 			{
-				2, //TileID.Grass
+				109, //TileID.HallowedGrass
 			};
 			TileObjectData.addTile(Type);
 		}
@@ -39,7 +40,7 @@ namespace Survivaria.Tiles.Plants
         public override bool Drop(int i, int j) {
 			int stage = Main.tile[i, j].frameX / 18 / 2;
 			if (stage == 2) {
-				Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<Peppermint>());
+				Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<SparklingBerry>());
 			}
 			return false;
 		}

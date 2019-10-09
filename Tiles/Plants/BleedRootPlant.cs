@@ -17,7 +17,8 @@ namespace Survivaria.Tiles.Plants
 			Main.tileCut[Type] = true;
 			Main.tileNoFail[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
-			TileObjectData.newTile.AnchorValidTiles = new[]
+            TileObjectData.newTile.DrawYOffset = 1;
+            TileObjectData.newTile.AnchorValidTiles = new[]
 			{
 				23, //TileID.CorruptGrass
 			};

@@ -77,7 +77,7 @@ namespace Survivaria
             {
                 if (Main.rand.Next(50) == 0)
                 {
-                    WorldGen.PlaceTile(i, j - 2, mod.TileType<CorneyPlant>(), true, true);
+                    WorldGen.PlaceTile(i, j - 3, mod.TileType<CorneyPlant>(), true, true);
                 }
             }
             if (Main.tile[i, j].type == TileID.JungleGrass && (Main.tile[i, j + 1].type == TileID.JunglePlants || Main.tile[i, j + 1].type == TileID.JunglePlants2 || Main.tile[i, j + 1].type == TileID.JungleVines || Main.tile[i, j + 1].type < 0) && Main.tile[i, j].slope() == 0)
@@ -101,13 +101,35 @@ namespace Survivaria
                     WorldGen.PlaceTile(i, j - 1, mod.TileType<CursedEggplantPlant>(), true, true);
                 }
             }
-            if ((Main.tile[i, j].type == TileID.FleshGrass || (Main.tile[i, j - 1].type == TileID.FleshWeeds || Main.tile[i, j - 1].type < 0) && Main.tile[i, j].slope() == 0 && !Main.dayTime))
+            if ((Main.tile[i, j].type == TileID.FleshGrass && (Main.tile[i, j - 1].type == TileID.FleshWeeds || Main.tile[i, j - 1].type < 0) && Main.tile[i, j].slope() == 0 && !Main.dayTime))
             {
                 if (Main.rand.Next(50) == 0)
                 {
                     WorldGen.PlaceTile(i, j - 1, mod.TileType<BleedRootPlant>(), true, true);
                 }
             }
+            if (Main.tile[i, j].type == TileID.SnowBlock && Main.tile[i, j].slope() == 0 && Main.dayTime)
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    WorldGen.PlaceTile(i, j - 1, mod.TileType<PearlBerryPlant>(), true, true);
+                }
+            }
+            if ((Main.tile[i, j].type == TileID.Grass && (Main.tile[i, j - 1].type == TileID.Plants || Main.tile[i, j - 1].type == TileID.Plants2 || Main.tile[i, j - 1].type < 0)) && Main.tile[i, j].slope() == 0 && Main.dayTime)
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    WorldGen.PlaceTile(i, j - 1, mod.TileType<ReecePlant>(), true, true);
+                }
+            }
+            if ((Main.tile[i, j].type == TileID.HallowedGrass && (Main.tile[i, j - 1].type == TileID.HallowedPlants || Main.tile[i, j - 1].type == TileID.HallowedPlants2 || Main.tile[i, j - 1].type < 0)) && Main.tile[i, j].slope() == 0 && Main.dayTime)
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    WorldGen.PlaceTile(i, j - 2, mod.TileType<SparklingBerryPlant>(), true, true);
+                }
+            }
+
             base.RandomUpdate(i, j, type);
         }
     }

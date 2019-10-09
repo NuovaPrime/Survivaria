@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
 using Survivaria.Items.Food.BiomeSpecific.Underground;
+using Survivaria.Items.Materials;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,7 +9,7 @@ using Terraria.ObjectData;
 
 namespace Survivaria.Tiles.Plants
 {
-	public class MushyCarrotPlant : ModTile
+	public class ReecePlant : ModTile
 	{
 		public override void SetDefaults() {
 			Main.tileFrameImportant[Type] = true;
@@ -16,15 +17,10 @@ namespace Survivaria.Tiles.Plants
 			Main.tileCut[Type] = true;
 			Main.tileNoFail[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
-            TileObjectData.newTile.DrawYOffset = 1;
+            TileObjectData.newTile.DrawYOffset = 2;
             TileObjectData.newTile.AnchorValidTiles = new[]
 			{
-				70, //TileID.MushroomGrass
-			};
-			TileObjectData.newTile.AnchorAlternateTiles = new[]
-			{
-				78, //ClayPot
-				TileID.PlanterBox
+				2, //TileID.Grass
 			};
 			TileObjectData.addTile(Type);
 		}
@@ -37,7 +33,7 @@ namespace Survivaria.Tiles.Plants
 		public override bool Drop(int i, int j) {
 			int stage = Main.tile[i, j].frameX / 18;
 			if (stage == 2) {
-				Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<MushyCarrot>());
+				Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<Reece>());
 			}
 			return false;
 		}

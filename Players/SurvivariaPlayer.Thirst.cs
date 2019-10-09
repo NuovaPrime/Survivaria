@@ -12,11 +12,41 @@ namespace Survivaria.Players
             ThirstLossMulti = 1f;
         }
 
+        public int LossTimer = 0;
         internal void UpdateThirst() //Called every single tick;
         {
             ThirstLossTimer++;//Do NOT include debugging in separate files. Include in player file.
 
             CurrentThirst -= ThirstLossRate();
+
+            if (CurrentThirst >= 80)
+            {
+                player.manaCost -= 0.10f;
+                player.pickSpeed += 0.10f;
+                player.allDamageMult += 0.08f;
+            }
+            if (CurrentThirst <= 26)
+            {
+                player.manaCost += 0.25f;
+                player.pickSpeed -= 0.20f;
+                player.allDamageMult -= 0.15f;
+                player.moveSpeed -= 0.10f;
+            }
+            if (CurrentThirst <= 0)
+            {
+                player.manaCost += 0.25f;
+                player.pickSpeed -= 0.20f;
+                player.allDamageMult -= 0.15f;
+                player.moveSpeed -= 0.10f;
+                LossTimer++;
+                if (LossTimer >= 20)
+                {
+                    player.statLife -= 1;
+                    player.statMana -= 1;
+                    CurrentSanity -= 0.05f;
+                    LossTimer = 0;
+                }
+            }
         }
 
         public double ThirstLossRate()

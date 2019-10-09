@@ -20,6 +20,7 @@ namespace Survivaria.Tiles.Plants
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 18};
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
+            TileObjectData.newTile.DrawYOffset = 2;
             TileObjectData.newTile.AnchorValidTiles = new[]
 			{
 				60, //TileID.JungleGrass
@@ -30,11 +31,6 @@ namespace Survivaria.Tiles.Plants
 				TileID.PlanterBox
 			};
 			TileObjectData.addTile(Type);
-		}
-		public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
-			if (i % 2 == 1) {
-				spriteEffects = SpriteEffects.FlipHorizontally;
-			}
 		}
 
 		public override bool Drop(int i, int j) {
@@ -50,14 +46,10 @@ namespace Survivaria.Tiles.Plants
             if (Main.tile[i, j].frameX == 0)
             {
                 Main.tile[i, j].frameX += 18;
-                Main.tile[i, j + 1].frameX += 18;
-                Main.tile[i, j + 2].frameX += 18;
             }
             else if (Main.tile[i, j].frameX == 18)
             {
                 Main.tile[i, j].frameX += 18;
-                Main.tile[i, j + 1].frameX += 18;
-                Main.tile[i, j + 2].frameX += 18;
             }
         }
     }
