@@ -12,7 +12,7 @@ namespace Survivaria.Players
             ThirstLossMulti = 1f;
         }
 
-        public int LossTimer = 0;
+        private int LossTimer = 0;
         internal void UpdateThirst() //Called every single tick;
         {
             ThirstLossTimer++;//Do NOT include debugging in separate files. Include in player file.
