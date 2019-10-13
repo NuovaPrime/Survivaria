@@ -16,7 +16,7 @@ namespace Survivaria.Tiles.Stations
 	{
 		public override void SetDefaults() {
 			Main.tileFrameImportant[Type] = true;
-			Main.tileCut[Type] = true;
+			Main.tileCut[Type] = false;
 			Main.tileNoFail[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x1);
             TileObjectData.newTile.CoordinateHeights = new[] { 18 };
@@ -28,12 +28,9 @@ namespace Survivaria.Tiles.Stations
             adjTiles = new int[] { mod.TileType<MAPTile>() };
         }
 
-		public override bool Drop(int i, int j) {
-			int stage = Main.tile[i, j].frameX / 18;
-			if (stage == 2) {
-				Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<MAP>());
-			}
-			return false;
-		}
+        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        {
+            Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType<GrindStone>());
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace Survivaria.Tiles.Plants
 	{
 		public override void SetDefaults() {
 			Main.tileFrameImportant[Type] = true;
-			Main.tileCut[Type] = true;
+			Main.tileCut[Type] = false;
 			Main.tileNoFail[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.newTile.DrawYOffset = 1;

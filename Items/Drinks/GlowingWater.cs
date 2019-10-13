@@ -11,7 +11,7 @@ namespace Survivaria.Items.Drinks
 {
     public class GlowingWater : DrinkItem
     {
-        public GlowingWater() : base("Glowing Water", "It's filled with a mysterious and rejuvenating glowing liquid.", 20, 26, Item.buyPrice(0, 0, 5, 0), ItemRarityID.Green, 0, 20, BuffID.Shine, 60 * 60)
+        public GlowingWater() : base("Glowing Water", "It's filled with a mysterious and rejuvenating glowing liquid.", 20, 26, Item.buyPrice(0, 0, 5, 0), ItemRarityID.Green, 0, 20, SoundID.Item1, BuffID.Shine, 60 * 60)
         {
         }
 

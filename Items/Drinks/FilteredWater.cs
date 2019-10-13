@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Survivaria.Tiles.Stations;
 
 namespace Survivaria.Items.Drinks
 {
     public class FilteredWater : DrinkItem
     {
-        public FilteredWater() : base("Filtered Water", "Cleaned of all impurities, it is now safe to drink.", 20, 26, Item.buyPrice(0, 0, 0, 20), ItemRarityID.Blue, 0, 16, BuffID.ManaRegeneration, 60 * 30)
+        public FilteredWater() : base("Filtered Water", "Cleaned of all impurities, it is now safe to drink.", 20, 26, Item.buyPrice(0, 0, 0, 20), ItemRarityID.Blue, 0, 16, SoundID.Item1, BuffID.ManaRegeneration, 60 * 30)
         {
         }
 
@@ -19,8 +20,8 @@ namespace Survivaria.Items.Drinks
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.BottledWater);
-            recipe.AddIngredient(ItemID.Sand);
-			recipe.AddTile(mod, "WaterFilter");
+            recipe.AddIngredient(ItemID.SandBlock);
+			recipe.AddTile(mod.TileType<WaterFilterTile>());
             recipe.SetResult(this);
             recipe.AddRecipe();
 			

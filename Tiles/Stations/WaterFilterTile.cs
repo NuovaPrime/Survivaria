@@ -12,25 +12,23 @@ using Terraria.ObjectData;
 
 namespace Survivaria.Tiles.Stations
 {
-    public class MAPTile : ModTile
-    {
-        public override void SetDefaults() {
-            Main.tileFrameImportant[Type] = true;
-            Main.tileCut[Type] = false;
-            Main.tileNoFail[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x1);
-            TileObjectData.newTile.CoordinateHeights = new[] { 18 };
+	public class WaterFilterTile : ModTile
+	{
+		public override void SetDefaults() {
+			Main.tileFrameImportant[Type] = true;
+			Main.tileCut[Type] = false;
+			Main.tileNoFail[Type] = true;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
+            TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
             disableSmartCursor = true;
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Mortar and Pestle");
+            name.SetDefault("Water Filter");
             AddMapEntry(new Color(166, 120, 71), name);
             TileObjectData.addTile(Type);
-            adjTiles = new int[] { mod.TileType<GrindStoneTile>() };
         }
-
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType<MAP>());
+            Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType<WaterFilter>());
         }
     }
 }
