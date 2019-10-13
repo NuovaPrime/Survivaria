@@ -16,7 +16,7 @@ namespace Survivaria.Items.Food.BiomeSpecific.Purity
         public override void SetDefaults()
         {
             base.SetDefaults();
-            item.createTile = mod.TileType<CorneyPlant>();
+            item.createTile = mod.TileType<PricklyPearOrangePlant>();
         }
     }
 }

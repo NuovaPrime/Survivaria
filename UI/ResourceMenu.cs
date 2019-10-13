@@ -66,14 +66,14 @@ namespace Survivaria.UI
                 backPanel.Top.Set(mousePosition.Y - _offset.Y, 0f);
                 Recalculate();
             }
-            if (mod.GetConfig<SurvivariaConfigServer>().SanityEnabled)
-                DrawBar(spriteBatch, player, GFX.sanityIndicatorTexture, 5, (int)(player.CurrentSanity / player.MaximumSanity * 100 / 21), 1, 10);
+            //if (mod.GetConfig<SurvivariaConfigServer>().SanityEnabled)
+                //DrawBar(spriteBatch, player, GFX.sanityIndicatorTexture, 5, (int)(player.CurrentSanity / player.MaximumSanity * 100 / 21), 1, 10);
             if (mod.GetConfig<SurvivariaConfigServer>().HungerEnabled)
                 DrawBar(spriteBatch, player, GFX.hungerIndicatorTexture, 8, (int)(player.CurrentHunger / player.HungerMaximum * 100 / 13 * 1.04 - 0.01));
             if (mod.GetConfig<SurvivariaConfigServer>().ThirstEnabled)
                 DrawBar(spriteBatch, player, GFX.thirstIndicatorTexture, 5, (int)(player.CurrentThirst / player.MaximumThirst * 100 / 21), 1.6f, 5);
-            if (mod.GetConfig<SurvivariaConfigServer>().TemperatureEnabled)
-                DrawTemperatureFill(spriteBatch, player, -0.4f, 14.5f);
+            //if (mod.GetConfig<SurvivariaConfigServer>().TemperatureEnabled)
+                //DrawTemperatureFill(spriteBatch, player, -0.4f, 14.5f);
 
         }
 

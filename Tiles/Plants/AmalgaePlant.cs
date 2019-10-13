@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Jungle;
+using Survivaria.Items.Food.BiomeSpecific.Ocean;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
 using Terraria;
 using Terraria.DataStructures;
@@ -10,25 +11,23 @@ using Terraria.ObjectData;
 
 namespace Survivaria.Tiles.Plants
 {
-	public class CorneyPlant : ModTile
+	public class AmalgaePlant : ModTile
 	{
 		public override void SetDefaults() {
 			Main.tileFrameImportant[Type] = true;
 			Main.tileCut[Type] = false;
 			Main.tileNoFail[Type] = true;
+            Main.tileWaterDeath[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 18};
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
             TileObjectData.newTile.DrawYOffset = 2;
+            TileObjectData.newTile.WaterPlacement = LiquidPlacement.Allowed;
+            TileObjectData.newTile.WaterDeath = false;
             TileObjectData.newTile.AnchorValidTiles = new[]
 			{
-				60, //TileID.JungleGrass
-			};
-			TileObjectData.newTile.AnchorAlternateTiles = new[]
-			{
-				78, //ClayPot
-				TileID.PlanterBox
+				53, //TileID.Sand
 			};
 			TileObjectData.addTile(Type);
 		}
@@ -36,7 +35,7 @@ namespace Survivaria.Tiles.Plants
 		public override bool Drop(int i, int j) {
 			int stage = Main.tile[i, j].frameX / 18;
 			if (stage == 2) {
-				Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<Corney>());
+				Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<Amalgae>());
 			}
 			return false;
 		}

@@ -10,7 +10,7 @@ using Terraria.ObjectData;
 
 namespace Survivaria.Tiles.Plants
 {
-	public class PearlBerryPlant : ModTile
+	public class PricklyPearMagentaPlant : ModTile
 	{
 		public override void SetDefaults() {
 			Main.tileFrameImportant[Type] = true;
@@ -21,39 +21,16 @@ namespace Survivaria.Tiles.Plants
             TileObjectData.newTile.DrawYOffset = 1;
             TileObjectData.newTile.AnchorValidTiles = new[]
 			{
-				147, //TileID.SnowBlock
+				80, //TileID.SnowBlock
 			};
 			TileObjectData.addTile(Type);
 		}
-		public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
-			if (i % 2 == 1) {
-				spriteEffects = SpriteEffects.FlipHorizontally;
-			}
-		}
 
-		public override bool Drop(int i, int j) {
-			int stage = Main.tile[i, j].frameX / 18;
-			if (stage == 2) {
-				Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<PearlBerry>());
-			}
-			return false;
-		}
-
-        public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+        public override bool Drop(int i, int j)
         {
-            r = 0f;
-            g = 0.13f;
-            b = 0.5f;
+            Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<PricklyPearMagenta>());
+            return false;
         }
-
-        public override void RandomUpdate(int i, int j) {
-			if (Main.tile[i, j].frameX == 0) {
-				Main.tile[i, j].frameX += 18;
-			}
-			else if (Main.tile[i, j].frameX == 18) {
-				Main.tile[i, j].frameX += 18;
-			}
-		}
 		//public override void RightClick(int i, int j)
 		//{
 		//	base.RightClick(i, j);

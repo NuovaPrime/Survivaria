@@ -129,7 +129,37 @@ namespace Survivaria
                     WorldGen.PlaceTile(i, j - 2, mod.TileType<SparklingBerryPlant>(), true, true);
                 }
             }
-
+            if (Main.tile[i, j].type == TileID.Sand && !Main.tile[i, j - 1].active() && Main.tile[i, j - 1].liquid > 0 && Main.tile[i, j].slope() == 0 && Main.dayTime)
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    WorldGen.PlaceTile(i, j - 3, mod.TileType<AmalgaePlant>(), true, true);
+                }
+            }
+            if (Main.tile[i, j].type == TileID.Cactus && Main.tile[i, j].frameY == 0 && Main.tile[i, j - 1].type < 0 && Main.dayTime)
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    switch (Main.rand.Next(4))
+                    {
+                        case 0:
+                            WorldGen.PlaceTile(i, j - 1, mod.TileType<PricklyPearOrangePlant>(), true, true);
+                            break;
+                        case 1:
+                            WorldGen.PlaceTile(i, j - 1, mod.TileType<PricklyPearMagentaPlant>(), true, true);
+                            break;
+                        case 2:
+                            WorldGen.PlaceTile(i, j - 1, mod.TileType<PricklyPearRedPlant>(), true, true);
+                            break;
+                        case 3:
+                            WorldGen.PlaceTile(i, j - 1, mod.TileType<PricklyPearWhitePlant>(), true, true);
+                            break;
+                        case 4:
+                            WorldGen.PlaceTile(i, j - 1, mod.TileType<PricklyPearYellowPlant>(), true, true);
+                            break;
+                    }
+                }
+            }
             base.RandomUpdate(i, j, type);
         }
     }
