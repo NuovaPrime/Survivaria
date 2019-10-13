@@ -2,6 +2,8 @@
 using Terraria.GameInput;
 using Terraria.ModLoader;
 using Terraria;
+using Microsoft.Xna.Framework;
+using Terraria.ModLoader.IO;
 
 namespace Survivaria.Players
 {
@@ -9,15 +11,10 @@ namespace Survivaria.Players
     {
         public override void PostUpdate()
         {
+            if (MenuOffset == Vector2.Zero)
+                MenuOffset = new Vector2(Main.screenWidth / 2f, Main.screenHeight / 12f);
 			if (player.active)
 			{
-				#region Debuffs/Buffs if parameter...
-				if (CurrentHunger <= 10)
-				{
-					player.meleeSpeed /= 2;
-				}
-				#endregion
-
                 if (mod.GetConfig<SurvivariaConfigServer>().SanityEnabled)
                     UpdateSanity();
                 if (mod.GetConfig<SurvivariaConfigServer>().HungerEnabled)
@@ -56,8 +53,6 @@ namespace Survivaria.Players
 			if (HungerMaximum < 0)
 				HungerMaximum = 100;
 
-			if (CurrentHunger > 100)
-				CurrentHunger = 100;
 			else if (CurrentHunger < 0)
 				CurrentHunger = 0;
 
@@ -74,8 +69,21 @@ namespace Survivaria.Players
 
 			if (CurrentThirst < 0)
 				CurrentThirst = 0;
-			else if (CurrentThirst > 100)
-				CurrentThirst = 100;
 		}
+
+        public override TagCompound Save()
+        {
+            TagCompound tag = new TagCompound();
+            tag.Add(nameof(MenuOffset), MenuOffset);
+
+            return tag;
+        }
+
+        public override void Load(TagCompound tag)
+        {
+            MenuOffset = tag.Get<Vector2>(nameof(MenuOffset));
+        }
+
+        public Vector2 MenuOffset { get; set; }
     }
 }

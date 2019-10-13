@@ -6,6 +6,17 @@ namespace Survivaria.Players
 {
     public partial class SurvivariaPlayer : ModPlayer
     {
+        public void AddHunger(int amount)
+        {
+            CurrentHunger += amount;
+            int extraDifference = 0;
+            if (CurrentHunger > 100)
+            {
+                extraDifference = 100 - amount;
+                CurrentHunger = 100;
+                //Add overeat buff here
+            }
+        }
         internal void ResetHungerEffects()
         {
 			_h = 0;
