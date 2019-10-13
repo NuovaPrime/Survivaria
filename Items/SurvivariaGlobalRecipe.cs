@@ -14,6 +14,9 @@ namespace Survivaria.Items
             if (recipe.createItem.type == mod.ItemType<GlowingWater>())
                 if (!player.ZoneGlowshroom)
                     return false;
+            if (recipe.createItem.type == mod.ItemType<FilteredWater>())
+                if (!player.ZoneDesert)
+                    return false;
             return true;
         }
     }
