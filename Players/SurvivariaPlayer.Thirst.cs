@@ -5,6 +5,17 @@ namespace Survivaria.Players
 {
     public partial class SurvivariaPlayer : ModPlayer
     {
+        public void AddThirst(int amount)
+        {
+            CurrentThirst += amount;
+            int extraDifference = 0;
+            if (CurrentThirst > 100)
+            {
+                extraDifference = 100 - amount;
+                CurrentThirst = 100;
+                //Add overdrink buff here
+            }	
+        }
         internal void ResetThirstEffects()
         {
             _t = 0;

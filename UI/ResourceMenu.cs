@@ -18,9 +18,9 @@ namespace Survivaria.UI
         public override void OnInitialize()
         {
             backPanel = new UIPanel();
-            backPanel.Width.Set(182, 0f);
+            backPanel.Width.Set(40, 0f);
             backPanel.Height.Set(124, 0f);
-            backPanel.Left.Set(Main.screenWidth - Main.miniMapWidth - 10, 0f); //Main.screenWidth / 1.154f
+            backPanel.Left.Set(Main.screenWidth / 1.1f, 0f); //Main.screenWidth / 1.154f
             backPanel.Top.Set(Main.screenHeight / 12f, 0f);
             backPanel.BackgroundColor = new Color(0, 0, 0, 0);
             backPanel.BorderColor = new Color(0, 0, 0, 0);
@@ -56,6 +56,21 @@ namespace Survivaria.UI
             Mod mod = SurvivariaMod.Instance;
             SurvivariaPlayer player = Main.LocalPlayer.GetModPlayer<SurvivariaPlayer>();
             Vector2 mousePosition = new Vector2((float)Main.mouseX, (float)Main.mouseY);
+            if (!locationInitialized)
+            {
+                if (player.MenuOffset == Vector2.Zero)
+                {
+                    backPanel.Left.Set(Main.screenWidth / 1.1f, 0f); //Main.screenWidth / 1.154f
+                    backPanel.Top.Set(Main.screenHeight / 12f, 0f);
+                }
+                else
+                {
+                    backPanel.Left.Set(player.MenuOffset.X, 0f);
+                    backPanel.Top.Set(player.MenuOffset.Y, 0f);
+                } 
+                Recalculate();
+                locationInitialized = true;
+            }
             if (backPanel.ContainsPoint(mousePosition))
             {
                 Main.LocalPlayer.mouseInterface = true;
@@ -64,16 +79,17 @@ namespace Survivaria.UI
             {
                 backPanel.Left.Set(mousePosition.X - _offset.X, 0f);
                 backPanel.Top.Set(mousePosition.Y - _offset.Y, 0f);
+                player.MenuOffset = new Vector2(backPanel.Left.Pixels, backPanel.Top.Pixels);
                 Recalculate();
             }
             //if (mod.GetConfig<SurvivariaConfigServer>().SanityEnabled)
-                //DrawBar(spriteBatch, player, GFX.sanityIndicatorTexture, 5, (int)(player.CurrentSanity / player.MaximumSanity * 100 / 21), 1, 10);
+            //DrawBar(spriteBatch, player, GFX.sanityIndicatorTexture, 5, (int)(player.CurrentSanity / player.MaximumSanity * 100 / 21), 1, 10);
             if (mod.GetConfig<SurvivariaConfigServer>().HungerEnabled)
                 DrawBar(spriteBatch, player, GFX.hungerIndicatorTexture, 8, (int)(player.CurrentHunger / player.HungerMaximum * 100 / 13 * 1.04 - 0.01));
             if (mod.GetConfig<SurvivariaConfigServer>().ThirstEnabled)
                 DrawBar(spriteBatch, player, GFX.thirstIndicatorTexture, 5, (int)(player.CurrentThirst / player.MaximumThirst * 100 / 21), 1.6f, 5);
             //if (mod.GetConfig<SurvivariaConfigServer>().TemperatureEnabled)
-                //DrawTemperatureFill(spriteBatch, player, -0.4f, 14.5f);
+            //DrawTemperatureFill(spriteBatch, player, -0.4f, 14.5f);
 
         }
 
@@ -184,6 +200,7 @@ namespace Survivaria.UI
             base.Update(gameTime);
         }
 
+        internal bool locationInitialized { get; set; } = false;
         public UIPanel backPanel { get; set; }
         internal int delayedTemperature { get; set; } = 24;
         int colorDifferenceBlue { get; set; } = 0;

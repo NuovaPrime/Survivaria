@@ -70,33 +70,33 @@ namespace Survivaria.Items
             if (HungerAmount < 10)
             {
                 FoodSize = "Nibble";
-                if (HungerAmount >= 10)
+            }
+            if (HungerAmount >= 10)
+            {
+                FoodSize = "Snack";
+                if (HungerAmount >= 20)
                 {
-                    FoodSize = "Snack";
-                    if (HungerAmount >= 20)
+                    FoodSize = "Meal";
+                    if (HungerAmount >= 40)
                     {
-                        FoodSize = "Meal";
-                        if (HungerAmount >= 40)
-                        {
-                            FoodSize = "Buffet";
-                            if (HungerAmount >= 70)
-                                FoodSize = "Feast";
-                        }
+                        FoodSize = "Buffet";
+                        if (HungerAmount >= 70)
+                            FoodSize = "Feast";
                     }
                 }
             }
             if (ThirstAmount <= 15)
             {
                 DrinkSize = "Sip";
-                if (ThirstAmount > 15)
+            }
+            if (ThirstAmount > 15)
+            {
+                DrinkSize = "Refreshing";
+                if (ThirstAmount >= 40)
                 {
-                    DrinkSize = "Refreshing";
-                    if (ThirstAmount >= 40)
-                    {
-                        DrinkSize = "Hydrating";
-                        if (ThirstAmount >= 70)
-                            DrinkSize = "Quenching";
-                    }
+                    DrinkSize = "Hydrating";
+                    if (ThirstAmount >= 70)
+                        DrinkSize = "Quenching";
                 }
             }
             if (FoodSize != null && HungerAmount > 0)
@@ -114,8 +114,8 @@ namespace Survivaria.Items
 
         public override bool UseItem(Player player)
         {
-            player.GetModPlayer<SurvivariaPlayer>().CurrentHunger += HungerAmount;
-            player.GetModPlayer<SurvivariaPlayer>().CurrentThirst += ThirstAmount;
+            player.GetModPlayer<SurvivariaPlayer>().AddHunger(HungerAmount);
+            player.GetModPlayer<SurvivariaPlayer>().AddThirst(ThirstAmount);
             return true;
         }
 
