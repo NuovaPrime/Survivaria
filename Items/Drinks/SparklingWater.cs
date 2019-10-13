@@ -9,22 +9,20 @@ using Terraria.ID;
 
 namespace Survivaria.Items.Drinks
 {
-    public class GlowingWater : DrinkItem
+    public class SparklingWater : DrinkItem
     {
-        public GlowingWater() : base("Glowing Water", "It's filled with a mysterious and rejuvenating glowing liquid.", 20, 26, Item.buyPrice(0, 0, 5, 0), ItemRarityID.Green, 0, 20, BuffID.Shine, 60 * 60)
+        public SparklingWater() : base("Sparkling Water", "The bubbles make for a pretty fancy drink.", 20, 26, Item.buyPrice(0, 0, 2, 5), ItemRarityID.LightRed, 4, 16, BuffID.MagicPower, 60 * 180)
         {
         }
 
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemType<SparklingBerry>());
             recipe.AddIngredient(ItemID.Bottle);
-            recipe.needWater = true;
+            recipe.AddTile(TileID.Bottles);
             recipe.SetResult(this);
-            if (recipe.RecipeAvailable())
-            {
-                recipe.AddRecipe();
-            }
+            recipe.AddRecipe();
         }
     }
 }
