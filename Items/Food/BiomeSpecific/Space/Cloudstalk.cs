@@ -8,7 +8,7 @@ namespace Survivaria.Items.Food.BiomeSpecific.Space
 {
     public class Cloudstalk : FoodItem
     {
-        public Cloudstalk() : base("Cloudstalk", "These weightless beans are left hanging, waiting to be caught by a gust of wind.\nGrants featherfall for 30 seconds.", 24, 30, Item.buyPrice(0, 0, 1, 0), ItemRarityID.Blue, 7, -2, SoundID.Item2, BuffID.Featherfall, 60 * 30)
+        public Cloudstalk() : base("Cloudstalk", "These weightless beans are left hanging, waiting to be caught by a gust of wind.", 24, 30, Item.buyPrice(0, 0, 30, 0), ItemRarityID.Green, 7, -2, SoundID.Item2, BuffID.Featherfall, 60 * 30)
         {
         }
     }

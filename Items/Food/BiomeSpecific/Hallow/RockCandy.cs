@@ -8,7 +8,7 @@ namespace Survivaria.Items.Food.BiomeSpecific.Hallow
 {
     public class RockCandy : FoodItem
     {
-        public RockCandy() : base("Rock Candy", "It's a wonder this doesn't break your teeth.\nGrants spelunker for 60 seconds.", 16, 24, Item.buyPrice(0, 0, 3, 50), ItemRarityID.Blue, 3, -3, SoundID.Item2, BuffID.Spelunker, 60 * 60)
+        public RockCandy() : base("Rock Candy", "It's a wonder this doesn't break your teeth.", 16, 24, Item.buyPrice(0, 1, 0, 0), ItemRarityID.Pink, 3, -3, SoundID.Item2, BuffID.Spelunker, 60 * 60)
         {
         }
     }

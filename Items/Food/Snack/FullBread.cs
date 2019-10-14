@@ -19,9 +19,10 @@ namespace Survivaria.Items.Food.Snack
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(Add allseeds recipe group here);
+			recipe.AddRecipeGroup(Add allseeds recipe group here, 3);
             recipe.AddIngredient(mod.ItemType<BlossomWheat>());
             recipe.AddTile(TileID.Furnaces);
+			recipe.AddTile(mod.TileType<GrindStoneTile>());
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

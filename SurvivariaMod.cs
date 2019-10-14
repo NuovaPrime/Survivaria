@@ -78,6 +78,11 @@ namespace Survivaria
             }
         }
 
+		public override void AddRecipes()
+		{
+			RecipeHelper.AddVanillaRecipes(this);
+		}
+
         public static SurvivariaMod Instance { get; set; }
     }
 }

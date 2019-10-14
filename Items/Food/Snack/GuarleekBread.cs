@@ -30,6 +30,7 @@ namespace Survivaria.Items.Food.Snack
             recipe.AddIngredient(mod.ItemType<Guarleek>());
             recipe.AddIngredient(mod.ItemType<BlossomWheat>());
             recipe.AddTile(TileID.Furnaces);
+			recipe.AddTile(mod.TileType<GrindStoneTile>());
             recipe.SetResult(this);
             recipe.AddRecipe();
         }
