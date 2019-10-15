@@ -26,13 +26,13 @@ namespace Survivaria.Items.Drinks
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType<EmptyGourd>());
+            recipe.AddIngredient(ModContent.ItemType<EmptyGourd>());
             recipe.needWater = true;
             recipe.SetResult(this);
             recipe.AddRecipe();
 
             ModRecipe recipe2 = new ModRecipe(mod);
-            recipe2.AddIngredient(mod.ItemType<HalfGourd>());
+            recipe2.AddIngredient(ModContent.ItemType<HalfGourd>());
             recipe2.needWater = true;
             recipe2.SetResult(this);
             recipe2.AddRecipe();
@@ -41,7 +41,7 @@ namespace Survivaria.Items.Drinks
         public override bool UseItem(Player player)
         {
             item.TurnToAir();
-            player.PutItemInInventory(mod.ItemType<HalfGourd>());
+            player.PutItemInInventory(ModContent.ItemType<HalfGourd>());
             return true;
         }
     }

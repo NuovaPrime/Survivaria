@@ -25,7 +25,7 @@ namespace Survivaria.Items.Drinks
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType<BleedRoot>());
+            recipe.AddIngredient(ModContent.ItemType<BleedRoot>());
             recipe.AddTile(TileID.Kegs);
             recipe.SetResult(this);
             recipe.AddRecipe();

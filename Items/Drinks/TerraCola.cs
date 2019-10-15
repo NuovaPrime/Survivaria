@@ -27,9 +27,9 @@ namespace Survivaria.Items.Drinks
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType<SparklingWater>());
-            recipe.AddIngredient(mod.ItemType<Frambosia>());
-            recipe.AddIngredient(mod.ItemType<Starfruit>());
+            recipe.AddIngredient(ModContent.ItemType<SparklingWater>());
+            recipe.AddIngredient(ModContent.ItemType<Frambosia>());
+            recipe.AddIngredient(ModContent.ItemType<Starfruit>());
             recipe.AddTile(TileID.Bottles);
             recipe.SetResult(this);
             recipe.AddRecipe();

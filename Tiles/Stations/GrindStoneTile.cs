@@ -25,12 +25,12 @@ namespace Survivaria.Tiles.Stations
             name.SetDefault("Grinding Stone");
             AddMapEntry(new Color(166, 120, 71), name);
             TileObjectData.addTile(Type);
-            adjTiles = new int[] { mod.TileType<MAPTile>() };
+            adjTiles = new int[] { ModContent.TileType<MAPTile>() };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType<GrindStone>());
+            Item.NewItem(i * 16, j * 16, 32, 16, ModContent.ItemType<GrindStone>());
         }
     }
 }

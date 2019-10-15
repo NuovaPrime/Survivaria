@@ -15,13 +15,13 @@ namespace Survivaria.Players
                 MenuOffset = new Vector2(Main.screenWidth / 2f, Main.screenHeight / 12f);
 			if (player.active)
 			{
-                if (mod.GetConfig<SurvivariaConfigServer>().SanityEnabled)
+                if (ModContent.GetInstance<SurvivariaConfigServer>().SanityEnabled)
                     UpdateSanity();
-                if (mod.GetConfig<SurvivariaConfigServer>().HungerEnabled)
+                if (ModContent.GetInstance<SurvivariaConfigServer>().HungerEnabled)
                     UpdateHunger(); //toggles timer and tick hunger removal;
-                if (mod.GetConfig<SurvivariaConfigServer>().ThirstEnabled)
+                if (ModContent.GetInstance<SurvivariaConfigServer>().ThirstEnabled)
                     UpdateThirst();
-                if (mod.GetConfig<SurvivariaConfigServer>().TemperatureEnabled)
+                if (ModContent.GetInstance<SurvivariaConfigServer>().TemperatureEnabled)
                     UpdateTemperature();
                 FailSafes();
                 CalculatePlayerTemperature();

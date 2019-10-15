@@ -8,6 +8,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Survivaria.Items.Food.BiomeSpecific.Ocean;
 using Survivaria.Items.Food.BiomeSpecific.Snow;
+using Survivaria.Items.Materials;
 
 namespace Survivaria.Items.Drinks
 {
@@ -26,8 +27,8 @@ namespace Survivaria.Items.Drinks
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType<Cocolate>());
-            recipe.AddIngredient(mod.ItemType<PearlBerry>());
+            recipe.AddIngredient(ModContent.ItemType<Cocolate>());
+            recipe.AddIngredient(ModContent.ItemType<PearlBerry>());
             recipe.AddTile(TileID.Bottles);
             recipe.SetResult(this);
             recipe.AddRecipe();

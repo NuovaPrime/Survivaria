@@ -11,10 +11,10 @@ namespace Survivaria.Items
         public override bool RecipeAvailable(Recipe recipe)
         {
             Player player = Main.LocalPlayer;
-            if (recipe.createItem.type == mod.ItemType<GlowingWater>())
+            if (recipe.createItem.type == ModContent.ItemType<GlowingWater>())
                 if (!player.ZoneGlowshroom)
                     return false;
-            if (recipe.requiredTile == null && recipe.createItem.type == mod.ItemType<FilteredWater>())
+            if (recipe.requiredTile == null && recipe.createItem.type == ModContent.ItemType<FilteredWater>())
                 if (!player.ZoneDesert)
                     return false;
             return true;

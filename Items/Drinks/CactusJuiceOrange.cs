@@ -19,7 +19,7 @@ namespace Survivaria.Items.Drinks
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod.ItemType<PricklyPearOrange>());
+            recipe.AddIngredient(ModContent.ItemType<PricklyPearOrange>());
             recipe.AddIngredient(ItemID.Cactus);
             recipe.AddIngredient(ItemID.Bottle);
             recipe.AddTile(TileID.Bottles);

@@ -28,21 +28,21 @@ namespace Survivaria
         [DefaultValue(true)]
         public bool ThirstEnabled { get; set; }
 
-        [Label("Temperature enabled")]
+        /*[Label("Temperature enabled")]
         [Tooltip("Toggle the temperature system.")]
-        [DefaultValue(true)]
+        [DefaultValue(true)]*/
         public bool TemperatureEnabled { get; set; }
 
-        [Label("Sanity enabled")]
+        /*[Label("Sanity enabled")]
         [Tooltip("Toggle the sanity system.")]
-        [DefaultValue(true)]
+        [DefaultValue(true)]*/
         public bool SanityEnabled { get; set; }
 
 
     }
-    public class SurvivariaConfigClient : ModConfig
+    /*public class SurvivariaConfigClient : ModConfig
     {
         public override ConfigScope Mode => ConfigScope.ClientSide;
 
-    }
+    }*/
 }

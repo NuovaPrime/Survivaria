@@ -8,7 +8,7 @@ namespace Survivaria.Items.Food.BiomeSpecific.Hell
 {
     public class FieryTuber : FoodItem
     {
-        public FieryTuber() : base("Fiery Tuber", "An unbelievably spicy root, who would eat something like this?", 16, 24, Item.buyPrice(0, 0, 1, 25), ItemRarityID.LightRed, 9, -4, SoundID.Item2, BuffID.OnFire, 3 * 60)
+        public FieryTuber() : base("Fiery Tuber", "An unbelievably spicy root, who would eat something like this?", 16, 24, Item.buyPrice(0, 0, 50, 0), ItemRarityID.Orange, 9, -4, SoundID.Item2, BuffID.OnFire, 3 * 60)
         {
         }
 

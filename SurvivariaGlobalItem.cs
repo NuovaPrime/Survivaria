@@ -3,6 +3,7 @@ using Survivaria.Items.BossItems;
 using Survivaria.Items.Food.BiomeSpecific.Desert;
 using Survivaria.Items.Food.BiomeSpecific.Jungle;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
+using Survivaria.Items.Food.BiomeSpecific.Underground;
 using Survivaria.Items.Materials;
 using Survivaria.Players;
 using System;
@@ -16,7 +17,7 @@ using Terraria.ModLoader;
 
 namespace Survivaria
 {
-    public class SurvivariaGlobalItem : GlobalItem
+    public class SurvivariaGlobalRecipeItem : GlobalItem
     {
 
         
@@ -28,7 +29,7 @@ namespace Survivaria
             {
                 if (context == "bossBag" && arg == ItemID.KingSlimeBossBag)
                 {
-                    player.QuickSpawnItem(mod.ItemType<TubofSlime>());
+                    player.QuickSpawnItem(ModContent.ItemType<TubofSlime>());
                 }
             }
         }
@@ -86,8 +87,39 @@ namespace Survivaria
         {
             if (item.type == ItemID.BottledWater)
                 ThirstAmount = 16;
+            if (item.type == ItemID.BottledHoney)
+                HungerAmount = 5;
             if (item.type == ItemID.Mushroom)
                 HungerAmount = 5;
+            if (item.type == ItemID.Eggnog)
+            {
+                HungerAmount = 6;
+                ThirstAmount = 2;
+            }
+            if (item.type == ItemID.StrangeBrew)
+                ThirstAmount = 10;
+            if (item.type == ItemID.Honeyfin)
+                HungerAmount = 10;
+            if (item.type == ItemID.LesserHealingPotion)
+                ThirstAmount = 8;
+            if (item.type == ItemID.LesserManaPotion)
+                ThirstAmount = 8;
+            if (item.type == ItemID.HealingPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.ManaPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.LesserRestorationPotion)
+                ThirstAmount = 8;
+            if (item.type == ItemID.RestorationPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.GreaterHealingPotion)
+                ThirstAmount = 12;
+            if (item.type == ItemID.GreaterManaPotion)
+                ThirstAmount = 12;
+            if (item.type == ItemID.SuperHealingPotion)
+                ThirstAmount = 14;
+            if (item.type == ItemID.SuperManaPotion)
+                ThirstAmount = 14;
             if (item.type == ItemID.Bacon)
             {
                 HungerAmount = 12;
@@ -152,16 +184,91 @@ namespace Survivaria
                 HungerAmount = 6;
                 ThirstAmount = -2;
             }
-            if (item.type == ItemID.Eggnog)
-            {
-                HungerAmount = 6;
-                ThirstAmount = 2;
-            }
             if (item.type == ItemID.GingerbreadCookie)
             {
                 HungerAmount = 8;
                 ThirstAmount = -4;
             }
+            if (item.type == ItemID.RecallPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.GenderChangePotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.WormholePotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.TeleportationPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.ObsidianSkinPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.RegenerationPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.SwiftnessPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.GillsPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.IronskinPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.ManaRegenerationPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.MagicPowerPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.FeatherfallPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.SpelunkerPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.InvisibilityPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.ShinePotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.NightOwlPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.BattlePotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.ThornsPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.WaterWalkingPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.ArcheryPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.HunterPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.GravitationPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.MiningPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.HeartreachPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.CalmingPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.BuilderPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.TitanPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.FlipperPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.SummoningPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.TrapsightPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.AmmoReservationPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.LifeforcePotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.EndurancePotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.RagePotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.InfernoPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.WrathPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.FishingPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.SonarPotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.CratePotion)
+                ThirstAmount = 10;
+            if (item.type == ItemID.WarmthPotion)
+                ThirstAmount = 10;
         }
 
         public override bool UseItem(Item item, Player player)
@@ -175,5 +282,21 @@ namespace Survivaria
 
         public int HungerAmount { get; set; }
         public int ThirstAmount { get; set; }
+    }
+
+    public class SurvivariaGlobalItem : GlobalItem
+    {
+        public override void ExtractinatorUse(int extractType, ref int resultType, ref int resultStack)
+        {
+            if (extractType == 0)
+            {
+                if (Main.rand.Next(4) == 0)
+                {
+                    resultType = ModContent.ItemType<Salt>();
+                    resultStack = 1;
+                }
+            }       
+            base.ExtractinatorUse(extractType, ref resultType, ref resultStack);
+        }
     }
 }

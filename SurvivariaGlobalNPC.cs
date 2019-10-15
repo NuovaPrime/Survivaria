@@ -7,6 +7,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Survivaria.Items.BossItems;
+using Survivaria.Items.Materials;
 
 namespace Survivaria
 {
@@ -27,9 +28,39 @@ namespace Survivaria
                 if (npc.type == NPCID.KingSlime)
                 {
                     if (Main.rand.Next(10) == 0)
-                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType<TubofSlime>());
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<TubofSlime>());
                 }
             }
+			if (npc.type == NPCID.DesertLamiaLight || npc.type == NPCID.DesertLamiaDark)
+			{
+				if (Main.rand.Next(3) == 0)
+					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<SnakeMeat>());
+			}
+			if (npc.type == NPCID.GiantTortoise || npc.type == NPCID.IceTortoise)
+			{
+				if (Main.rand.Next(3) == 0)
+					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<TurtleMeat>());
+			}
+			if (npc.type == NPCID.RedDevil)
+			{
+				if (Main.rand.Next(3) == 0)
+					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<DemonTail>());
+			}
+			if (npc.type == NPCID.Unicorn)
+			{
+				if (Main.rand.Next(3) == 0)
+					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<UnicornMeat>());
+			}
+			if (npc.type == NPCID.WyvernHead)
+			{
+				if (Main.rand.Next(3) == 0)
+					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<WyvernMeat>());
+			}
+			if (npc.type == NPCID.Crab)
+			{
+				if (Main.rand.Next(3) == 0)
+					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<CrabMeat>());
+			}
             base.NPCLoot(npc);
         }
     }
