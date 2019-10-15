@@ -8,6 +8,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Survivaria.Items.BossItems;
 using Survivaria.Items.Materials;
+using Survivaria.Items.Drinks;
 
 namespace Survivaria
 {
@@ -60,6 +61,16 @@ namespace Survivaria
 			{
 				if (Main.rand.Next(3) == 0)
 					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<CrabMeat>());
+			}
+			if (npc.type == NPCID.IcyMerman)
+			{
+				if (Main.rand.Next(100) == 0)
+					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<FrozenTears>());
+			}
+			if (npc.type == NPCID.IceGolem)
+			{
+				if (Main.rand.Next(33) == 0)
+					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<FrozenTears>());
 			}
             base.NPCLoot(npc);
         }

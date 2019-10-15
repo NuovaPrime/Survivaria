@@ -6,29 +6,27 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using Survivaria.Items.Food.BiomeSpecific.Ocean;
-using Survivaria.Items.Food.BiomeSpecific.Snow;
-using Survivaria.Items.Materials;
+using Survivaria.Items.Food.BiomeSpecific.Purity;
 
 namespace Survivaria.Items.Drinks
 {
-    public class CocoMilk : DrinkItem
+    public class TearJerker : DrinkItem
     {
-        public CocoMilk() : base("Coco Milk", "Nothing is better than this when waking up.", 20, 26, Item.buyPrice(0, 0, 10, 0), ItemRarityID.Blue, 4, 6, SoundID.Item1, BuffID.Regeneration, 60 * 180)
+        public TearJerker() : base("Tear Jerker", "Still strong enough to make you cry when drinking it.", 20, 26, Item.buyPrice(0, 3, 0, 0), ItemRarityID.LightRed, 0, 6, SoundID.Item1, BuffID.ObsidianSkin, 60 * 300)
         {
         }
 
 		public override bool UseItem(Player player)
         {
-            player.AddBuff(BuffID.Sunflower, 60 * 180);
+            player.AddBuff(BuffID.Panic, 60 * 120);
             return true;
         }
 
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<Cocolate>());
-            recipe.AddIngredient(ModContent.ItemType<PearlBerry>());
+            recipe.AddIngredient(ModContent.ItemType<Peppermint>());
+            recipe.AddIngredient(ModContent.ItemType<Dragonfruit>());
             recipe.AddIngredient(ItemID.Bottle);
             recipe.AddTile(TileID.Bottles);
             recipe.SetResult(this);

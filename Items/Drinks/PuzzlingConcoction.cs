@@ -6,26 +6,27 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using Survivaria.Items.Food.BiomeSpecific.Crimson;
+using Survivaria.Items.Food.BiomeSpecific.Jungle;
 
 namespace Survivaria.Items.Drinks
 {
-    public class BloodyShot : DrinkItem
+    public class PuzzlingConcoction : DrinkItem
     {
-        public BloodyShot() : base("Bloody Shot", "A sip of this is enough to feel tough like a bull.", 20, 26, Item.buyPrice(0, 0, 2, 5), ItemRarityID.Green, 6, 6, SoundID.Item1, BuffID.Regeneration, 60 * 180)
+        public PuzzlingConcoction() : base("Puzzling Concoction", "It was used to enter a deep state of concentration.", 20, 26, Item.buyPrice(0, 0, 40, 0), ItemRarityID.Green, 6, 6, SoundID.Item1, BuffID.Spelunker, 60 * 180)
         {
         }
 
 		public override bool UseItem(Player player)
         {
-            player.AddBuff(BuffID.Ironskin, 60 * 120);
+            player.AddBuff(BuffID.Hunter, 60 * 180);
             return true;
         }
 
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<BleedRoot>());
+            recipe.AddIngredient(ModContent.ItemType<Corney>());
+            recipe.AddIngredient(ModContent.ItemType<EnigmaticRoot>());
             recipe.AddIngredient(ItemID.Bottle);
             recipe.AddTile(TileID.Kegs);
             recipe.SetResult(this);

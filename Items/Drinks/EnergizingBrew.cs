@@ -6,31 +6,30 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using Survivaria.Items.Food.BiomeSpecific.Ocean;
+using Survivaria.Items.Food.BiomeSpecific.Hell;
 using Survivaria.Items.Food.BiomeSpecific.Snow;
-using Survivaria.Items.Materials;
 
 namespace Survivaria.Items.Drinks
 {
-    public class CocoMilk : DrinkItem
+    public class EnergizingBrew : DrinkItem
     {
-        public CocoMilk() : base("Coco Milk", "Nothing is better than this when waking up.", 20, 26, Item.buyPrice(0, 0, 10, 0), ItemRarityID.Blue, 4, 6, SoundID.Item1, BuffID.Regeneration, 60 * 180)
+        public EnergizingBrew() : base("Energizing Brew", "A strong balance for a stable harmony.", 20, 26, Item.buyPrice(0, 0, 50, 0), ItemRarityID.Orange, 4, 8, SoundID.Item1, BuffID.Warmth, 60 * 300)
         {
         }
 
 		public override bool UseItem(Player player)
         {
-            player.AddBuff(BuffID.Sunflower, 60 * 180);
+            player.AddBuff(BuffID.Chilled, 60 * 300);
             return true;
         }
 
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<Cocolate>());
-            recipe.AddIngredient(ModContent.ItemType<PearlBerry>());
+            recipe.AddIngredient(ModContent.ItemType<FrostPlum>());
+            recipe.AddIngredient(ModContent.ItemType<FieryTuber>());
             recipe.AddIngredient(ItemID.Bottle);
-            recipe.AddTile(TileID.Bottles);
+            recipe.AddTile(TileID.Kegs);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }
