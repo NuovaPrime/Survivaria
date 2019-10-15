@@ -24,7 +24,7 @@ namespace Survivaria
 
         public void GeneratePlants()
         {
-            int tileToPlace = mod.TileType<PeppermintPlant>();
+            int tileToPlace = ModContent.TileType<PeppermintPlant>();
             int x = WorldGen.genRand.Next(0, Main.maxTilesX);
             int y = WorldGen.genRand.Next(0, );
             if (WorldGen.genRand.Next(100) == 0)
@@ -41,7 +41,7 @@ namespace Survivaria
 
         public override void PostWorldGen()
         {
-            int[] itemsToPlaceInChests = { mod.ItemType<EmptyGourd>() };
+            int[] itemsToPlaceInChests = { ModContent.ItemType<EmptyGourd>() };
             int itemsToPlaceInChestsChoice = 0;
             for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
             {

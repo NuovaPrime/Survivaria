@@ -31,7 +31,7 @@ namespace Survivaria.Tiles.Plants
 
         public override bool Drop(int i, int j)
         {
-            Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<PricklyPearOrange>());
+            Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<PricklyPearOrange>());
             return false;
         }
 		//public override void RightClick(int i, int j)

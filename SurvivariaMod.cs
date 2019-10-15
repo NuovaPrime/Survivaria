@@ -2,6 +2,8 @@ using Microsoft.Xna.Framework;
 using Survivaria.UI;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 
@@ -82,6 +84,29 @@ namespace Survivaria
 		{
 			RecipeHelper.AddVanillaRecipes(this);
 		}
+
+        public override void AddRecipeGroups()
+        {
+            // Creates a new recipe group
+            RecipeGroup seeds = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Seed", new[]
+            {
+                (int)ItemID.BlinkrootSeeds,
+                ItemID.CorruptSeeds,
+                ItemID.CrimsonSeeds,
+                ItemID.DaybloomSeeds,
+                ItemID.DeathweedSeeds,
+                ItemID.FireblossomSeeds,
+                ItemID.GrassSeeds,
+                ItemID.HallowedSeeds,
+                ItemID.JungleGrassSeeds,
+                ItemID.MoonglowSeeds,
+                ItemID.MushroomGrassSeeds,
+                ItemID.ShiverthornSeeds,
+                ItemID.WaterleafSeeds
+            });
+            // Registers the new recipe group with the specified name
+            RecipeGroup.RegisterGroup("Survivaria:Seeds", seeds);
+        }
 
         public static SurvivariaMod Instance { get; set; }
     }

@@ -7,6 +7,8 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
+using Survivaria.Items.Materials;
+using Survivaria.Tiles.Stations;
 
 namespace Survivaria.Items.Food.Snack
 {
@@ -19,10 +21,10 @@ namespace Survivaria.Items.Food.Snack
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddRecipeGroup(Add allseeds recipe group here, 3);
-            recipe.AddIngredient(mod.ItemType<BlossomWheat>());
+            recipe.AddRecipeGroup("Survivaria:Seeds", 3);
+            recipe.AddIngredient(ModContent.ItemType<BlossomWheat>());
             recipe.AddTile(TileID.Furnaces);
-			recipe.AddTile(mod.TileType<GrindStoneTile>());
+			recipe.AddTile(ModContent.TileType<GrindStoneTile>());
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

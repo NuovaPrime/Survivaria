@@ -15,7 +15,8 @@ namespace Survivaria.Tiles.Plants
 	{
 		public override void SetDefaults() {
 			Main.tileFrameImportant[Type] = true;
-			Main.tileCut[Type] = false;
+            Main.tileLighted[Type] = true;
+            Main.tileCut[Type] = false;
 			Main.tileNoFail[Type] = true;
             Main.tileWaterDeath[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
@@ -35,10 +36,17 @@ namespace Survivaria.Tiles.Plants
 		public override bool Drop(int i, int j) {
 			int stage = Main.tile[i, j].frameX / 18;
 			if (stage == 2) {
-				Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<Amalgae>());
+				Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<Amalgae>());
 			}
 			return false;
 		}
+
+        public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+        {
+            r = 0f;
+            g = 0.07f;
+            b = 0.25f;
+        }
 
         public override void RandomUpdate(int i, int j)
         {

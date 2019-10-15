@@ -40,7 +40,7 @@ namespace Survivaria.Tiles.Plants
         public override bool Drop(int i, int j) {
 			int stage = Main.tile[i, j].frameX / 18 / 2;
 			if (stage == 2) {
-				Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<SparklingBerry>());
+				Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<SparklingBerry>());
 			}
 			return false;
 		}

@@ -21,7 +21,7 @@ namespace Survivaria.Items.Drinks
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.BottledWater);
             recipe.AddIngredient(ItemID.SandBlock);
-			recipe.AddTile(mod.TileType<WaterFilterTile>());
+			recipe.AddTile(ModContent.TileType<WaterFilterTile>());
             recipe.SetResult(this);
             recipe.AddRecipe();
 			

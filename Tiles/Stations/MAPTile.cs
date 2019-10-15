@@ -25,12 +25,12 @@ namespace Survivaria.Tiles.Stations
             name.SetDefault("Mortar and Pestle");
             AddMapEntry(new Color(166, 120, 71), name);
             TileObjectData.addTile(Type);
-            adjTiles = new int[] { mod.TileType<GrindStoneTile>() };
+            adjTiles = new int[] { ModContent.TileType<GrindStoneTile>() };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType<MAP>());
+            Item.NewItem(i * 16, j * 16, 32, 16, ModContent.ItemType<MAP>());
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Survivaria.Tiles.Plants
 		public override bool Drop(int i, int j) {
 			int stage = Main.tile[i, j].frameX / 18;
 			if (stage == 2) {
-				Item.NewItem(i * 16, j * 16, 0, 0, mod.ItemType<PearlBerry>());
+				Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<PearlBerry>());
 			}
 			return false;
 		}
@@ -42,8 +42,8 @@ namespace Survivaria.Tiles.Plants
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             r = 0f;
-            g = 0.13f;
-            b = 0.5f;
+            g = 0.09f;
+            b = 0.33f;
         }
 
         public override void RandomUpdate(int i, int j) {

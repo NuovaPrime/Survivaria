@@ -18,7 +18,7 @@ namespace Survivaria.Items.Food.Nibble
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddRecipeGroup(Add allseeds recipe group here);
+			recipe.AddRecipeGroup("Survivaria:Seeds");
             recipe.AddTile(TileID.Furnaces);
             recipe.SetResult(this);
             recipe.AddRecipe();

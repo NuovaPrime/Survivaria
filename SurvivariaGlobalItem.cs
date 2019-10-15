@@ -3,6 +3,7 @@ using Survivaria.Items.BossItems;
 using Survivaria.Items.Food.BiomeSpecific.Desert;
 using Survivaria.Items.Food.BiomeSpecific.Jungle;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
+using Survivaria.Items.Food.BiomeSpecific.Underground;
 using Survivaria.Items.Materials;
 using Survivaria.Players;
 using System;
@@ -16,7 +17,7 @@ using Terraria.ModLoader;
 
 namespace Survivaria
 {
-    public class SurvivariaGlobalItem : GlobalItem
+    public class SurvivariaGlobalRecipeItem : GlobalItem
     {
 
         
@@ -28,7 +29,7 @@ namespace Survivaria
             {
                 if (context == "bossBag" && arg == ItemID.KingSlimeBossBag)
                 {
-                    player.QuickSpawnItem(mod.ItemType<TubofSlime>());
+                    player.QuickSpawnItem(ModContent.ItemType<TubofSlime>());
                 }
             }
         }
@@ -281,5 +282,21 @@ namespace Survivaria
 
         public int HungerAmount { get; set; }
         public int ThirstAmount { get; set; }
+    }
+
+    public class SurvivariaGlobalItem : GlobalItem
+    {
+        public override void ExtractinatorUse(int extractType, ref int resultType, ref int resultStack)
+        {
+            if (extractType == 0)
+            {
+                if (Main.rand.Next(4) == 0)
+                {
+                    resultType = ModContent.ItemType<Salt>();
+                    resultStack = 1;
+                }
+            }       
+            base.ExtractinatorUse(extractType, ref resultType, ref resultStack);
+        }
     }
 }

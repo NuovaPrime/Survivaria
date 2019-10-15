@@ -16,7 +16,7 @@ namespace Survivaria.Items.Misc
         public override void SetDefaults()
         {
             item.consumable = true;
-            item.createTile = mod.TileType<GrindStoneTile>();
+            item.createTile = ModContent.TileType<GrindStoneTile>();
             base.SetDefaults();
         }
     }

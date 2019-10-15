@@ -53,7 +53,6 @@ namespace Survivaria.UI
         }
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            Mod mod = SurvivariaMod.Instance;
             SurvivariaPlayer player = Main.LocalPlayer.GetModPlayer<SurvivariaPlayer>();
             Vector2 mousePosition = new Vector2((float)Main.mouseX, (float)Main.mouseY);
             if (!locationInitialized)
@@ -84,9 +83,9 @@ namespace Survivaria.UI
             }
             //if (mod.GetConfig<SurvivariaConfigServer>().SanityEnabled)
             //DrawBar(spriteBatch, player, GFX.sanityIndicatorTexture, 5, (int)(player.CurrentSanity / player.MaximumSanity * 100 / 21), 1, 10);
-            if (mod.GetConfig<SurvivariaConfigServer>().HungerEnabled)
+            if (ModContent.GetInstance<SurvivariaConfigServer>().HungerEnabled)
                 DrawBar(spriteBatch, player, GFX.hungerIndicatorTexture, 8, (int)(player.CurrentHunger / player.HungerMaximum * 100 / 13 * 1.04 - 0.01));
-            if (mod.GetConfig<SurvivariaConfigServer>().ThirstEnabled)
+            if (ModContent.GetInstance<SurvivariaConfigServer>().ThirstEnabled)
                 DrawBar(spriteBatch, player, GFX.thirstIndicatorTexture, 5, (int)(player.CurrentThirst / player.MaximumThirst * 100 / 21), 1.6f, 5);
             //if (mod.GetConfig<SurvivariaConfigServer>().TemperatureEnabled)
             //DrawTemperatureFill(spriteBatch, player, -0.4f, 14.5f);

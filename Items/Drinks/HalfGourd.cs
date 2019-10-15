@@ -27,7 +27,7 @@ namespace Survivaria.Items.Drinks
         public override bool UseItem(Player player)
         {
             item.TurnToAir();
-            player.PutItemInInventory(mod.ItemType<EmptyGourd>());
+            player.PutItemInInventory(ModContent.ItemType<EmptyGourd>());
             return true;
         }
     }
