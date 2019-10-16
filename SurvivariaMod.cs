@@ -6,6 +6,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
+using Survivaria.Items.Materials;
 
 namespace Survivaria
 {
@@ -106,6 +107,16 @@ namespace Survivaria
             });
             // Registers the new recipe group with the specified name
             RecipeGroup.RegisterGroup("Survivaria:Seeds", seeds);
+
+			RecipeGroup pears = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Prickly Pear", new int[]
+            {
+                ModContent.ItemType<PricklyPearMagenta>(),
+                ModContent.ItemType<PricklyPearRed>(),
+				ModContent.ItemType<PricklyPearOrange>(),
+				ModContent.ItemType<PricklyPearYellow>(),
+				ModContent.ItemType<PricklyPearWhite>()
+            });
+            RecipeGroup.RegisterGroup("Survivaria:Pears", pears);
         }
 
         public static SurvivariaMod Instance { get; set; }

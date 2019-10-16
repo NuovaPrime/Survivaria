@@ -1,6 +1,10 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Survivaria.Buffs;
+using Terraria.DataStructures;
+using System.Collections.Generic;
+using Terraria.GameContent.Events;
 
 namespace Survivaria.Players
 {
@@ -33,35 +37,52 @@ namespace Survivaria.Players
             if (CurrentHunger >= 85)
             {
                 player.lifeRegen += 1;
-                player.AddBuff(BuffID.WellFed, 30);
+				player.wellFed = true;
+				player.statDefense += 2;
+                player.allDamageMult += 0.05f;
+				player.meleeCrit += 2;
+				player.meleeSpeed += 0.05f;
+				player.magicCrit += 2;
+				player.rangedCrit += 2;
+				player.thrownCrit += 2;
+				player.minionKB += 0.5f;
+				player.moveSpeed += 0.2f;
                 ThirstLossMulti += 0.05f;
                 CurrentTemperature += 2;
+                player.AddBuff(ModContent.BuffType<WellFedBuff>(), 2);
             }
-            if (CurrentHunger <= 41 && CurrentHunger >= 21)
+            if (CurrentHunger <= 41)
             {
+				if(player.lifeRegen > 1) player.lifeRegen -= 2;
                 player.statLifeMax2 -= 10;
                 player.pickSpeed -= 0.15f;
                 player.meleeSpeed -= 0.15f;
                 player.moveSpeed -= 0.10f;
+                if(CurrentHunger >= 21) player.AddBuff(ModContent.BuffType<HungryDebuff>(), 2);
             }
-            if (CurrentHunger < 21 && CurrentHunger >= 1)
+            if (CurrentHunger < 21)
             {
-                player.statLifeMax2 -= 50;
-                player.pickSpeed -= 0.45f;
-                player.meleeSpeed -= 0.45f;
-                player.moveSpeed -= 0.40f;
-                
+				if(player.lifeRegen > 1) player.lifeRegen -= 2;
+                player.statLifeMax2 -= 40;
+                player.pickSpeed -= 0.3f;
+                player.meleeSpeed -= 0.3f;
+                player.moveSpeed -= 0.3f;
+                if(CurrentHunger > 0) player.AddBuff(ModContent.BuffType<FamishedDebuff>(), 2);
             }
             if (CurrentHunger <= 0)
             {
                 LossTimer++;
+				if(player.lifeRegen > 0) player.lifeRegen = 0;
                 if (LossTimer >= 20)
                 {
-                    player.statLife -= 1;
-                    player.statMana -= 1;
+                    if(player.statLife > 0) player.statLife -= 1;
+                    if(player.statMana > 0) player.statMana -= 1;
+					string playerName = Main.LocalPlayer.name;
+					if(player.statLife <= 0) player.KillMe(PlayerDeathReason.ByCustomReason(playerName +" couldn't sustain the hunger."), 10.0, 0, false);
                     CurrentSanity -= 0.05f;
                     LossTimer = 0;
                 }
+                player.AddBuff(ModContent.BuffType<StarvingDebuff>(), 2);
             }
         }
 
@@ -79,7 +100,7 @@ namespace Survivaria.Players
 
             if (player.HasBuff(BuffID.Bleeding))
                 HungerLossMulti += 0.05f;
-            if (CurrentSanity >= 30)
+            if (CurrentSanity <= 30)
                 HungerLossMulti += 0.08f;
             if (player.lifeRegenCount >= 2)
                 HungerLossMulti += 0.1f;

@@ -1,5 +1,10 @@
 ﻿using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
+using Survivaria.Buffs;
+using Terraria.DataStructures;
+using System.Collections.Generic;
+using Terraria.GameContent.Events;
 
 namespace Survivaria.Players
 {
@@ -35,28 +40,38 @@ namespace Survivaria.Players
                 player.manaCost -= 0.10f;
                 player.pickSpeed += 0.10f;
                 player.allDamageMult += 0.08f;
+                player.AddBuff(ModContent.BuffType<WellHydratedBuff>(), 2);
             }
-            if (CurrentThirst <= 26)
+			if (CurrentThirst <= 41)
             {
                 player.manaCost += 0.25f;
                 player.pickSpeed -= 0.20f;
                 player.allDamageMult -= 0.15f;
                 player.moveSpeed -= 0.10f;
+                if(CurrentHunger >= 21) player.AddBuff(ModContent.BuffType<ThirstyDebuff>(), 2);
+            }
+            if (CurrentThirst < 21)
+            {
+                player.manaCost += 0.25f;
+                player.pickSpeed -= 0.20f;
+                player.allDamageMult -= 0.15f;
+                player.moveSpeed -= 0.10f;
+                if(CurrentThirst > 0) player.AddBuff(ModContent.BuffType<DehydratedDebuff>(), 2);
             }
             if (CurrentThirst <= 0)
             {
-                player.manaCost += 0.25f;
-                player.pickSpeed -= 0.20f;
-                player.allDamageMult -= 0.15f;
-                player.moveSpeed -= 0.10f;
                 LossTimer++;
+				if(player.lifeRegen > 0) player.lifeRegen = 0;
                 if (LossTimer >= 20)
                 {
-                    player.statLife -= 1;
-                    player.statMana -= 1;
+                    if(player.statLife > 0) player.statLife -= 1;
+                    if(player.statMana > 0) player.statMana -= 1;
+					string playerName = Main.LocalPlayer.name;
+					if(player.statLife <= 0) player.KillMe(PlayerDeathReason.ByCustomReason(playerName +" turned back to dust."), 10.0, 0, false);
                     CurrentSanity -= 0.05f;
                     LossTimer = 0;
                 }
+                player.AddBuff(ModContent.BuffType<ParchedDebuff>(), 2);
             }
         }
 
@@ -73,10 +88,10 @@ namespace Survivaria.Players
             }
             if (CurrentTemperature <= 0)
                 ThirstLossMulti -= 0.2f;
-            if (CurrentTemperature >= 38 && CurrentTemperature < 52)
+            if (CurrentTemperature >= 38)
                 ThirstLossMulti += 0.2f;
             if (CurrentTemperature >= 52)
-                ThirstLossMulti += 0.5f;
+                ThirstLossMulti += 0.3f;
 
             return _t;
         }
