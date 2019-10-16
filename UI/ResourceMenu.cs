@@ -20,7 +20,7 @@ namespace Survivaria.UI
             backPanel = new UIPanel();
             backPanel.Width.Set(40, 0f);
             backPanel.Height.Set(124, 0f);
-            backPanel.Left.Set(Main.screenWidth / 1.1f, 0f); //Main.screenWidth / 1.154f
+            backPanel.Left.Set(Main.screenWidth / 2f - backPanel.Width.Pixels / 2f, 0f);
             backPanel.Top.Set(Main.screenHeight / 12f, 0f);
             backPanel.BackgroundColor = new Color(0, 0, 0, 0);
             backPanel.BorderColor = new Color(0, 0, 0, 0);
@@ -59,7 +59,7 @@ namespace Survivaria.UI
             {
                 if (player.MenuOffset == Vector2.Zero)
                 {
-                    backPanel.Left.Set(Main.screenWidth / 1.1f, 0f); //Main.screenWidth / 1.154f
+                    backPanel.Left.Set(Main.screenWidth / 2f - backPanel.Width.Pixels / 2f, 0f);
                     backPanel.Top.Set(Main.screenHeight / 12f, 0f);
                 }
                 else

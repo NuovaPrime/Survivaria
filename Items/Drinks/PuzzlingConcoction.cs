@@ -7,6 +7,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Survivaria.Items.Food.BiomeSpecific.Jungle;
+using Survivaria.Items.Materials;
 
 namespace Survivaria.Items.Drinks
 {

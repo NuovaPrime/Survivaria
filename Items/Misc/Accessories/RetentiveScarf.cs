@@ -5,12 +5,13 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
 using Survivaria.Players;
+using Survivaria.Items.Materials;
 
 namespace Survivaria.Items.Misc
 {
     public class RetentiveScarf : SurvivariaItem
     {
-        public RetentiveScarf() : base("Retentive Scarf", "It helps preventing dehydration and is quite prized when going into harsh environments.", 28, 26, Item.buyPrice(0, 0, 40, 0), ItemRarityID.Blue)
+        public RetentiveScarf() : base("Retentive Scarf", "It helps in preventing dehydration and is quite prized when going into harsh environments.\nReduces thirst drain rate by 15%", 28, 26, Item.buyPrice(0, 0, 40, 0), ItemRarityID.Blue)
         {
         }
 
@@ -22,7 +23,8 @@ namespace Survivaria.Items.Misc
 
 		public override void UpdateEquip(Player player)
 		{
-			player.ThirstLossMulti -= 0.3f;
+            SurvivariaPlayer modPlayer = player.GetModPlayer<SurvivariaPlayer>();
+            modPlayer.ThirstLossMulti -= 0.15f;
 		}
 
 		public override void AddRecipes()

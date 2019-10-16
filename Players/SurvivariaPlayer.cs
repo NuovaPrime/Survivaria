@@ -11,8 +11,6 @@ namespace Survivaria.Players
     {
         public override void PostUpdate()
         {
-            if (MenuOffset == Vector2.Zero)
-                MenuOffset = new Vector2(Main.screenWidth / 2f, Main.screenHeight / 12f);
 			if (player.active)
 			{
                 if (ModContent.GetInstance<SurvivariaConfigServer>().SanityEnabled)
@@ -84,6 +82,6 @@ namespace Survivaria.Players
             MenuOffset = tag.Get<Vector2>(nameof(MenuOffset));
         }
 
-        public Vector2 MenuOffset { get; set; }
+        public Vector2 MenuOffset { get; set; } = Vector2.Zero;
     }
 }

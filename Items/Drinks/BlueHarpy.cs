@@ -19,7 +19,7 @@ namespace Survivaria.Items.Drinks
 
 		public override bool UseItem(Player player)
         {
-            player.AddBuff(BuffID.Gravity, 60 * 180);
+            player.AddBuff(BuffID.Gravitation, 60 * 180);
             return true;
         }
 

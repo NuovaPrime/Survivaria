@@ -89,7 +89,7 @@ namespace Survivaria.Players
             return _h;
 		}
 
-		private double _h = 0; // Someone comment on what this is.
+		private double _h = 0; // Someone comment on what this is. - Placeholder value for math reasons, not sure?
 
         public int HungerLossTimer { get; private set; }
         public float HungerLossMulti { get; set; } = 1f;

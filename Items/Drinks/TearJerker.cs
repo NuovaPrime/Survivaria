@@ -7,6 +7,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
+using Survivaria.Items.Food.BiomeSpecific.Jungle;
 
 namespace Survivaria.Items.Drinks
 {
@@ -26,7 +27,7 @@ namespace Survivaria.Items.Drinks
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ModContent.ItemType<Peppermint>());
-            recipe.AddIngredient(ModContent.ItemType<Dragonfruit>());
+            recipe.AddIngredient(ModContent.ItemType<DragonFruit>());
             recipe.AddIngredient(ItemID.Bottle);
             recipe.AddTile(TileID.Bottles);
             recipe.SetResult(this);
