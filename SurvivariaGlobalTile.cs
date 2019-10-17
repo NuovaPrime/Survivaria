@@ -119,7 +119,7 @@ namespace Survivaria
             {
                 if (Main.rand.Next(50) == 0)
                 {
-                    WorldGen.PlaceTile(i, j - 1, ModContent.TileType<ReecePlant>(), true, true);
+                    WorldGen.PlaceTile(i, j - 2, ModContent.TileType<ReecePlant>(), true, true);
                 }
             }
             if ((Main.tile[i, j].type == TileID.HallowedGrass && (Main.tile[i, j - 1].type == TileID.HallowedPlants || Main.tile[i, j - 1].type == TileID.HallowedPlants2 || Main.tile[i, j - 1].type < 0)) && Main.tile[i, j].slope() == 0 && Main.dayTime)
@@ -158,6 +158,34 @@ namespace Survivaria
                             WorldGen.PlaceTile(i, j - 1, ModContent.TileType<PricklyPearYellowPlant>(), true, true);
                             break;
                     }
+                }
+            }
+            if (Main.tile[i, j].type == TileID.Ash && Main.tile[i, j - 1].type < 0 && Main.tile[i, j].slope() == 0)
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    WorldGen.PlaceTile(i, j - 1, ModContent.TileType<FireTuberPlant>(), true, true);
+                }
+            }
+            if (Main.tile[i, j].type == TileID.Ash && Main.tile[i, j - 1].type < 0 && Main.tile[i, j].slope() == 0)
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    WorldGen.PlaceTile(i, j - 1, ModContent.TileType<AshStrawPlant>(), true, true);
+                }
+            }
+            if(Main.tile[i, j].type == TileID.Grass && Main.tile[i, j - 1].type < 0 && j <= WorldGen.worldSurface - 50 && Main.tile[i, j].slope() == 0)
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    WorldGen.PlaceTile(i, j - 1, ModContent.TileType<StarfruitPlant>(), true, true);
+                }
+            }
+            if (Main.tile[i, j].type == TileID.Cloud && Main.tile[i, j + 1].type < 0 && Main.tile[i, j].slope() == 0)
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    WorldGen.PlaceTile(i, j + 1, ModContent.TileType<CloudstalkPlant>(), true, true);
                 }
             }
             base.RandomUpdate(i, j, type);
