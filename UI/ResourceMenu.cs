@@ -81,6 +81,9 @@ namespace Survivaria.UI
                 player.MenuOffset = new Vector2(backPanel.Left.Pixels, backPanel.Top.Pixels);
                 Recalculate();
             }
+            if (backPanel.Left.Pixels > Main.screenWidth)
+                backPanel.Left.Set(Main.screenWidth / 2f - backPanel.Width.Pixels / 2f, 0f);
+
             //if (mod.GetConfig<SurvivariaConfigServer>().SanityEnabled)
             //DrawBar(spriteBatch, player, GFX.sanityIndicatorTexture, 5, (int)(player.CurrentSanity / player.MaximumSanity * 100 / 21), 1, 10);
             if (ModContent.GetInstance<SurvivariaConfigServer>().HungerEnabled)

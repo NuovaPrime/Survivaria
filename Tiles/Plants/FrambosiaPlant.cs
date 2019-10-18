@@ -7,6 +7,8 @@ using Survivaria.Items.Food.BiomeSpecific.Purity;
 using Survivaria.Items.Food.BiomeSpecific.Underground;
 using Survivaria.Items.Materials;
 using Terraria;
+using Terraria.DataStructures;
+using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -16,23 +18,20 @@ namespace Survivaria.Tiles.Plants
 	public class FrambosiaPlant : ModTile
 	{
 		public override void SetDefaults() {
-			Main.tileFrameImportant[Type] = true;
-			Main.tileCut[Type] = false;
+            Main.tileFrameImportant[Type] = true;
+            Main.tileCut[Type] = false;
+            Main.tileLighted[Type] = true;
             Main.tileNoFail[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
-            TileObjectData.newTile.Height = 1;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 18 };
-            TileObjectData.newTile.DrawYOffset = -1;
+            Main.tileSpelunker[Type] = true;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
+            TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
+            TileObjectData.newTile.AnchorBottom = AnchorData.Empty;
+            TileObjectData.newTile.DrawYOffset = -2;
             TileObjectData.newTile.AnchorValidTiles = new[]
 			{
                 367, //TileID.Marble
 			};
 			TileObjectData.addTile(Type);
-		}
-		public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
-			if (i % 2 == 1) {
-				spriteEffects = SpriteEffects.FlipHorizontally;
-			}
 		}
 
 		public override bool Drop(int i, int j) {
@@ -45,9 +44,25 @@ namespace Survivaria.Tiles.Plants
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
-            r = 0.70f;
-            g = 0.70f;
-            b = 0.20f;
+            int stage = Main.tile[i, j].frameX / 18;
+            if (stage == 2)
+            {
+                r = 0.09f;
+                g = 0.09f;
+                b = 0.03f;
+            }
+            if (stage == 1)
+            {
+                r = 0.05f;
+                g = 0.05f;
+                b = 0.02f;
+            }
+            if (stage == 0)
+            {
+                r = 0.02f;
+                g = 0.02f;
+                b = 0.01f;
+            }
         }
 
         public override void RandomUpdate(int i, int j) {

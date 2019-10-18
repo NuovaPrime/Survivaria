@@ -19,12 +19,13 @@ namespace Survivaria.Tiles.Plants
             Main.tileCut[Type] = false;
 			Main.tileNoFail[Type] = true;
             Main.tileWaterDeath[Type] = false;
+            Main.tileSpelunker[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 18};
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
             TileObjectData.newTile.DrawYOffset = 2;
-            TileObjectData.newTile.WaterPlacement = LiquidPlacement.Allowed;
+            TileObjectData.newTile.WaterPlacement = LiquidPlacement.OnlyInLiquid;
             TileObjectData.newTile.WaterDeath = false;
             TileObjectData.newTile.AnchorValidTiles = new[]
 			{

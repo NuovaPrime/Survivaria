@@ -7,7 +7,7 @@ using Survivaria.Items.Food.BiomeSpecific.Purity;
 using Survivaria.Players;
 using Survivaria.Items.Materials;
 
-namespace Survivaria.Items.Misc
+namespace Survivaria.Items.Misc.Accessories
 {
     public class RetentiveScarf : SurvivariaItem
     {

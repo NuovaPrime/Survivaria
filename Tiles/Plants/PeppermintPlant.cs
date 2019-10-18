@@ -15,6 +15,7 @@ namespace Survivaria.Tiles.Plants
 			Main.tileFrameImportant[Type] = true;
 			Main.tileCut[Type] = false;
 			Main.tileNoFail[Type] = true;
+            Main.tileSpelunker[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
             TileObjectData.newTile.Width = 2;
             TileObjectData.newTile.Height = 2;

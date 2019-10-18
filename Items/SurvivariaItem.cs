@@ -119,7 +119,18 @@ namespace Survivaria.Items
             player.GetModPlayer<SurvivariaPlayer>().AddThirst(ThirstAmount);
             return true;
         }
-        
+
+        public override bool CanUseItem(Player player)
+        {
+            if (HungerAmount > 0)
+                if (player.HasBuff(ModContent.BuffType<NauseaDebuff>()))
+                    return false;
+
+            if (ThirstAmount > 0)
+                if (player.HasBuff(ModContent.BuffType<HyponatremiaDebuff>()))
+                    return false;
+            return true;
+        }
 
         public int Value { get; }
         public int Rarity { get; }

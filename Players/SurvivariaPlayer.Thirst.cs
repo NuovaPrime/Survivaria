@@ -52,7 +52,7 @@ namespace Survivaria.Players
             }
             if (CurrentThirst < 21)
             {
-                if (Main.rand.Next(1000) == 0)
+                if (Main.rand.Next(2000) == 0)
                     Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/ThirstCough"));
                 player.manaCost += 0.25f;
                 player.pickSpeed -= 0.20f;
@@ -67,9 +67,13 @@ namespace Survivaria.Players
                 if (LossTimer >= 20)
                 {
                     if(player.statLife > 0) player.statLife -= 1;
-                    if(player.statMana > 0) player.statMana -= 1;
+                    if(player.statMana > 0) player.statMana -= 2;
 					string playerName = Main.LocalPlayer.name;
-					if(player.statLife <= 0) player.KillMe(PlayerDeathReason.ByCustomReason(playerName +" turned back to dust."), 10.0, 0, false);
+                    if (player.statLife <= 0)
+                    {
+                        player.KillMe(PlayerDeathReason.ByCustomReason(playerName + " turned back to dust."), 10.0, 0, false);
+                        CurrentThirst = 20;
+                    }
                     CurrentSanity -= 0.05f;
                     LossTimer = 0;
                 }

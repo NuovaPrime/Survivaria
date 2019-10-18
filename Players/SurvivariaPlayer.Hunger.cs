@@ -62,7 +62,7 @@ namespace Survivaria.Players
             }
             if (CurrentHunger < 21)
             {
-                if (Main.rand.Next(1000) == 0)
+                if (Main.rand.Next(2000) == 0)
                     Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/StomachGrowl"));
 				if(player.lifeRegen > 1) player.lifeRegen -= 2;
                 player.statLifeMax2 -= 40;
@@ -80,7 +80,11 @@ namespace Survivaria.Players
                     if(player.statLife > 0) player.statLife -= 1;
                     if(player.statMana > 0) player.statMana -= 1;
 					string playerName = Main.LocalPlayer.name;
-					if(player.statLife <= 0) player.KillMe(PlayerDeathReason.ByCustomReason(playerName +" couldn't sustain the hunger."), 10.0, 0, false);
+                    if (player.statLife <= 0)
+                    {
+                        player.KillMe(PlayerDeathReason.ByCustomReason(playerName + " couldn't sustain the hunger."), 10.0, 0, false);
+                        CurrentHunger = 20;
+                    }
                     CurrentSanity -= 0.05f;
                     LossTimer = 0;
                 }

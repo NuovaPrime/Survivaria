@@ -1,7 +1,6 @@
 using Survivaria.Tiles.Plants;
 using System.Threading.Tasks;
 using Terraria;
-using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -17,18 +16,13 @@ namespace Survivaria.Items.Food.BiomeSpecific.Purity
         {
             base.SetDefaults();
             item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Drinking/CrunchEating");
+            item.createTile = ModContent.TileType<PricklyPearOrangePlant>();
         }
 
 		public override bool UseItem(Player player)
         {
             player.AddBuff(BuffID.OnFire, 60 * 30);
             return true;
-        }
-
-        public override void SetDefaults()
-        {
-            base.SetDefaults();
-            item.createTile = ModContent.TileType<PricklyPearOrangePlant>();
         }
     }
 }

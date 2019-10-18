@@ -18,8 +18,11 @@ namespace Survivaria.Tiles.Plants
 			Main.tileCut[Type] = false;
             Main.tileLighted[Type] = true;
             Main.tileNoFail[Type] = true;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
+            Main.tileLavaDeath[Type] = false;
+            Main.tileSpelunker[Type] = true;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.newTile.DrawYOffset = 1;
+            TileObjectData.newTile.LavaDeath = false;
             TileObjectData.newTile.AnchorValidTiles = new[]
 			{
 				57, //TileID.Ash

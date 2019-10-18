@@ -19,13 +19,13 @@ namespace Survivaria.Tiles.Plants
 			Main.tileCut[Type] = false;
             Main.tileLighted[Type] = true;
             Main.tileNoFail[Type] = true;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
-            TileObjectData.newTile.Height = 1;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 18 };
-            TileObjectData.newTile.DrawYOffset = -1;
+            Main.tileSpelunker[Type] = true;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
+            TileObjectData.newTile.DrawYOffset = -2;
             TileObjectData.newTile.AnchorValidTiles = new[]
 			{
 				189, //TileID.Cloud
+                196, //TileID.RainCloud
 			};
 			TileObjectData.addTile(Type);
 		}

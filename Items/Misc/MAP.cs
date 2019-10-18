@@ -1,7 +1,7 @@
 ﻿using Survivaria.Tiles.Stations;
 using System.Threading.Tasks;
 using Terraria;
-using Terraria.Audio;
+
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -18,6 +18,16 @@ namespace Survivaria.Items.Misc
             item.consumable = true;
             item.createTile = ModContent.TileType<MAPTile>();
             base.SetDefaults();
+        }
+
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.Wood, 50);
+            recipe.AddIngredient(ItemID.Chain, 1);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

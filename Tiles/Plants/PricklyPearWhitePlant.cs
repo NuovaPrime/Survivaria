@@ -10,30 +10,46 @@ using Terraria.ObjectData;
 
 namespace Survivaria.Tiles.Plants
 {
-	public class PricklyPearWhitePlant : ModTile
-	{
-		public override void SetDefaults() {
-			Main.tileFrameImportant[Type] = true;
+    public class PricklyPearWhitePlant : ModTile
+    {
+        public override void SetDefaults()
+        {
+            Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
-			Main.tileCut[Type] = false;
-			Main.tileNoFail[Type] = true;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
-            TileObjectData.newTile.DrawYOffset = 1;
+            Main.tileCut[Type] = false;
+            Main.tileNoFail[Type] = true;
+            Main.tileSpelunker[Type] = true;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
+            TileObjectData.newTile.DrawYOffset = 2;
             TileObjectData.newTile.AnchorValidTiles = new[]
-			{
-				80, //TileID.SnowBlock
+            {
+                53, //TileID.Sand
 			};
-			TileObjectData.addTile(Type);
-		}
+            TileObjectData.addTile(Type);
+        }
 
         public override bool Drop(int i, int j)
         {
-            Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<PricklyPearWhite>());
+            int stage = Main.tile[i, j].frameX / 18 / 2;
+            if (stage == 2)
+            {
+                Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<PricklyPearWhite>());
+            }
             return false;
         }
-		//public override void RightClick(int i, int j)
-		//{
-		//	base.RightClick(i, j);
-		//}
-	}
+
+        public override void RandomUpdate(int i, int j)
+        {
+            if (Main.tile[i, j].frameX == 0)
+            {
+                Main.tile[i, j].frameX += 36;
+                Main.tile[i + 1, j].frameX += 36;
+            }
+            else if (Main.tile[i, j].frameX == 36)
+            {
+                Main.tile[i, j].frameX += 36;
+                Main.tile[i + 1, j].frameX += 36;
+            }
+        }
+    }
 }

@@ -19,7 +19,8 @@ namespace Survivaria.Tiles.Plants
 			Main.tileFrameImportant[Type] = true;
 			Main.tileCut[Type] = false;
             Main.tileNoFail[Type] = true;
-			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
+            Main.tileSpelunker[Type] = true;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.newTile.DrawYOffset = 1;
             TileObjectData.newTile.AnchorValidTiles = new[]
 			{
