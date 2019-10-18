@@ -117,6 +117,14 @@ namespace Survivaria
 				ModContent.ItemType<PricklyPearWhite>()
             });
             RecipeGroup.RegisterGroup("Survivaria:Pears", pears);
+
+			RecipeGroup ofish = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Ocean Fish", new int[]
+            {
+                ItemID.Tuna,
+                ItemID.RedSnapper,
+                ItemID.Trout,
+            });
+            RecipeGroup.RegisterGroup("Survivaria:OceanFish", ofish);
         }
 
         public static SurvivariaMod Instance { get; set; }
