@@ -18,6 +18,12 @@ namespace Survivaria.Items.Drinks
         {
         }
 
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Drinking/LightDrink");
+        }
+
 		public override bool UseItem(Player player)
         {
             player.AddBuff(BuffID.Sunflower, 60 * 180);

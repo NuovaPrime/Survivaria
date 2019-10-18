@@ -17,6 +17,12 @@ namespace Survivaria.Items.Drinks
         {
         }
 
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Drinking/GourdDrink");
+        }
+
 		public override bool UseItem(Player player)
         {
             player.AddBuff(BuffID.Gravitation, 60 * 180);

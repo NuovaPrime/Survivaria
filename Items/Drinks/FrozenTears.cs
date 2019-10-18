@@ -19,6 +19,7 @@ namespace Survivaria.Items.Drinks
         {
             item.consumable = false;
             base.SetDefaults();
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Drinking/LightDrink");
         }
     }
 }

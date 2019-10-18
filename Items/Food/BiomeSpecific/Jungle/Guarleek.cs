@@ -12,6 +12,12 @@ namespace Survivaria.Items.Food.BiomeSpecific.Jungle
         {
         }
 
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Drinking/FruitEating");
+        }
+
 		public override bool UseItem(Player player)
         {
             player.AddBuff(BuffID.Stinky, 60 * 60);

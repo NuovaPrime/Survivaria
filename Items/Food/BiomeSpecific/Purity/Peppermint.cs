@@ -13,6 +13,12 @@ namespace Survivaria.Items.Food.BiomeSpecific.Purity
         {
         }
 
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Drinking/CrunchEating");
+        }
+
 		public override bool UseItem(Player player)
         {
             player.AddBuff(BuffID.OnFire, 60 * 30);

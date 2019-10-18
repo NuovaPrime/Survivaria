@@ -18,6 +18,12 @@ namespace Survivaria.Items.Food.Snack
         {
         }
 
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Drinking/CrunchEating");
+        }
+
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

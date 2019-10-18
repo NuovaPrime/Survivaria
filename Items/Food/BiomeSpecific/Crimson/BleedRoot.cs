@@ -15,5 +15,11 @@ namespace Survivaria.Items.Food.BiomeSpecific.Crimson
         public BleedRoot() : base("Bleed Root", "A leafy beet that excretes blood occasionally as if it was beating.", 26, 36, Item.buyPrice(0, 0, 2, 50), ItemRarityID.Green, 7, 3, SoundID.Item2, BuffID.Regeneration, 30 * 60)
         {
         }
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Drinking/FruitEating");
+        }
+
     }
 }

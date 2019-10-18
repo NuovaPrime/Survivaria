@@ -19,6 +19,12 @@ namespace Survivaria.Items.Food.Snack
         {
         }
 
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Drinking/CrunchEating");
+        }
+
 		public override bool UseItem(Player player)
         {
             player.AddBuff(BuffID.Ironskin, 60 * 420);

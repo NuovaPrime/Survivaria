@@ -18,6 +18,12 @@ namespace Survivaria.Items.Food.Snack
         {
         }
 
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Drinking/FruitEating");
+        }
+
 		public override bool UseItem(Player player)
         {
             player.AddBuff(BuffID.Thorns, 60 * 180);
