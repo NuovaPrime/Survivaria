@@ -15,12 +15,14 @@ namespace Survivaria.Tiles.Plants
 			Main.tileFrameImportant[Type] = true;
 			Main.tileCut[Type] = false;
 			Main.tileNoFail[Type] = true;
+            Main.tileWaterDeath[Type] = true;
             Main.tileSpelunker[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
             TileObjectData.newTile.Width = 2;
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16};
             TileObjectData.newTile.DrawYOffset = 2;
+            TileObjectData.newTile.WaterDeath = true;
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width - 1, 0);
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.newTile.AnchorValidTiles = new[]
@@ -49,13 +51,19 @@ namespace Survivaria.Tiles.Plants
         {
             if (Main.tile[i, j].frameX == 0)
             {
-                Main.tile[i, j].frameX += 36;
-                Main.tile[i + 1, j].frameX += 36;
+                if (Main.rand.Next(4) == 0)
+                {
+                    Main.tile[i, j].frameX += 36;
+                    Main.tile[i + 1, j].frameX += 36;
+                }
             }
 			else if (Main.tile[i, j].frameX == 36)
             {
-                Main.tile[i, j].frameX += 36;
-                Main.tile[i + 1, j].frameX += 36;
+                if (Main.rand.Next(4) == 0)
+                {
+                    Main.tile[i, j].frameX += 36;
+                    Main.tile[i + 1, j].frameX += 36;
+                }
             }
 		}
 	}

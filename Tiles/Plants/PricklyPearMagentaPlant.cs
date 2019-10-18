@@ -1,7 +1,4 @@
 using Microsoft.Xna.Framework.Graphics;
-using Survivaria.Items.Food.BiomeSpecific.Purity;
-using Survivaria.Items.Food.BiomeSpecific.Snow;
-using Survivaria.Items.Food.BiomeSpecific.Underground;
 using Survivaria.Items.Materials;
 using Terraria;
 using Terraria.ID;
@@ -18,9 +15,11 @@ namespace Survivaria.Tiles.Plants
             Main.tileLighted[Type] = true;
             Main.tileCut[Type] = false;
             Main.tileNoFail[Type] = true;
+            Main.tileWaterDeath[Type] = true;
             Main.tileSpelunker[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.DrawYOffset = 2;
+            TileObjectData.newTile.WaterDeath = true;
             TileObjectData.newTile.AnchorValidTiles = new[]
             {
                 53, //TileID.Sand
@@ -42,13 +41,19 @@ namespace Survivaria.Tiles.Plants
         {
             if (Main.tile[i, j].frameX == 0)
             {
-                Main.tile[i, j].frameX += 36;
-                Main.tile[i + 1, j].frameX += 36;
+                if (Main.rand.Next(4) == 0)
+                {
+                    Main.tile[i, j].frameX += 36;
+                    Main.tile[i + 1, j].frameX += 36;
+                }
             }
             else if (Main.tile[i, j].frameX == 36)
             {
-                Main.tile[i, j].frameX += 36;
-                Main.tile[i + 1, j].frameX += 36;
+                if (Main.rand.Next(4) == 0)
+                {
+                    Main.tile[i, j].frameX += 36;
+                    Main.tile[i + 1, j].frameX += 36;
+                }
             }
         }
     }

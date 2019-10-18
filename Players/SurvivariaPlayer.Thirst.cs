@@ -83,28 +83,28 @@ namespace Survivaria.Players
 
         public double ThirstLossRate()
         {
-            if (ThirstLossTimer >= 1200)//1200, 30 for debug
-            {
-                _t = 0.002 * ThirstLossMulti;//0.002, 1 for debug
-
-                if (player.moveSpeed >= 20 && !player.controlMount)
-                    _t *= 2; //Gets doubled;
-
-                ThirstLossTimer = 0;
-            }
             if (CurrentTemperature <= 0)
                 ThirstLossMulti -= 0.2f;
             if (CurrentTemperature >= 38)
                 ThirstLossMulti += 0.2f;
             if (CurrentTemperature >= 52)
                 ThirstLossMulti += 0.3f;
+            if (ThirstLossTimer >= 30)//1200, 30 for debug
+            {
+                _t = 0.085 * ThirstLossMulti;//0.002, 1 for debug
+
+                if (player.moveSpeed >= 20 && !player.controlMount)
+                    _t *= 2; //Gets doubled;
+
+                ThirstLossTimer = 0;
+            }
 
             return _t;
         }
         private double _t = 0;
         public int ThirstLossTimer { get; set; }
         public float ThirstLossMulti { get; set; }
-        public double CurrentThirst { get; set; } = 100;
+        public double CurrentThirst { get; set; } = 70;
         public double MaximumThirst { get; set; }
     }
 }

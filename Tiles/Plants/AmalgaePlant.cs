@@ -1,7 +1,5 @@
 using Microsoft.Xna.Framework.Graphics;
-using Survivaria.Items.Food.BiomeSpecific.Jungle;
 using Survivaria.Items.Food.BiomeSpecific.Ocean;
-using Survivaria.Items.Food.BiomeSpecific.Purity;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -53,11 +51,11 @@ namespace Survivaria.Tiles.Plants
         {
             if (Main.tile[i, j].frameX == 0)
             {
-                Main.tile[i, j].frameX += 18;
+                if (Main.rand.Next(4) == 0) Main.tile[i, j].frameX += 18;
             }
             else if (Main.tile[i, j].frameX == 18)
             {
-                Main.tile[i, j].frameX += 18;
+                if (Main.rand.Next(4) == 0) Main.tile[i, j].frameX += 18;
             }
         }
     }

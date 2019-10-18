@@ -32,34 +32,36 @@ namespace Survivaria
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<TubofSlime>());
                 }
             }
-			if (npc.type == NPCID.DesertLamiaLight || npc.type == NPCID.DesertLamiaDark)
+            int r = 4;
+            if (Main.expertMode) r++;
+            if (npc.type == NPCID.DesertLamiaLight || npc.type == NPCID.DesertLamiaDark)
 			{
-				if (Main.rand.Next(3) == 0)
+				if (Main.rand.Next(r) == 0)
 					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<SnakeMeat>());
 			}
 			if (npc.type == NPCID.GiantTortoise || npc.type == NPCID.IceTortoise)
 			{
-				if (Main.rand.Next(3) == 0)
+				if (Main.rand.Next(r) == 0)
 					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<TurtleMeat>());
 			}
 			if (npc.type == NPCID.RedDevil)
 			{
-				if (Main.rand.Next(3) == 0)
+				if (Main.rand.Next(r) == 0)
 					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<DemonTail>());
 			}
 			if (npc.type == NPCID.Unicorn)
 			{
-				if (Main.rand.Next(3) == 0)
+				if (Main.rand.Next(r) == 0)
 					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<UnicornMeat>());
 			}
 			if (npc.type == NPCID.WyvernHead)
 			{
-				if (Main.rand.Next(3) == 0)
+				if (Main.rand.Next(r) == 0)
 					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<WyvernMeat>());
 			}
 			if (npc.type == NPCID.Crab)
 			{
-				if (Main.rand.Next(3) == 0)
+				if (Main.rand.Next(r) == 0)
 					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<CrabMeat>());
 			}
 			if (npc.type == NPCID.IcyMerman)

@@ -1,6 +1,4 @@
 using Microsoft.Xna.Framework.Graphics;
-using Survivaria.Items.Food.BiomeSpecific.Purity;
-using Survivaria.Items.Food.BiomeSpecific.Underground;
 using Survivaria.Items.Materials;
 using Terraria;
 using Terraria.ID;
@@ -40,10 +38,10 @@ namespace Survivaria.Tiles.Plants
 
         public override void RandomUpdate(int i, int j) {
 			if (Main.tile[i, j].frameX == 0) {
-				Main.tile[i, j].frameX += 18;
+                if (Main.rand.Next(4) == 0) Main.tile[i, j].frameX += 18;
 			}
 			else if (Main.tile[i, j].frameX == 18) {
-				Main.tile[i, j].frameX += 18;
+                if (Main.rand.Next(4) == 0) Main.tile[i, j].frameX += 18;
 			}
 		}
 		//public override void RightClick(int i, int j)

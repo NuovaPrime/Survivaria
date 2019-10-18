@@ -36,7 +36,6 @@ namespace Survivaria.Items.Drinks
             recipe.AddIngredient(ModContent.ItemType<SparklingWater>());
             recipe.AddIngredient(ModContent.ItemType<Frambosia>());
             recipe.AddIngredient(ModContent.ItemType<Starfruit>());
-            recipe.AddIngredient(ItemID.Bottle);
             recipe.AddTile(TileID.Bottles);
             recipe.SetResult(this);
             recipe.AddRecipe();

@@ -301,7 +301,7 @@ namespace Survivaria
         {
             if (extractType == 0)
             {
-                if (Main.rand.Next(4) == 0)
+                if (Main.rand.Next(8) == 0)
                 {
                     resultType = ModContent.ItemType<Salt>();
                     resultStack = 1;

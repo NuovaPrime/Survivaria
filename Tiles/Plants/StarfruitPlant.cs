@@ -1,10 +1,5 @@
 using Microsoft.Xna.Framework.Graphics;
-using Survivaria.Items.Food.BiomeSpecific.Corruption;
-using Survivaria.Items.Food.BiomeSpecific.Crimson;
-using Survivaria.Items.Food.BiomeSpecific.Hell;
-using Survivaria.Items.Food.BiomeSpecific.Purity;
 using Survivaria.Items.Food.BiomeSpecific.Space;
-using Survivaria.Items.Food.BiomeSpecific.Underground;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -19,9 +14,11 @@ namespace Survivaria.Tiles.Plants
 			Main.tileCut[Type] = false;
             Main.tileLighted[Type] = true;
             Main.tileNoFail[Type] = true;
+            Main.tileWaterDeath[Type] = true;
             Main.tileSpelunker[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.newTile.DrawYOffset = 1;
+            TileObjectData.newTile.WaterDeath = true;
             TileObjectData.newTile.AnchorValidTiles = new[]
 			{
 				2, //TileID.Grass
@@ -50,10 +47,10 @@ namespace Survivaria.Tiles.Plants
 
         public override void RandomUpdate(int i, int j) {
 			if (Main.tile[i, j].frameX == 0) {
-				Main.tile[i, j].frameX += 18;
+                if (Main.rand.Next(4) == 0) Main.tile[i, j].frameX += 18;
 			}
 			else if (Main.tile[i, j].frameX == 18) {
-				Main.tile[i, j].frameX += 18;
+                if (Main.rand.Next(4) == 0) Main.tile[i, j].frameX += 18;
 			}
 		}
 		//public override void RightClick(int i, int j)

@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Survivaria.Items.Food.BiomeSpecific.Purity;
 using Survivaria.Items.Food.BiomeSpecific.Snow;
 using Survivaria.Items.Food.BiomeSpecific.Hell;
 using Survivaria.Items.Materials;

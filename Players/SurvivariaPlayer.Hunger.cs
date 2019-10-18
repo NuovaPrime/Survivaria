@@ -90,22 +90,12 @@ namespace Survivaria.Players
                 }
                 player.AddBuff(ModContent.BuffType<StarvingDebuff>(), 2);
             }
-
-            player.buffImmune[BuffID.WellFed] = true;
+            if (player.statLife > player.statLifeMax2) player.statLife = player.statLifeMax2;
+            if (player.HasBuff(BuffID.WellFed)) player.ClearBuff(BuffID.WellFed);
         }
 
-		public double HungerLossRate()
-		{
-			if (HungerLossTimer >= 1200)//1200, 30 for debug
-			{
-				_h = 0.001 * HungerLossMulti;//0.001, 1 for debug
-
-				if (player.moveSpeed >= 20 && !player.controlMount)
-					_h *= 2; //Gets doubled;
-
-                HungerLossTimer = 0;
-			}
-
+        public double HungerLossRate()
+        {
             if (player.HasBuff(BuffID.Bleeding))
                 HungerLossMulti += 0.05f;
             if (CurrentSanity <= 30)
@@ -114,6 +104,15 @@ namespace Survivaria.Players
                 HungerLossMulti += 0.1f;
             if (CurrentTemperature <= 0)
                 HungerLossMulti += 0.12f;
+            if (HungerLossTimer >= 30)//1200, 30 for debug
+            {
+                _h = 0.07 * HungerLossMulti;//0.001, 1 for debug
+
+                if (player.moveSpeed >= 20 && !player.controlMount)
+					_h *= 2; //Gets doubled;
+
+                HungerLossTimer = 0;
+			}
 
             return _h;
 		}
@@ -124,6 +123,6 @@ namespace Survivaria.Players
         public float HungerLossMulti { get; set; } = 1f;
 
         public double HungerMaximum { get; set; }
-        public double CurrentHunger { get; set; } = 100;
+        public double CurrentHunger { get; set; } = 70;
     }
 }
