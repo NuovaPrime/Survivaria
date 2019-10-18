@@ -188,6 +188,34 @@ namespace Survivaria
                     WorldGen.PlaceTile(i, j + 1, ModContent.TileType<CloudstalkPlant>(), true, true);
                 }
             }
+            if (Main.tile[i, j].type == TileID.Mud && Main.tile[i, j - 1].type < 0 && j >= WorldGen.worldSurface * 0.5f && Main.tile[i, j].slope() == 0 && NPC.downedMechBossAny)
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    WorldGen.PlaceTile(i, j - 1, ModContent.TileType<GuarleekPlant>(), true, true);
+                }
+            }
+            if (Main.tile[i, j].type == TileID.Granite && Main.tile[i, j - 1].type < 0 && Main.tile[i, j].slope() == 0)
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    WorldGen.PlaceTile(i, j - 1, ModContent.TileType<GranutPlant>(), true, true);
+                }
+            }
+            if (Main.tile[i, j].type == TileID.Marble && Main.tile[i, j + 1].type < 0 && Main.tile[i, j].slope() == 0)
+            {
+                if (Main.rand.Next(50) == 0)
+                {
+                    WorldGen.PlaceTile(i, j + 1, ModContent.TileType<FrambosiaPlant>(), true, true);
+                }
+            }
+            if (Main.tile[i, j].type == TileID.Grass && Main.tile[i, j - 1].type < 0 && Main.tile[i, j].slope() == 0)
+            {
+                if (Main.rand.Next(30) == 0)
+                {
+                    WorldGen.PlaceTile(i, j - 1, ModContent.TileType<BlossomWheatPlant>(), true, true);
+                }
+            }
             base.RandomUpdate(i, j, type);
         }
     }

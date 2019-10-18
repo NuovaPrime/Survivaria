@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Survivaria.Buffs;
 using Survivaria.Items.BossItems;
 using Survivaria.Items.Food.BiomeSpecific.Desert;
 using Survivaria.Items.Food.BiomeSpecific.Jungle;
@@ -33,8 +34,18 @@ namespace Survivaria
                 }
             }
         }
+        public override bool CanUseItem(Item item, Player player)
+        {
+            if (HungerAmount > 0)
+                if (player.HasBuff(ModContent.BuffType<NauseaDebuff>()))
+                    return false;
 
-        
+            if (ThirstAmount > 0)
+                if (player.HasBuff(ModContent.BuffType<HyponatremiaDebuff>()))
+                    return false;
+            return true;
+        }
+
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
             string FoodSize = "";

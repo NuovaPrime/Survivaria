@@ -18,7 +18,7 @@ namespace Survivaria.Players
             {
                 extraDifference = 100 - amount;
                 CurrentThirst = 100;
-                player.AddBuff(ModContent.BuffType<HyponatremiaDebuff>(), amount * 5 * 60);
+                player.AddBuff(ModContent.BuffType<HyponatremiaDebuff>(), amount * 3 * 60);
             }	
         }
         internal void ResetThirstEffects()
@@ -52,6 +52,8 @@ namespace Survivaria.Players
             }
             if (CurrentThirst < 21)
             {
+                if (Main.rand.Next(1000) == 0)
+                    Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/ThirstCough"));
                 player.manaCost += 0.25f;
                 player.pickSpeed -= 0.20f;
                 player.allDamageMult -= 0.15f;
