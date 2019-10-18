@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Survivaria.Buffs;
 using Survivaria.Players;
 using System.Collections.Generic;
 using Terraria;
@@ -116,6 +117,18 @@ namespace Survivaria.Items
         {
             player.GetModPlayer<SurvivariaPlayer>().AddHunger(HungerAmount);
             player.GetModPlayer<SurvivariaPlayer>().AddThirst(ThirstAmount);
+            return true;
+        }
+
+        public override bool CanUseItem(Player player)
+        {
+            if (HungerAmount > 0)
+                if (player.HasBuff(ModContent.BuffType<NauseaDebuff>()))
+                    return false;
+
+            if (ThirstAmount > 0)
+                if (player.HasBuff(ModContent.BuffType<HyponatremiaDebuff>()))
+                    return false;
             return true;
         }
 

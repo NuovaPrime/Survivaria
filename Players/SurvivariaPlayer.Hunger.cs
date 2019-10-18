@@ -18,7 +18,7 @@ namespace Survivaria.Players
             {
                 extraDifference = 100 - amount;
                 CurrentHunger = 100;
-                //Add overeat buff here
+                player.AddBuff(ModContent.BuffType<NauseaDebuff>(), amount * 5 * 60);
             }
         }
         internal void ResetHungerEffects()
@@ -84,6 +84,8 @@ namespace Survivaria.Players
                 }
                 player.AddBuff(ModContent.BuffType<StarvingDebuff>(), 2);
             }
+
+            player.buffImmune[BuffID.WellFed] = true;
         }
 
 		public double HungerLossRate()

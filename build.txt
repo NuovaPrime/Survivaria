@@ -1,3 +1,7 @@
-author = NuovaPrime, Orian34, Sapharan, Blockaroz
+author = NuovaPrime, orian34, THEREDSTONEBRO, Amber
 version = 0.1
 displayName = Survivaria - A survival mode mod
+homepage = https://forums.terraria.org/index.php?threads/survivaria-a-survival-mode-mod.81756/
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .git\*, *.db
+includePDB = true
+includeSource = true

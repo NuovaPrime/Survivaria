@@ -18,7 +18,7 @@ namespace Survivaria.Players
             {
                 extraDifference = 100 - amount;
                 CurrentThirst = 100;
-                //Add overdrink buff here
+                player.AddBuff(ModContent.BuffType<HyponatremiaDebuff>(), amount * 5 * 60);
             }	
         }
         internal void ResetThirstEffects()
