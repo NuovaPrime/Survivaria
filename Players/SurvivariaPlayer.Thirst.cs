@@ -89,6 +89,7 @@ namespace Survivaria.Players
                 ThirstLossMulti += 0.2f;
             if (CurrentTemperature >= 52)
                 ThirstLossMulti += 0.3f;
+            if (Main.expertMode) ThirstLossMulti += 0.15f;
             if (ThirstLossTimer >= 30)//1200, 30 for debug
             {
                 _t = 0.085 * ThirstLossMulti;//0.002, 1 for debug
