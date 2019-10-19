@@ -104,6 +104,7 @@ namespace Survivaria.Players
                 HungerLossMulti += 0.1f;
             if (CurrentTemperature <= 0)
                 HungerLossMulti += 0.12f;
+            if (Main.expertMode) HungerLossMulti += 0.15f;
             if (HungerLossTimer >= 30)//1200, 30 for debug
             {
                 _h = 0.07 * HungerLossMulti;//0.001, 1 for debug
