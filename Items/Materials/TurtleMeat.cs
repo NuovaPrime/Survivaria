@@ -11,7 +11,7 @@ namespace Survivaria.Items.Materials
 {
     public class TurtleMeat : SurvivariaItem
     {
-        public TurtleMeat() : base("Turtle Meat", "A strong and springy meat that cannot be eaten easily.", 20, 30, Item.buyPrice(0, 0, 50, 0), ItemRarityID.Blue, 0, 0)
+        public TurtleMeat() : base("Turtle Meat", "A strong and springy meat that cannot be eaten easily.", 20, 30, Item.buyPrice(0, 3, 0, 0), ItemRarityID.Pink, 0, 0)
         {
         }
     }

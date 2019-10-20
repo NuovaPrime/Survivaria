@@ -140,6 +140,13 @@ namespace Survivaria
                 ItemID.BlueJay
             });
             RecipeGroup.RegisterGroup("Survivaria:Birds", bird);
+
+			RecipeGroup squirrel = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Squirrel", new int[]
+            {
+                ItemID.Squirrel,
+                ItemID.SquirrelRed
+            });
+            RecipeGroup.RegisterGroup("Survivaria:Squirrels", squirrel);
         }
 
         public static SurvivariaMod Instance { get; set; }
