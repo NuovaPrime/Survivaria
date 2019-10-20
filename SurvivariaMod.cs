@@ -122,9 +122,24 @@ namespace Survivaria
             {
                 ItemID.Tuna,
                 ItemID.RedSnapper,
-                ItemID.Trout,
+                ItemID.Trout
             });
             RecipeGroup.RegisterGroup("Survivaria:OceanFish", ofish);
+
+			RecipeGroup duck = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Duck", new int[]
+            {
+                ItemID.MallardDuck,
+                ItemID.Duck
+            });
+            RecipeGroup.RegisterGroup("Survivaria:Ducks", duck);
+
+			RecipeGroup bird = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Bird", new int[]
+            {
+                ItemID.Bird,
+                ItemID.Cardinal,
+                ItemID.BlueJay
+            });
+            RecipeGroup.RegisterGroup("Survivaria:Birds", bird);
         }
 
         public static SurvivariaMod Instance { get; set; }

@@ -1,5 +1,5 @@
 author = NuovaPrime, orian34, THEREDSTONEBRO, Amber
-version = 0.2
+version = 0.3
 displayName = Survivaria - A Survival Mod
 homepage = https://forums.terraria.org/index.php?threads/survivaria-a-survival-mode-mod.81756/
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .git\*, *.db
