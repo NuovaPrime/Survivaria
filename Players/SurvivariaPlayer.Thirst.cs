@@ -83,6 +83,7 @@ namespace Survivaria.Players
 
         public double ThirstLossRate()
         {
+            if (player.HasBuff(BuffID.Wet)) ThirstLossMulti -= 0.5f;
             if (CurrentTemperature <= 0)
                 ThirstLossMulti -= 0.2f;
             if (CurrentTemperature >= 38)
@@ -90,9 +91,9 @@ namespace Survivaria.Players
             if (CurrentTemperature >= 52)
                 ThirstLossMulti += 0.3f;
             if (Main.expertMode) ThirstLossMulti += 0.15f;
-            if (ThirstLossTimer >= 30)//1200, 30 for debug
+            if (ThirstLossTimer >= 60)//1200, 30 for debug
             {
-                _t = 0.085 * ThirstLossMulti;//0.002, 1 for debug
+                _t = 0.07 * ThirstLossMulti;//0.002, 1 for debug
 
                 if (player.moveSpeed >= 20 && !player.controlMount)
                     _t *= 2; //Gets doubled;
