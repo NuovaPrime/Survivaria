@@ -31,12 +31,12 @@ namespace Survivaria
         /*[Label("Temperature enabled")]
         [Tooltip("Toggle the temperature system.")]
         [DefaultValue(true)]*/
-        public bool TemperatureEnabled { get; set; }
+        //public bool TemperatureEnabled { get; set; }
 
         /*[Label("Sanity enabled")]
         [Tooltip("Toggle the sanity system.")]
         [DefaultValue(true)]*/
-        public bool SanityEnabled { get; set; }
+        //public bool SanityEnabled { get; set; }
 
 
     }

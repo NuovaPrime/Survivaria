@@ -6,6 +6,7 @@ using Survivaria.Items.Food.BiomeSpecific.Desert;
 using Survivaria.Items.Food.BiomeSpecific.Hallow;
 using Survivaria.Items.Food.BiomeSpecific.Jungle;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
+using Survivaria.Items.Food.BiomeSpecific.Snow;
 using Survivaria.Items.Materials;
 using Survivaria.Tiles.Plants;
 using System.Collections.Generic;
@@ -33,7 +34,7 @@ namespace Survivaria
                 {
                     if (type == TileID.Trees && Main.tile[i, j + 1].type == TileID.Grass)
                     {
-                        Item.NewItem(i * 16, (j - 5) * 16, 32, 32, ModContent.ItemType<Guavado>(), Main.rand.Next(0, 2));
+                        Item.NewItem(i * 16, (j - 5) * 16, 32, 32, ModContent.ItemType<Guavado>(), Main.rand.Next(1, 2));
                     }
                     if (type == TileID.Cactus && Main.tile[i, j + 1].type == TileID.Sand)
                     {
@@ -45,19 +46,27 @@ namespace Survivaria
                     }
                     if (type == TileID.Trees && (Main.tile[i, j + 1].type == TileID.Mud || Main.tile[i, j + 1].type == TileID.JungleGrass))
                     {
-                        Item.NewItem(i * 16, (j - 5) * 16, 32, 32, ModContent.ItemType<DragonFruit>(), Main.rand.Next(0, 2));
+                        Item.NewItem(i * 16, (j - 5) * 16, 32, 32, ModContent.ItemType<DragonFruit>(), Main.rand.Next(1, 2));
                     }
                     if (type == TileID.Trees && (Main.tile[i, j + 1].type == TileID.CorruptGrass))
                     {
-                        Item.NewItem(i * 16, (j - 5) * 16, 32, 32, ModContent.ItemType<PutridOlives>(), Main.rand.Next(0, 2));
+                        Item.NewItem(i * 16, (j - 5) * 16, 32, 32, ModContent.ItemType<PutridOlives>(), Main.rand.Next(1, 2));
                     }
                     if (type == TileID.Trees && (Main.tile[i, j + 1].type == TileID.FleshGrass))
                     {
-                        Item.NewItem(i * 16, (j - 5) * 16, 32, 32, ModContent.ItemType<Greneyede>(), Main.rand.Next(0, 2));
+                        Item.NewItem(i * 16, (j - 5) * 16, 32, 32, ModContent.ItemType<Greneyede>(), Main.rand.Next(1, 2));
                     }
                     if (type == TileID.Trees && (Main.tile[i, j + 1].type == TileID.HallowedGrass))
                     {
-                        Item.NewItem(i * 16, (j - 5) * 16, 32, 32, ModContent.ItemType<RockCandy>(), Main.rand.Next(0, 2));
+                        Item.NewItem(i * 16, (j - 5) * 16, 32, 32, ModContent.ItemType<RockCandy>(), Main.rand.Next(1, 2));
+                    }
+                    if (type == TileID.Trees && (Main.tile[i, j + 1].type == TileID.Sand))
+                    {
+                        Item.NewItem(i * 16, (j - 5) * 16, 32, 32, ModContent.ItemType<Cocolate>(), Main.rand.Next(1, 2));
+                    }
+                    if (type == TileID.Trees && (Main.tile[i, j + 1].type == TileID.SnowBlock))
+                    {
+                        Item.NewItem(i * 16, (j - 5) * 16, 32, 32, ModContent.ItemType<FrostPlum>(), Main.rand.Next(1, 2));
                     }
                 }
                 /*if ((Main.tile[i, j].type == TileID.Plants || Main.tile[i, j - 1].type == TileID.Plants2) && type != TileID.Trees && type != TileID.MushroomPlants && type != 0)
@@ -126,7 +135,7 @@ namespace Survivaria
             {
                 if (Main.rand.Next(u-10) == 0)
                 {
-                    WorldGen.PlaceTile(i, j - 2, ModContent.TileType<ReecePlant>(), true, true);
+                    WorldGen.PlaceTile(i, j - 1, ModContent.TileType<ReecePlant>(), true, true);
                 }
             }
             if ((Main.tile[i, j].type == TileID.HallowedGrass && (Main.tile[i, j - 1].type == TileID.HallowedPlants || Main.tile[i, j - 1].type == TileID.HallowedPlants2 || !Main.tile[i, j - 1].active())) && Main.tile[i, j].slope() == 0 && Main.dayTime)

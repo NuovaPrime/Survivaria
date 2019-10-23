@@ -40,6 +40,7 @@ namespace Survivaria.Items.Drinks
 
         public override bool UseItem(Player player)
         {
+            base.UseItem(player);
             item.TurnToAir();
             player.PutItemInInventory(ModContent.ItemType<HalfGourd>());
             return true;

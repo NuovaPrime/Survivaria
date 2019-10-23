@@ -1,0 +1,11 @@
+V0.3
+
+1) Hunger and thirst drain slightly slower in general and 15% faster in expert mode.
+2) Frozen tears are no longer consumable.
+3) Added crimson blaze, hot blooded pot, living legend, marrow soup, serpentine burger, stir fried snake, wormy curry, cool duck, damned breakfast, fluffy taco, honey partridge, jellyfilled delight, maki roll, mushroom medley, pengu wings, roasted rabbit, scent of the sea, spicy ribs, stuffed devil, terrine, toadstool sauté, disc pizza and turtle potpourri.
+4) Fixed the gourd not giving any thirst.
+5) Fixed reece not generating.
+6) Fixed some food drops from trees showing up but not going into your inventory.
+7) Removed a debug function from the peppermint item.
+8) Fixed tub of slime freezing you in place.
+9) Fixed buffet+ foods not giving anything?

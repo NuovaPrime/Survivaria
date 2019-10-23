@@ -13,14 +13,14 @@ namespace Survivaria.Players
         {
 			if (player.active)
 			{
-                if (ModContent.GetInstance<SurvivariaConfigServer>().SanityEnabled)
-                    UpdateSanity();
+                //if (ModContent.GetInstance<SurvivariaConfigServer>().SanityEnabled)
+                    //UpdateSanity();
                 if (ModContent.GetInstance<SurvivariaConfigServer>().HungerEnabled)
                     UpdateHunger(); //toggles timer and tick hunger removal;
                 if (ModContent.GetInstance<SurvivariaConfigServer>().ThirstEnabled)
                     UpdateThirst();
-                if (ModContent.GetInstance<SurvivariaConfigServer>().TemperatureEnabled)
-                    UpdateTemperature();
+                //if (ModContent.GetInstance<SurvivariaConfigServer>().TemperatureEnabled)
+                    //UpdateTemperature();
                 FailSafes();
                 CalculatePlayerTemperature();
                 //Do not remove. Comment out.

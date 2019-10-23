@@ -14,7 +14,7 @@ namespace Survivaria.Tiles.Plants
 			Main.tileCut[Type] = false;
 			Main.tileNoFail[Type] = true;
             Main.tileSpelunker[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x1);
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2);
             TileObjectData.newTile.DrawYOffset = 2;
             TileObjectData.newTile.AnchorValidTiles = new[]
 			{
@@ -37,12 +37,22 @@ namespace Survivaria.Tiles.Plants
 		}
 
         public override void RandomUpdate(int i, int j) {
-			if (Main.tile[i, j].frameX == 0) {
-                if (Main.rand.Next(4) == 0) Main.tile[i, j].frameX += 18;
+			if (Main.tile[i, j].frameX == 0)
+            {
+                if (Main.rand.Next(4) == 0)
+                {
+                    Main.tile[i, j].frameX += 18;
+                    Main.tile[i, j - 1].frameX += 18;
+                }
 			}
-			else if (Main.tile[i, j].frameX == 18) {
-                if (Main.rand.Next(4) == 0) Main.tile[i, j].frameX += 18;
-			}
+			else if (Main.tile[i, j].frameX == 18)
+            {
+                if (Main.rand.Next(4) == 0)
+                {
+                    Main.tile[i, j].frameX += 18;
+                    Main.tile[i, j - 1].frameX += 18;
+                }
+            }
 		}
 		//public override void RightClick(int i, int j)
 		//{

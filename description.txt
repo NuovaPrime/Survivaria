@@ -6,11 +6,37 @@ Hunger - One of the 2 main resources in the mod, decreases slowly over time and 
 
 Thirst - The other main resource in the mod, also decreases slowly overtime and faster in hot environments, also gives more negative effects as it gets lower. Drinking more revitalizing drinks keeps you refreshed for longer and gives better effects.
 
-Sanity - One of the 2 secondary resources in the mod, decreases in hostile environments or when in stressful situations and increases when in soothing areas and when you're near max hunger and thirst. You might start seeing things that aren't there and hearing odd noises when your sanity gets too low...
-
-Temperature - The other secondary resource in the mod, decreases in cold environments and increases in hot ones, some places such as hell or space require extra protection to be able to survive in due to extreme temperatures. Having an extreme temperature for too long could lead to detrimental effects, reduced vision and increased hunger and thirst drain rates.
-
-
-New food items - Over 92+ new foods and drinks to eat, the more time you spend making better meals the better the bonuses are. Don't slack on your diet!
+New food items - Over 100+ new foods and drinks to eat, the more time you spend making better meals the better the bonuses are. Don't slack on your diet!
 
 New crafing stations and survival items - A handful of new stations which assist in creating better food. Also don't forget your handy survival items that assist you in many ways!
+
+
+Changelog:
+
+V0.3
+
+1) Hunger and thirst drain slightly slower in general and 15% faster in expert mode.
+2) Frozen tears are no longer consumable.
+3) Added crimson blaze, hot blooded pot, living legend, marrow soup, serpentine burger, stir fried snake, wormy curry, cool duck, damned breakfast, fluffy taco, honey partridge, jellyfilled delight, maki roll, mushroom medley, pengu wings, roasted rabbit, scent of the sea, spicy ribs, stuffed devil, terrine, toadstool sauté, disc pizza and turtle potpourri.
+4) Fixed the gourd not giving any thirst.
+5) Fixed reece not generating.
+6) Fixed some food drops from trees showing up but not going into your inventory.
+7) Removed a debug function from the peppermint item.
+8) Fixed tub of slime freezing you in place.
+9) Fixed buffet+ foods not giving anything?
+
+V0.2
+
+1) Expert spawn rate reduced.
+2) Water breaks most plants.
+3) Vanilla well fed annihilated.
+4) Stats are not maxed out when joining a world.
+5) Stages take more time to grow.
+6) Spawn rate lowered.
+7) Hunger and thirst properly drain now.
+8) Yellow prickly pear cactus now spawns.
+9) Removed bottle in terra cola recipe.
+
+V0.1
+
+1) Release.

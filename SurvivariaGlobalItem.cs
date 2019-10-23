@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Survivaria.Buffs;
+using Survivaria.Items;
 using Survivaria.Items.BossItems;
 using Survivaria.Items.Food.BiomeSpecific.Desert;
 using Survivaria.Items.Food.BiomeSpecific.Jungle;
@@ -284,10 +285,13 @@ namespace Survivaria
 
         public override bool UseItem(Item item, Player player)
         {
-            SurvivariaPlayer modPlayer = player.GetModPlayer<SurvivariaPlayer>();
+            if ((item.modItem is SurvivariaItem) == false)
+            {
+                SurvivariaPlayer modPlayer = player.GetModPlayer<SurvivariaPlayer>();
 
-            player.GetModPlayer<SurvivariaPlayer>().AddHunger(HungerAmount);
-            player.GetModPlayer<SurvivariaPlayer>().AddThirst(ThirstAmount);
+                player.GetModPlayer<SurvivariaPlayer>().AddHunger(HungerAmount);
+                player.GetModPlayer<SurvivariaPlayer>().AddThirst(ThirstAmount);
+            }
             return true;
         }
 
