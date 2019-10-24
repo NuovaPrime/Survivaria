@@ -292,7 +292,7 @@ namespace Survivaria
                 player.GetModPlayer<SurvivariaPlayer>().AddHunger(HungerAmount);
                 player.GetModPlayer<SurvivariaPlayer>().AddThirst(ThirstAmount);
             }
-            return true;
+            return base.UseItem(item, player);
         }
 
         public int HungerAmount { get; set; }
