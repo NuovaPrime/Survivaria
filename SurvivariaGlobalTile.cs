@@ -112,14 +112,14 @@ namespace Survivaria
             }
             if ((Main.tile[i, j].type == TileID.CorruptGrass && (Main.tile[i, j - 1].type == TileID.CorruptPlants || !Main.tile[i, j - 1].active()) && Main.tile[i, j].slope() == 0 && !Main.dayTime))
             {
-                if (Main.rand.Next(u-10) == 0)
+                if (Main.rand.Next(u-15) == 0)
                 {
                     WorldGen.PlaceTile(i, j - 1, ModContent.TileType<CursedEggplantPlant>(), true, true);
                 }
             }
             if ((Main.tile[i, j].type == TileID.FleshGrass && (Main.tile[i, j - 1].type == TileID.FleshWeeds || !Main.tile[i, j - 1].active()) && Main.tile[i, j].slope() == 0 && !Main.dayTime))
             {
-                if (Main.rand.Next(u-10) == 0)
+                if (Main.rand.Next(u-15) == 0)
                 {
                     WorldGen.PlaceTile(i, j - 1, ModContent.TileType<BleedRootPlant>(), true, true);
                 }

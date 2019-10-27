@@ -1,3 +1,8 @@
+V0.3.1.2
+
+1) Slightly increased evil plants spawn rate.
+2) Onfire and frozen debuff from food had doubled time.
+
 V0.3.1.1
 
 1) Fixed gamebreaking bug where placables would be consumed even if you couldn't place it.

@@ -20,7 +20,7 @@ namespace Survivaria.Items.Food.BiomeSpecific.Purity
 
 		public override bool UseItem(Player player)
         {
-            player.AddBuff(BuffID.OnFire, 60 * 30);
+            player.AddBuff(BuffID.OnFire, 30 * 30);
             return true;
         }
     }
