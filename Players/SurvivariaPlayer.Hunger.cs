@@ -111,7 +111,7 @@ namespace Survivaria.Players
 
                 if (player.moveSpeed >= 20 && !player.controlMount)
 					_h *= 2; //Gets doubled;
-
+				if (player.HasBuff(ModContent.BuffType<EaterBuff>())) _h /= 2;
                 HungerLossTimer = 0;
 			}
 
