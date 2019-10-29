@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Underground;
 using Terraria;
@@ -23,12 +24,10 @@ namespace Survivaria.Tiles.Plants
 			{
 				70, //TileID.MushroomGrass
 			};
-			TileObjectData.newTile.AnchorAlternateTiles = new[]
-			{
-				78, //ClayPot
-				TileID.PlanterBox
-			};
-			TileObjectData.addTile(Type);
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Mushy Carrots");
+            AddMapEntry(new Color(112, 111, 110), name);
+            TileObjectData.addTile(Type);
 		}
 		public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
 			if (i % 2 == 1) {

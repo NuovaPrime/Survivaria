@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Underground;
 using Terraria;
@@ -27,7 +28,10 @@ namespace Survivaria.Tiles.Plants
 			{
                 367, //TileID.Marble
 			};
-			TileObjectData.addTile(Type);
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Frambosia");
+            AddMapEntry(new Color(224, 224, 63), name);
+            TileObjectData.addTile(Type);
 		}
 
 		public override bool Drop(int i, int j) {

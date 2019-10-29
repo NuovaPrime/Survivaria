@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Hell;
 using Terraria;
@@ -22,10 +23,13 @@ namespace Survivaria.Tiles.Plants
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.newTile.WaterDeath = true;
             TileObjectData.newTile.AnchorValidTiles = new[]
-			{
-				57, //TileID.Ash
+            {
+                57, //TileID.Ash
 			};
-			TileObjectData.addTile(Type);
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Fire Tuber");
+            AddMapEntry(new Color(163, 58, 34), name);
+            TileObjectData.addTile(Type);
 		}
 		public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
 			if (i % 2 == 1) {

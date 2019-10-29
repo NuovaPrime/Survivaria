@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
 using Terraria;
@@ -29,7 +30,10 @@ namespace Survivaria.Tiles.Plants
 			{
 				2, //TileID.Grass
 			};
-			TileObjectData.addTile(Type);
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Peppermint");
+            AddMapEntry(new Color(176, 22, 5), name);
+            TileObjectData.addTile(Type);
 		}
         /*public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)
         {

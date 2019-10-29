@@ -2,6 +2,8 @@
 using Survivaria.Buffs;
 using Survivaria.Items;
 using Survivaria.Items.BossItems;
+using Survivaria.Items.Drinks;
+using Survivaria.Items.Food;
 using Survivaria.Items.Food.BiomeSpecific.Desert;
 using Survivaria.Items.Food.BiomeSpecific.Jungle;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
@@ -285,7 +287,7 @@ namespace Survivaria
 
         public override bool UseItem(Item item, Player player)
         {
-            if ((item.modItem is SurvivariaItem) == false)
+            if ((item.modItem is SurvivariaItem || item.modItem is FoodItem || item.modItem is DrinkItem) == false)
             {
                 SurvivariaPlayer modPlayer = player.GetModPlayer<SurvivariaPlayer>();
 

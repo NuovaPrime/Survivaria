@@ -30,7 +30,7 @@ namespace Survivaria.Items.Food.Buffet
             player.AddBuff(BuffID.Warmth, 60 * 420);
             player.AddBuff(BuffID.Panic, 60 * 420);
             player.AddBuff(BuffID.Heartreach, 60 * 420);
-            return true;
+            return base.UseItem(player);
         }
 
         public override void AddRecipes()

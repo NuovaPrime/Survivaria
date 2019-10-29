@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Jungle;
 using Terraria;
@@ -27,11 +28,9 @@ namespace Survivaria.Tiles.Plants
 			{
 				60, //TileID.JungleGrass
 			};
-			TileObjectData.newTile.AnchorAlternateTiles = new[]
-			{
-				78, //ClayPot
-				TileID.PlanterBox
-			};
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Corney");
+            AddMapEntry(new Color(79, 191, 27), name);
 			TileObjectData.addTile(Type);
 		}
 

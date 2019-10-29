@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Materials;
 using Terraria;
@@ -24,6 +25,9 @@ namespace Survivaria.Tiles.Plants
             {
                 53, //TileID.Sand
 			};
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Prickly Pear");
+            AddMapEntry(new Color(79, 191, 27), name);
             TileObjectData.addTile(Type);
         }
 

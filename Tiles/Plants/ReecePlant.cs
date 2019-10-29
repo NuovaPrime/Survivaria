@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Materials;
 using Terraria;
@@ -20,7 +21,10 @@ namespace Survivaria.Tiles.Plants
 			{
 				2, //TileID.Grass
 			};
-			TileObjectData.addTile(Type);
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Reece");
+            AddMapEntry(new Color(219, 212, 79), name);
+            TileObjectData.addTile(Type);
 		}
 		public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
 			if (i % 2 == 1) {

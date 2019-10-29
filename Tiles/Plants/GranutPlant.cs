@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Underground;
 using Survivaria.Items.Materials;
@@ -22,7 +23,10 @@ namespace Survivaria.Tiles.Plants
 			{
                 368, //TileID.Granite
 			};
-			TileObjectData.addTile(Type);
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Granut");
+            AddMapEntry(new Color(41, 193, 217), name);
+            TileObjectData.addTile(Type);
 		}
 		public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
 			if (i % 2 == 1) {

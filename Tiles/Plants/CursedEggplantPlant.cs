@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Corruption;
 using Terraria;
@@ -28,7 +29,10 @@ namespace Survivaria.Tiles.Plants
 				78, //ClayPot
 				TileID.PlanterBox
 			};
-			TileObjectData.addTile(Type);
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Cursed Eggplant");
+            AddMapEntry(new Color(127, 16, 158), name);
+            TileObjectData.addTile(Type);
 		}
 		public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
 			if (i % 2 == 1) {

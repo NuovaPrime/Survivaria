@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Hallow;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
@@ -30,7 +31,10 @@ namespace Survivaria.Tiles.Plants
 			{
 				109, //TileID.HallowedGrass
 			};
-			TileObjectData.addTile(Type);
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Sparkling Berry");
+            AddMapEntry(new Color(219, 212, 79), name);
+            TileObjectData.addTile(Type);
 		}
         /*public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)
         {

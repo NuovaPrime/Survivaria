@@ -2,6 +2,8 @@ V0.3.1.2
 
 1) Slightly increased evil plants spawn rate.
 2) Onfire and frozen debuff from food had doubled time.
+3) Fixed bug where bigger foods just wouldn't give any stats.
+4) Made plants appear on the minimap.
 
 V0.3.1.1
 

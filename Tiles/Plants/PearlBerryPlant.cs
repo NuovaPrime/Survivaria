@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Snow;
 using Terraria;
@@ -23,7 +24,10 @@ namespace Survivaria.Tiles.Plants
 			{
 				147, //TileID.SnowBlock
 			};
-			TileObjectData.addTile(Type);
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Pearl Berry");
+            AddMapEntry(new Color(66, 66, 65), name);
+            TileObjectData.addTile(Type);
 		}
 		public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
 			if (i % 2 == 1) {

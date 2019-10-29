@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Corruption;
 using Survivaria.Items.Food.BiomeSpecific.Crimson;
@@ -26,12 +27,10 @@ namespace Survivaria.Tiles.Plants
 			{
 				23, //TileID.CorruptGrass
 			};
-			TileObjectData.newTile.AnchorAlternateTiles = new[]
-			{
-				78, //ClayPot
-				TileID.PlanterBox
-			};
-			TileObjectData.addTile(Type);
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Bleed Root");
+            AddMapEntry(new Color(176, 17, 9), name);
+            TileObjectData.addTile(Type);
 		}
 		public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
 			if (i % 2 == 1) {

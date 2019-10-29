@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
 using Survivaria.Items.Materials;
@@ -21,7 +22,10 @@ namespace Survivaria.Tiles.Plants
 			{
 				60, //TileID.JungleGrass
 			};
-			TileObjectData.addTile(Type);
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Enigmatic Root");
+            AddMapEntry(new Color(62, 45, 66), name);
+            TileObjectData.addTile(Type);
 		}
 		public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
 			if (i % 2 == 1) {

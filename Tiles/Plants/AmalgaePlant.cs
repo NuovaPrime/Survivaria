@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Ocean;
 using Terraria;
@@ -29,7 +30,10 @@ namespace Survivaria.Tiles.Plants
 			{
 				53, //TileID.Sand
 			};
-			TileObjectData.addTile(Type);
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Amalgae");
+            AddMapEntry(new Color(35, 79, 35), name);
+            TileObjectData.addTile(Type);
 		}
 
 		public override bool Drop(int i, int j) {

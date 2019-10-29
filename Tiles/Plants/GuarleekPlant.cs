@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Jungle;
 using Terraria;
@@ -22,7 +23,10 @@ namespace Survivaria.Tiles.Plants
 			{
                 60, //TileID.JungleGrass
 			};
-			TileObjectData.addTile(Type);
+            ModTranslation name = CreateMapEntryName();
+            name.SetDefault("Guarleek");
+            AddMapEntry(new Color(194, 149, 81), name);
+            TileObjectData.addTile(Type);
 		}
 		public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
 			if (i % 2 == 1) {

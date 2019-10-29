@@ -60,7 +60,7 @@ namespace Survivaria
                     {
                         Item.NewItem(i * 16, (j - 5) * 16, 32, 32, ModContent.ItemType<RockCandy>(), Main.rand.Next(1, 2));
                     }
-                    if (type == TileID.Trees && (Main.tile[i, j + 1].type == TileID.Sand))
+                    if (type == TileID.PalmTree && (Main.tile[i, j + 1].type == TileID.Sand))
                     {
                         Item.NewItem(i * 16, (j - 5) * 16, 32, 32, ModContent.ItemType<Cocolate>(), Main.rand.Next(1, 2));
                     }
