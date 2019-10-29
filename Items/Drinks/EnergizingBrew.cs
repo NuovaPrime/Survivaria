@@ -25,8 +25,8 @@ namespace Survivaria.Items.Drinks
 
 		public override bool UseItem(Player player)
         {
-            player.AddBuff(BuffID.Chilled, 60 * 300);
-            return true;
+            player.AddBuff(BuffID.Chilled, 30 * 300);
+            return base.UseItem(player);
         }
 
         public override void AddRecipes()

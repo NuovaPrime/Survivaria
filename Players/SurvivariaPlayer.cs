@@ -2,8 +2,10 @@
 using Terraria.GameInput;
 using Terraria.ModLoader;
 using Terraria;
+using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader.IO;
+using Survivaria.Buffs;
 
 namespace Survivaria.Players
 {
@@ -31,6 +33,18 @@ namespace Survivaria.Players
 				//Main.NewText("Sanity is : " + CurrentSanity, 0, 255, 50);//*/
 			}
         }
+
+		public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
+		{
+			if (player.HasBuff(ModContent.BuffType<SkeleBuff>()) && Main.rand.Next(3) == 0) target.AddBuff(BuffID.ShadowFlame, 30*5, true);
+			if (player.HasBuff(ModContent.BuffType<EaterBuff>()) && Main.rand.Next(38) == 0) target.AddBuff(BuffID.CursedInferno, 30*8, true);
+		}
+
+		public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
+		{
+			if (player.HasBuff(ModContent.BuffType<SkeleBuff>()) && Main.rand.Next(3) == 0) target.AddBuff(BuffID.ShadowFlame, 30*5, true);
+			if (player.HasBuff(ModContent.BuffType<EaterBuff>()) && Main.rand.Next(28) == 0) target.AddBuff(BuffID.CursedInferno, 30*8, true);
+		}
 
         public override void ProcessTriggers(TriggersSet triggersSet)
         {

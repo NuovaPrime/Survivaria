@@ -21,7 +21,7 @@ namespace Survivaria.Items.Food.BiomeSpecific.Jungle
 		public override bool UseItem(Player player)
         {
             player.AddBuff(BuffID.Stinky, 60 * 60);
-            return true;
+            return base.UseItem(player);
         }
 
     }

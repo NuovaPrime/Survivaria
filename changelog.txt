@@ -1,9 +1,12 @@
-V0.3.1.2
+V0.3.5
 
 1) Slightly increased evil plants spawn rate.
 2) Onfire and frozen debuff from food had doubled time.
 3) Fixed bug where bigger foods just wouldn't give any stats.
 4) Made plants appear on the minimap.
+5) Cocolate drops properly now.
+6) Added preHM boss foods.
+7) Addeed hunger to potions.
 
 V0.3.1.1
 

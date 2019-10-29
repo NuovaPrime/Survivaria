@@ -15,7 +15,7 @@ namespace Survivaria.Buffs
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Fed Up");
-            Description.SetDefault("Halved hunger rate. Immune to poison.");
+            Description.SetDefault("Halved hunger rate. Immune to poison. Attacks have a slight chance to inflict cursed flames.");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = false;
         }

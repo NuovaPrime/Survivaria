@@ -21,10 +21,10 @@ namespace Survivaria.Buffs
         }
         public override void Update(Player player, ref int buffIndex)
         {
-			player.moveSpeed += 0.26f;
-			player.meleeSpeed += 0.26f;
-			player.meleeDamage += 0.26f;
-			player.endurance -= 0.34f;
+			player.moveSpeed += 0.22f;
+			player.meleeSpeed += 0.22f;
+			player.meleeDamage += 0.22f;
+			player.endurance -= 0.3f;
 			player.detectCreature = true;
         }
     }

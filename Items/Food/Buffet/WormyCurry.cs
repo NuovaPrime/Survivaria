@@ -27,7 +27,7 @@ namespace Survivaria.Items.Food.Buffet
         {
             player.AddBuff(BuffID.Wrath, 60 * 180);
             player.AddBuff(BuffID.Mining, 60 * 180);
-            return true;
+            return base.UseItem(player);
         }
 
         public override void AddRecipes()

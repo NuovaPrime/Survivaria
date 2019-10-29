@@ -27,7 +27,7 @@ namespace Survivaria.Items.Food.Buffet
         {
             player.AddBuff(BuffID.Rage, 60 * 180);
             player.AddBuff(BuffID.Builder, 60 * 180);
-            return true;
+            return base.UseItem(player);
         }
 
         public override void AddRecipes()

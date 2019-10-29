@@ -25,7 +25,7 @@ namespace Survivaria.Items.Food.Meal
         {
             player.AddBuff(BuffID.Swiftness, 60 * 180);
             player.AddBuff(BuffID.Mining, 60 * 180);
-            return true;
+            return base.UseItem(player);
         }
 
         public override void AddRecipes()

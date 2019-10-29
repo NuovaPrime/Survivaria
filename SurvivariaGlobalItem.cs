@@ -111,32 +111,65 @@ namespace Survivaria
                 ThirstAmount = 2;
             }
             if (item.type == ItemID.StrangeBrew)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.Honeyfin)
                 HungerAmount = 10;
             if (item.type == ItemID.LesserHealingPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 8;
+            }
             if (item.type == ItemID.LesserManaPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 8;
+            }
             if (item.type == ItemID.HealingPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.ManaPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.LesserRestorationPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 8;
+            }
             if (item.type == ItemID.RestorationPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.GreaterHealingPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 12;
+            }
             if (item.type == ItemID.GreaterManaPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 12;
+            }
             if (item.type == ItemID.SuperHealingPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 14;
+            }
             if (item.type == ItemID.SuperManaPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 14;
+            }
             if (item.type == ItemID.Bacon)
             {
-                HungerAmount = 12;
+                HungerAmount = 16;
                 ThirstAmount = -3;
             }
             if (item.type == ItemID.CookedFish)
@@ -204,85 +237,205 @@ namespace Survivaria
                 ThirstAmount = -4;
             }
             if (item.type == ItemID.RecallPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.GenderChangePotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.WormholePotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.TeleportationPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.ObsidianSkinPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.RegenerationPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.SwiftnessPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.GillsPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.IronskinPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.ManaRegenerationPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.MagicPowerPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.FeatherfallPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.SpelunkerPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.InvisibilityPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.ShinePotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.NightOwlPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.BattlePotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.ThornsPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.WaterWalkingPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.ArcheryPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.HunterPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.GravitationPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.MiningPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.HeartreachPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.CalmingPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.BuilderPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.TitanPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.FlipperPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.SummoningPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.TrapsightPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.AmmoReservationPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.LifeforcePotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.EndurancePotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.RagePotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.InfernoPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.WrathPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.FishingPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.SonarPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.CratePotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
             if (item.type == ItemID.WarmthPotion)
+            {
+                HungerAmount = 1;
                 ThirstAmount = 10;
+            }
         }
 
         public override bool UseItem(Item item, Player player)

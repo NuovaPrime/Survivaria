@@ -24,7 +24,7 @@ namespace Survivaria.Items.Food.Snack
 		public override bool UseItem(Player player)
         {
             player.AddBuff(BuffID.Flipper, 60 * 9001);
-            return true;
+            return base.UseItem(player);
         }
     }
 }

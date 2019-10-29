@@ -27,7 +27,7 @@ namespace Survivaria.Items.Food.Meal
         {
             player.AddBuff(BuffID.Wrath, 60 * 420);
             player.AddBuff(BuffID.WeaponImbueCursedFlames, 60 * 420);
-            return true;
+            return base.UseItem(player);
         }
 
         public override void AddRecipes()

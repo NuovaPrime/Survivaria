@@ -29,7 +29,7 @@ namespace Survivaria.Items.Food.Snack
         {
             player.AddBuff(BuffID.Ironskin, 60 * 420);
             player.AddBuff(BuffID.Lifeforce, 60 * 420);
-            return true;
+            return base.UseItem(player);
         }
 
         public override void AddRecipes()

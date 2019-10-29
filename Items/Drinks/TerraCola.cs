@@ -27,7 +27,7 @@ namespace Survivaria.Items.Drinks
         {
             player.AddBuff(BuffID.MagicPower, 60 * 420);
             player.AddBuff(BuffID.Lovestruck, 60 * 420);
-            return true;
+            return base.UseItem(player);
         }
 
         public override void AddRecipes()

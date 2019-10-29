@@ -133,7 +133,7 @@ namespace Survivaria
             }
             if ((Main.tile[i, j].type == TileID.Grass && Main.tile[i, j + 1].wall != WallID.Cloud && (Main.tile[i, j - 1].type == TileID.Plants || Main.tile[i, j - 1].type == TileID.Plants2 || !Main.tile[i, j - 1].active())) && Main.tile[i, j].slope() == 0 && Main.dayTime)
             {
-                if (Main.rand.Next(u-10) == 0)
+                if (Main.rand.Next(u-5) == 0)
                 {
                     WorldGen.PlaceTile(i, j - 1, ModContent.TileType<ReecePlant>(), true, true);
                 }

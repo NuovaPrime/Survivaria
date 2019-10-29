@@ -28,7 +28,7 @@ namespace Survivaria.Items.Food.Feast
             player.AddBuff(BuffID.Shine, 60 * 420);
             player.AddBuff(BuffID.Builder, 60 * 420);
             player.AddBuff(BuffID.Titan, 60 * 420);
-            return true;
+            return base.UseItem(player);
         }
 
         public override void AddRecipes()

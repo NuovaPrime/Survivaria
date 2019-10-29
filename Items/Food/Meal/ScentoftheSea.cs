@@ -26,7 +26,7 @@ namespace Survivaria.Items.Food.Meal
         {
             player.AddBuff(BuffID.Fishing, 60 * 180);
             player.AddBuff(BuffID.Stinky, 60 * 180);
-            return true;
+            return base.UseItem(player);
         }
 
         public override void AddRecipes()

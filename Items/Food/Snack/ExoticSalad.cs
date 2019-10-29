@@ -28,7 +28,7 @@ namespace Survivaria.Items.Food.Snack
         {
             player.AddBuff(BuffID.Thorns, 60 * 180);
             player.AddBuff(BuffID.ManaRegeneration, 60 * 180);
-            return true;
+            return base.UseItem(player);
         }
 
         public override void AddRecipes()

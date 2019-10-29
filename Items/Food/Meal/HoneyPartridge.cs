@@ -24,7 +24,7 @@ namespace Survivaria.Items.Food.Meal
 		public override bool UseItem(Player player)
         {
             player.AddBuff(BuffID.Archery, 60 * 180);
-            return true;
+            return base.UseItem(player);
         }
 
         public override void AddRecipes()
