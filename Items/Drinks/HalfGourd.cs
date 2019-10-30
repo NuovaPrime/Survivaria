@@ -29,7 +29,7 @@ namespace Survivaria.Items.Drinks
             base.UseItem(player);
             item.TurnToAir();
             player.PutItemInInventory(ModContent.ItemType<EmptyGourd>());
-            return true;
+            return false;
         }
     }
 }

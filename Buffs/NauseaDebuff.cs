@@ -18,6 +18,8 @@ namespace Survivaria.Buffs
             Description.SetDefault("You've eaten too much.\nUnable to eat, lowered mana regen, slightly lowered damage, increased thirst drain rate.");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = true;
+            Main.persistentBuff[Type] = true;
+            canBeCleared = false;
         }
 
 		public override void Update(Player player, ref int buffIndex)

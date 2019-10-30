@@ -18,6 +18,8 @@ namespace Survivaria.Buffs
             Description.SetDefault("You've drank too much.\nUnable to drink, lowered health regen, slightly lowered damage, increased hunger drain rate.");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = true;
+            Main.persistentBuff[Type] = true;
+            canBeCleared = false;
         }
 
 		public override void Update(Player player, ref int buffIndex)

@@ -43,7 +43,7 @@ namespace Survivaria.Items.Drinks
             base.UseItem(player);
             item.TurnToAir();
             player.PutItemInInventory(ModContent.ItemType<HalfGourd>());
-            return true;
+            return false;
         }
     }
 }
