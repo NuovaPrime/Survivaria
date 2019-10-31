@@ -44,32 +44,48 @@ namespace Survivaria.Tiles.Plants
             }
         }*/
 
-        public override bool Drop(int i, int j) {
+        public override bool Drop(int i, int j)
+        {
 			int stage = Main.tile[i, j].frameX / 18 / 2;
-			if (stage == 2) {
+			if (stage == 2 && Main.tile[i, j].frameX == 72 && Main.tile[i, j].frameY == 18) {
 				Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<SparklingBerry>());
 			}
 			return false;
 		}
 
-		public override void RandomUpdate(int i, int j)
+        public override void RandomUpdate(int i, int j)
         {
-            if (Main.tile[i, j].frameX == 0)
+            int x = i - Main.tile[i, j].frameX / 18 % 2;
+            int y = j - Main.tile[i, j].frameY / 18 % 2;
+
+            Tile tile;
+            Tile tile2;
+            if (Main.rand.Next(4) == 0)
             {
-                if (Main.rand.Next(4) == 0)
+                for (int l = x; l < x + 2; l++)
                 {
-                    Main.tile[i, j].frameX += 36;
-                    Main.tile[i + 1, j].frameX += 36;
+                    for (int m = y; m < y + 2; m++)
+                    {
+                        tile = Framing.GetTileSafely(l, m);
+                        tile2 = Framing.GetTileSafely(l + 1, m);
+                        if (tile.active() && tile.type == Type)
+                        {
+                            if (tile.frameX == 0)
+                            {
+                                tile.frameX += 36;
+                                tile2.frameX += 36;
+                            }
+
+                            else if (tile.frameX == 36)
+                            {
+                                tile.frameX += 36;
+                                tile2.frameX += 36;
+                            }
+                        }
+                    }
                 }
             }
-			else if (Main.tile[i, j].frameX == 36)
-            {
-                if (Main.rand.Next(4) == 0)
-                {
-                    Main.tile[i, j].frameX += 36;
-                    Main.tile[i + 1, j].frameX += 36;
-                }
-            }
-		}
-	}
+            NetMessage.SendTileSquare(-1, x + 1, y, 3);
+        }
+    }
 }

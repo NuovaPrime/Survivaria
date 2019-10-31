@@ -13,6 +13,19 @@ New crafing stations and survival items - A handful of new stations which assist
 
 Changelog:
 
+V0.3.2.0
+
+1) Slightly increased evil plants spawn rate.
+2) Onfire and frozen debuff from food had doubled time.
+3) Fixed bug where bigger foods just wouldn't give any stats.
+4) Made plants appear on the minimap.
+5) Cocolate drops properly now.
+6) Added Spaghetti of Cthulhu, Super Salted Epineurium, Root of Evil, Honey-Filled Croissant and Endless Tripe Sausage.
+7) Added hunger to potions.
+8) Fixed some growing animations glitching out.
+9) Fixed some plants dropping more items than they should.
+10) Fixed bug where you could remove Nausea and Hyponatremia at the nurse.
+
 V0.3.1.1
 
 1) Fixed gamebreaking bug where placables would be consumed even if you couldn't place it.

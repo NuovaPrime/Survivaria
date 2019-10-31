@@ -34,33 +34,41 @@ namespace Survivaria.Tiles.Plants
 
 		public override bool Drop(int i, int j) {
 			int stage = Main.tile[i, j].frameX / 18;
-			if (stage == 2) {
+            if (stage == 2 && Main.tile[i, j].frameX == 36 && Main.tile[i, j].frameY == 18) {
 				Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<Reece>());
 			}
 			return false;
 		}
 
-        public override void RandomUpdate(int i, int j) {
-			if (Main.tile[i, j].frameX == 0)
+        public override void RandomUpdate(int i, int j)
+        {
+            int x = i - Main.tile[i, j].frameX / 18 % 1;
+            int y = j - Main.tile[i, j].frameY / 18 % 2;
+
+            Tile tile;
+            if (Main.rand.Next(4) == 0)
             {
-                if (Main.rand.Next(4) == 0)
+                for (int l = x; l < x + 1; l++)
                 {
-                    Main.tile[i, j].frameX += 18;
-                    Main.tile[i, j - 1].frameX += 18;
-                }
-			}
-			else if (Main.tile[i, j].frameX == 18)
-            {
-                if (Main.rand.Next(4) == 0)
-                {
-                    Main.tile[i, j].frameX += 18;
-                    Main.tile[i, j - 1].frameX += 18;
+                    for (int m = y; m < y + 2; m++)
+                    {
+                        tile = Framing.GetTileSafely(l, m);
+                        if (tile.active() && tile.type == Type)
+                        {
+                            if (tile.frameX == 0)
+                            {
+                                tile.frameX += 18;
+                            }
+
+                            else if (tile.frameX == 18)
+                            {
+                                tile.frameX += 18;
+                            }
+                        }
+                    }
                 }
             }
-		}
-		//public override void RightClick(int i, int j)
-		//{
-		//	base.RightClick(i, j);
-		//}
-	}
+            NetMessage.SendTileSquare(-1, x + 1, y, 3);
+        }
+    }
 }

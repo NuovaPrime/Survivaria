@@ -48,17 +48,17 @@ namespace Survivaria
                 Chest chest = Main.chest[chestIndex];
                 if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers && Main.tile[chest.x, chest.y].frameX == 0 * 36)
                 {
-                    for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
+                    if (Main.rand.Next(3) == 0)
                     {
-                        if (chest.item[inventoryIndex].type == 0)
+                        for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
                         {
-                            if (Main.rand.Next(4) == 0)
+                            if (chest.item[inventoryIndex].type == 0)
                             {
                                 chest.item[inventoryIndex].SetDefaults(itemsToPlaceInChests[itemsToPlaceInChestsChoice]);
                                 itemsToPlaceInChestsChoice = (itemsToPlaceInChestsChoice + 1) % itemsToPlaceInChests.Length;
                                 // Alternate approach: Random instead of cyclical: chest.item[inventoryIndex].SetDefaults(Main.rand.Next(itemsToPlaceInIceChests));
                                 break;
-                            }   
+                            }
                         }
                     }
                 }

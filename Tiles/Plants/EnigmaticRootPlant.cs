@@ -35,7 +35,8 @@ namespace Survivaria.Tiles.Plants
 
 		public override bool Drop(int i, int j) {
 			int stage = Main.tile[i, j].frameX / 18;
-			if (stage == 2) {
+            if (stage == 2 && Main.tile[i, j].frameX == 36 && Main.tile[i, j].frameY == 18)
+            {
 				Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<EnigmaticRoot>());
 			}
 			return false;
