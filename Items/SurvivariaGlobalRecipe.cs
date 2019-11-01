@@ -15,7 +15,7 @@ namespace Survivaria.Items
                 if (!player.ZoneGlowshroom)
                     return false;
             if (recipe.requiredTile == null && recipe.createItem.type == ModContent.ItemType<FilteredWater>())
-                if (!player.ZoneDesert)
+                if (!player.ZoneDesert) //this is useless because it doesn't work as long as the first recipe is always available
                     return false;
             return true;
         }

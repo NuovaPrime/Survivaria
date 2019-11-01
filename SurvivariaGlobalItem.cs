@@ -35,6 +35,11 @@ namespace Survivaria
                 {
                     player.QuickSpawnItem(ModContent.ItemType<TubofSlime>());
                 }
+                if (context == "bossBag" && arg == ItemID.EyeOfCthulhuBossBag) player.QuickSpawnItem(ModContent.ItemType<SpaghettiOfCthulhu>());
+                if (context == "bossBag" && arg == ItemID.BrainOfCthulhuBossBag) player.QuickSpawnItem(ModContent.ItemType<SuperSaltedEpineurium>());
+                if (context == "bossBag" && arg == ItemID.EaterOfWorldsBossBag) player.QuickSpawnItem(ModContent.ItemType<TripeSausage>());
+                if (context == "bossBag" && arg == ItemID.QueenBeeBossBag) player.QuickSpawnItem(ModContent.ItemType<HoneyCroissant>());
+                if (context == "bossBag" && arg == ItemID.SkeletronBossBag) player.QuickSpawnItem(ModContent.ItemType<RootOfEvil>());
             }
         }
         public override bool CanUseItem(Item item, Player player)

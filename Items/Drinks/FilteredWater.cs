@@ -26,7 +26,6 @@ namespace Survivaria.Items.Drinks
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.BottledWater);
-            recipe.AddIngredient(ItemID.SandBlock);
 			recipe.AddTile(ModContent.TileType<WaterFilterTile>());
             recipe.SetResult(this);
             recipe.AddRecipe();
@@ -34,8 +33,9 @@ namespace Survivaria.Items.Drinks
 			ModRecipe recipe2 = new ModRecipe(mod);
             recipe2.AddIngredient(ItemID.Bottle);
             recipe2.needWater = true;
+			recipe2.AddTile(TileID.Sand);
             recipe2.SetResult(this);
-            if (recipe2.RecipeAvailable())
+            if (recipe2.RecipeAvailable())//this is useless because it doesn't work as long as the first recipe is always available
             {
                 recipe2.AddRecipe();
             }

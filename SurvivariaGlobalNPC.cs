@@ -31,6 +31,26 @@ namespace Survivaria
                     if (Main.rand.Next(10) == 0)
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<TubofSlime>());
                 }
+                if (npc.type == NPCID.EyeofCthulhu)
+                {
+                    if (Main.rand.Next(10) == 0) Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<SpaghettiOfCthulhu>());
+                }
+                if (npc.type == NPCID.BrainofCthulhu)
+                {
+                    if (Main.rand.Next(10) == 0) Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<SuperSaltedEpineurium>());
+                }
+                if (npc.type == NPCID.EaterofWorldsHead && npc.boss == true)
+                {
+                    if (Main.rand.Next(10) == 0) Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<TripeSausage>());
+                }
+                if (npc.type == NPCID.QueenBee)
+                {
+                    if (Main.rand.Next(10) == 0) Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<HoneyCroissant>());
+                }
+                if (npc.type == NPCID.SkeletronHead)
+                {
+                    if (Main.rand.Next(10) == 0) Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<RootOfEvil>());
+                }
             }
             int r = 4;
             if (Main.expertMode) r++;

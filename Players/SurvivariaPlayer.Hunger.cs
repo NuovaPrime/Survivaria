@@ -107,7 +107,7 @@ namespace Survivaria.Players
             if (Main.expertMode) HungerLossMulti += 0.15f;
             if (HungerLossTimer >= 60)//1200, 30 for debug
             {
-                _h = 0.055 * HungerLossMulti;//0.001, 1 for debug
+                _h = 0.045 * HungerLossMulti;//0.001, 1 for debug
 
                 if (player.moveSpeed >= 20 && !player.controlMount)
 					_h *= 2; //Gets doubled;

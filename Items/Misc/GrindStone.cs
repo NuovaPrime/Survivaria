@@ -9,7 +9,7 @@ namespace Survivaria.Items.Misc
 {
     public class GrindStone : SurvivariaItem
     {
-        public GrindStone() : base("Grinding Stone", "A commonly used pair of stone tools used to grind down plants and small foods.", 28, 26, Item.buyPrice(0, 1, 0, 0), ItemRarityID.Green)
+        public GrindStone() : base("Grinding Stone", "A commonly used pair of stone tools used to grind down plants and small foods.", 28, 26, Item.buyPrice(0, 0, 0, 50), ItemRarityID.Green)
         {
         }
 
@@ -24,7 +24,6 @@ namespace Survivaria.Items.Misc
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.StoneBlock, 20);
             recipe.AddIngredient(ItemID.Wood, 7);
-            recipe.AddIngredient(ItemID.Chain, 1);
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this);
             recipe.AddRecipe();

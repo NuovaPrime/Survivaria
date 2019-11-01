@@ -36,7 +36,7 @@ namespace Survivaria.Items.Food.Buffet
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<AshStraws>(), 2);
+            recipe.AddIngredient(ModContent.ItemType<AshStraws>());
             recipe.AddIngredient(ModContent.ItemType<BlossomWheat>(), 2);
             recipe.AddIngredient(ModContent.ItemType<Greneyede>(), 2);
             recipe.AddIngredient(ModContent.ItemType<Peppermint>(), 2);

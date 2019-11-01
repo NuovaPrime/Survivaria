@@ -14,9 +14,11 @@ namespace Survivaria.Tiles.Plants
 			Main.tileFrameImportant[Type] = true;
 			Main.tileCut[Type] = false;
 			Main.tileNoFail[Type] = true;
+            Main.tileWaterDeath[Type] = true;
             Main.tileSpelunker[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2);
             TileObjectData.newTile.DrawYOffset = 2;
+            TileObjectData.newTile.WaterDeath = true;
             TileObjectData.newTile.AnchorValidTiles = new[]
 			{
 				2, //TileID.Grass

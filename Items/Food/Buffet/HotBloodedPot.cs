@@ -36,7 +36,7 @@ namespace Survivaria.Items.Food.Buffet
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ModContent.ItemType<BleedRoot>(), 2);
-            recipe.AddIngredient(ModContent.ItemType<DemonTail>(), 2);
+            recipe.AddIngredient(ModContent.ItemType<DemonTail>());
             recipe.AddIngredient(ModContent.ItemType<Peppermint>(), 2);
             recipe.AddIngredient(ItemID.Bowl);
             recipe.AddTile(TileID.CookingPots);
