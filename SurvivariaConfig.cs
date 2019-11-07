@@ -28,6 +28,22 @@ namespace Survivaria
         [DefaultValue(true)]
         public bool ThirstEnabled { get; set; }
 
+        [Label("Disable Potion Extra Stats")]
+        [Tooltip("Toggles the hunger and thirst that potions give.")]
+        [DefaultValue(false)]
+        [ReloadRequired]
+        public bool DisablePotionStats { get; set; }
+
+        [Label("Adjust Hunger Drain Rate")]
+        [Tooltip("Adjusts the multiplier for hunger drain rate.")]
+        [DefaultValue(1)]
+        public int HungerDrainRateMulti { get; set; }
+
+        [Label("Adjust Thirst Drain Rate")]
+        [Tooltip("Adjusts the multiplier for thirst drain rate.")]
+        [DefaultValue(1)]
+        public int ThirstDrainRateMulti { get; set; }
+
         /*[Label("Temperature enabled")]
         [Tooltip("Toggle the temperature system.")]
         [DefaultValue(true)]*/

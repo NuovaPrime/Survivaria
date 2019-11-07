@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Survivaria.Players;
 
 namespace Survivaria.Items.Drinks
 {
@@ -40,7 +41,7 @@ namespace Survivaria.Items.Drinks
 
         public override bool UseItem(Player player)
         {
-            base.UseItem(player);
+            player.GetModPlayer<SurvivariaPlayer>().AddThirst(8);
             item.TurnToAir();
             player.PutItemInInventory(ModContent.ItemType<HalfGourd>());
             return false;

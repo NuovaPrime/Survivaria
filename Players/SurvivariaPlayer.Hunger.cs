@@ -30,68 +30,71 @@ namespace Survivaria.Players
 
         internal void UpdateHunger() //Called every single tick;
 		{
-			HungerLossTimer++;
+            if (ModContent.GetInstance<SurvivariaConfigServer>().HungerEnabled)
+            {
+                HungerLossTimer++;
 
-			CurrentHunger -= HungerLossRate();
+                CurrentHunger -= HungerLossRate();
 
-            if (CurrentHunger >= 85)
-            {
-                player.lifeRegen += 1;
-				player.wellFed = true;
-				player.statDefense += 2;
-                player.allDamageMult += 0.05f;
-				player.meleeCrit += 2;
-				player.meleeSpeed += 0.05f;
-				player.magicCrit += 2;
-				player.rangedCrit += 2;
-				player.thrownCrit += 2;
-				player.minionKB += 0.5f;
-				player.moveSpeed += 0.2f;
-                ThirstLossMulti += 0.05f;
-                CurrentTemperature += 2;
-                player.AddBuff(ModContent.BuffType<WellFedBuff>(), 2);
-            }
-            if (CurrentHunger <= 41)
-            {
-				if(player.lifeRegen > 1) player.lifeRegen -= 2;
-                player.statLifeMax2 -= 10;
-                player.pickSpeed -= 0.15f;
-                player.meleeSpeed -= 0.15f;
-                player.moveSpeed -= 0.10f;
-                if(CurrentHunger >= 21) player.AddBuff(ModContent.BuffType<HungryDebuff>(), 2);
-            }
-            if (CurrentHunger < 21)
-            {
-                if (Main.rand.Next(2000) == 0)
-                    Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/StomachGrowl"));
-				if(player.lifeRegen > 1) player.lifeRegen -= 2;
-                player.statLifeMax2 -= 40;
-                player.pickSpeed -= 0.3f;
-                player.meleeSpeed -= 0.3f;
-                player.moveSpeed -= 0.3f;
-                if(CurrentHunger > 0) player.AddBuff(ModContent.BuffType<FamishedDebuff>(), 2);
-            }
-            if (CurrentHunger <= 0)
-            {
-                LossTimer++;
-				if(player.lifeRegen > 0) player.lifeRegen = 0;
-                if (LossTimer >= 20)
+                if (CurrentHunger >= 85)
                 {
-                    if(player.statLife > 0) player.statLife -= 1;
-                    if(player.statMana > 0) player.statMana -= 1;
-					string playerName = Main.LocalPlayer.name;
-                    if (player.statLife <= 0)
-                    {
-                        player.KillMe(PlayerDeathReason.ByCustomReason(playerName + " couldn't sustain the hunger."), 10.0, 0, false);
-                        CurrentHunger = 20;
-                    }
-                    CurrentSanity -= 0.05f;
-                    LossTimer = 0;
+                    player.lifeRegen += 1;
+                    player.wellFed = true;
+                    player.statDefense += 2;
+                    player.allDamageMult += 0.05f;
+                    player.meleeCrit += 2;
+                    player.meleeSpeed += 0.05f;
+                    player.magicCrit += 2;
+                    player.rangedCrit += 2;
+                    player.thrownCrit += 2;
+                    player.minionKB += 0.5f;
+                    player.moveSpeed += 0.2f;
+                    ThirstLossMulti += 0.05f;
+                    CurrentTemperature += 2;
+                    player.AddBuff(ModContent.BuffType<WellFedBuff>(), 2);
                 }
-                player.AddBuff(ModContent.BuffType<StarvingDebuff>(), 2);
+                if (CurrentHunger <= 41)
+                {
+                    if (player.lifeRegen > 1) player.lifeRegen -= 2;
+                    player.statLifeMax2 -= 10;
+                    player.pickSpeed -= 0.15f;
+                    player.meleeSpeed -= 0.15f;
+                    player.moveSpeed -= 0.10f;
+                    if (CurrentHunger >= 21) player.AddBuff(ModContent.BuffType<HungryDebuff>(), 2);
+                }
+                if (CurrentHunger < 21)
+                {
+                    if (Main.rand.Next(2000) == 0)
+                        Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/StomachGrowl").WithVolume(1.3f));
+                    if (player.lifeRegen > 1) player.lifeRegen -= 2;
+                    player.statLifeMax2 -= 40;
+                    player.pickSpeed -= 0.3f;
+                    player.meleeSpeed -= 0.3f;
+                    player.moveSpeed -= 0.3f;
+                    if (CurrentHunger > 0) player.AddBuff(ModContent.BuffType<FamishedDebuff>(), 2);
+                }
+                if (CurrentHunger <= 0)
+                {
+                    LossTimer++;
+                    if (player.lifeRegen > 0) player.lifeRegen = 0;
+                    if (LossTimer >= 20)
+                    {
+                        if (player.statLife > 0) player.statLife -= 1;
+                        if (player.statMana > 0) player.statMana -= 1;
+                        string playerName = Main.LocalPlayer.name;
+                        if (player.statLife <= 0)
+                        {
+                            player.KillMe(PlayerDeathReason.ByCustomReason(playerName + " couldn't sustain the hunger."), 10.0, 0, false);
+                            CurrentHunger = 20;
+                        }
+                        CurrentSanity -= 0.05f;
+                        LossTimer = 0;
+                    }
+                    player.AddBuff(ModContent.BuffType<StarvingDebuff>(), 2);
+                }
+                if (player.statLife > player.statLifeMax2) player.statLife = player.statLifeMax2;
+                if (player.HasBuff(BuffID.WellFed)) player.ClearBuff(BuffID.WellFed);
             }
-            if (player.statLife > player.statLifeMax2) player.statLife = player.statLifeMax2;
-            if (player.HasBuff(BuffID.WellFed)) player.ClearBuff(BuffID.WellFed);
         }
 
         public double HungerLossRate()
@@ -107,7 +110,7 @@ namespace Survivaria.Players
             if (Main.expertMode) HungerLossMulti += 0.15f;
             if (HungerLossTimer >= 60)//1200, 30 for debug
             {
-                _h = 0.045 * HungerLossMulti;//0.001, 1 for debug
+                _h = 0.045 * HungerLossMulti * ModContent.GetInstance<SurvivariaConfigServer>().HungerDrainRateMulti;//0.001, 1 for debug
 
                 if (player.moveSpeed >= 20 && !player.controlMount)
 					_h *= 2; //Gets doubled;

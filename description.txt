@@ -13,6 +13,16 @@ New crafing stations and survival items - A handful of new stations which assist
 
 Changelog:
 
+V0.3.2.1
+
+1) Slightly reduced thirst and hunger drain rates.
+2) Adjusted the recipes for filtered water, crimson blaze, hot blooded pot, grind stone and mortar and pestle.
+3) Increased volume of the low hunger and thirst sounds.
+4) Fixed bug where it consumed the item if you tried to place a tile even if it wasn't a valid spot.
+5) Fixed bug where disabling hunger or thirst in the config didn't actually disable it.
+6) Added config to disable hunger and food stats on potions.
+7) Added configs to adjust hunger and thirst drain rate multipliers.
+
 V0.3.2.0
 
 1) Slightly increased evil plants spawn rate.

@@ -31,53 +31,56 @@ namespace Survivaria.Players
         private int LossTimer = 0;
         internal void UpdateThirst() //Called every single tick;
         {
-            ThirstLossTimer++;//Do NOT include debugging in separate files. Include in player file.
+            if (ModContent.GetInstance<SurvivariaConfigServer>().ThirstEnabled)
+            {
+                ThirstLossTimer++;//Do NOT include debugging in separate files. Include in player file.
 
-            CurrentThirst -= ThirstLossRate();
+                CurrentThirst -= ThirstLossRate();
 
-            if (CurrentThirst >= 80)
-            {
-                player.manaCost -= 0.10f;
-                player.pickSpeed += 0.10f;
-                player.allDamageMult += 0.08f;
-                player.AddBuff(ModContent.BuffType<WellHydratedBuff>(), 2);
-            }
-			if (CurrentThirst <= 41)
-            {
-                player.manaCost += 0.25f;
-                player.pickSpeed -= 0.20f;
-                player.allDamageMult -= 0.15f;
-                player.moveSpeed -= 0.10f;
-                if(CurrentHunger >= 21) player.AddBuff(ModContent.BuffType<ThirstyDebuff>(), 2);
-            }
-            if (CurrentThirst < 21)
-            {
-                if (Main.rand.Next(2000) == 0)
-                    Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/ThirstCough"));
-                player.manaCost += 0.25f;
-                player.pickSpeed -= 0.20f;
-                player.allDamageMult -= 0.15f;
-                player.moveSpeed -= 0.10f;
-                if(CurrentThirst > 0) player.AddBuff(ModContent.BuffType<DehydratedDebuff>(), 2);
-            }
-            if (CurrentThirst <= 0)
-            {
-                LossTimer++;
-				if(player.lifeRegen > 0) player.lifeRegen = 0;
-                if (LossTimer >= 20)
+                if (CurrentThirst >= 80)
                 {
-                    if(player.statLife > 0) player.statLife -= 1;
-                    if(player.statMana > 0) player.statMana -= 2;
-					string playerName = Main.LocalPlayer.name;
-                    if (player.statLife <= 0)
-                    {
-                        player.KillMe(PlayerDeathReason.ByCustomReason(playerName + " turned back to dust."), 10.0, 0, false);
-                        CurrentThirst = 20;
-                    }
-                    CurrentSanity -= 0.05f;
-                    LossTimer = 0;
+                    player.manaCost -= 0.10f;
+                    player.pickSpeed += 0.10f;
+                    player.allDamageMult += 0.08f;
+                    player.AddBuff(ModContent.BuffType<WellHydratedBuff>(), 2);
                 }
-                player.AddBuff(ModContent.BuffType<ParchedDebuff>(), 2);
+                if (CurrentThirst <= 41)
+                {
+                    player.manaCost += 0.25f;
+                    player.pickSpeed -= 0.20f;
+                    player.allDamageMult -= 0.15f;
+                    player.moveSpeed -= 0.10f;
+                    if (CurrentHunger >= 21) player.AddBuff(ModContent.BuffType<ThirstyDebuff>(), 2);
+                }
+                if (CurrentThirst < 21)
+                {
+                    if (Main.rand.Next(2000) == 0)
+                        Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/ThirstCough").WithVolume(1.3f));
+                    player.manaCost += 0.25f;
+                    player.pickSpeed -= 0.20f;
+                    player.allDamageMult -= 0.15f;
+                    player.moveSpeed -= 0.10f;
+                    if (CurrentThirst > 0) player.AddBuff(ModContent.BuffType<DehydratedDebuff>(), 2);
+                }
+                if (CurrentThirst <= 0)
+                {
+                    LossTimer++;
+                    if (player.lifeRegen > 0) player.lifeRegen = 0;
+                    if (LossTimer >= 20)
+                    {
+                        if (player.statLife > 0) player.statLife -= 1;
+                        if (player.statMana > 0) player.statMana -= 2;
+                        string playerName = Main.LocalPlayer.name;
+                        if (player.statLife <= 0)
+                        {
+                            player.KillMe(PlayerDeathReason.ByCustomReason(playerName + " turned back to dust."), 10.0, 0, false);
+                            CurrentThirst = 20;
+                        }
+                        CurrentSanity -= 0.05f;
+                        LossTimer = 0;
+                    }
+                    player.AddBuff(ModContent.BuffType<ParchedDebuff>(), 2);
+                }
             }
         }
 
@@ -93,7 +96,7 @@ namespace Survivaria.Players
             if (Main.expertMode) ThirstLossMulti += 0.15f;
             if (ThirstLossTimer >= 60)//1200, 30 for debug
             {
-                _t = 0.06 * ThirstLossMulti;//0.002, 1 for debug
+                _t = 0.06 * ThirstLossMulti * ModContent.GetInstance<SurvivariaConfigServer>().ThirstDrainRateMulti;//0.002, 1 for debug
 
                 if (player.moveSpeed >= 20 && !player.controlMount)
                     _t *= 2; //Gets doubled;

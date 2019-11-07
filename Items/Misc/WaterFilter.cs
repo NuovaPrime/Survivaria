@@ -17,6 +17,7 @@ namespace Survivaria.Items.Misc
         {
             item.consumable = true;
             item.createTile = ModContent.TileType<WaterFilterTile>();
+            item.useStyle = ItemUseStyleID.SwingThrow;
             base.SetDefaults();
         }
 
