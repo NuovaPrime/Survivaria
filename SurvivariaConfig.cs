@@ -37,13 +37,13 @@ namespace Survivaria
         [Label("Adjust Hunger Drain Rate")]
         [Tooltip("Adjusts the multiplier for hunger drain rate.")]
         [DefaultValue(1f)]
-        [Range(0, 3)]
+        [Range(0f, 3f)]
         public float HungerDrainRateMulti { get; set; }
 
         [Label("Adjust Thirst Drain Rate")]
         [Tooltip("Adjusts the multiplier for thirst drain rate.")]
         [DefaultValue(1f)]
-        [Range(0, 3)]
+        [Range(0f, 3f)]
         public float ThirstDrainRateMulti { get; set; }
 
         /*[Label("Temperature enabled")]
