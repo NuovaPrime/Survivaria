@@ -13,7 +13,7 @@ namespace Survivaria.Items.Food.BiomeSpecific.Corruption
         public override void SetDefaults()
         {
             base.SetDefaults();
-            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Drinking/MeatEating");
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Eating/MeatEating");
         }
 
     }

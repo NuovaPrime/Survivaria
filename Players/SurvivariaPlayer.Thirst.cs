@@ -54,8 +54,8 @@ namespace Survivaria.Players
                 }
                 if (CurrentThirst < 21)
                 {
-                    if (Main.rand.Next(2000) == 0)
-                        Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/ThirstCough").WithVolume(1.3f));
+                    if (Main.rand.Next(5000) == 0)
+                        Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/ThirstCough").WithVolume(1f));
                     player.manaCost += 0.25f;
                     player.pickSpeed -= 0.20f;
                     player.allDamageMult -= 0.15f;

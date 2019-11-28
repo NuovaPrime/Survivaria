@@ -6,6 +6,8 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader.IO;
 using Survivaria.Buffs;
+using System.Collections.Generic;
+using Survivaria.Items.Food.Meal;
 
 namespace Survivaria.Players
 {
@@ -50,6 +52,14 @@ namespace Survivaria.Players
         {
             if (SurvivariaMod.Instance.resourceMenuKey.JustPressed)
                 ResourceMenu.visible = !ResourceMenu.visible;
+        }
+
+        public override void SetupStartInventory(IList<Item> items, bool mediumcoreDeath)
+        {
+            Item item = new Item();
+            item.SetDefaults(ModContent.ItemType<MRE>());
+            item.stack = 4;
+            items.Add(item);
         }
 
         public override void ResetEffects()

@@ -20,7 +20,7 @@ namespace Survivaria.Items.Food.Snack
         public override void SetDefaults()
         {
             base.SetDefaults();
-            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Drinking/MeatEating");
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Eating/MeatEating");
         }
 
         public override void AddRecipes()

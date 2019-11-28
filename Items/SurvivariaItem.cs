@@ -56,8 +56,16 @@ namespace Survivaria.Items
             item.maxStack = MaxStack;
             item.potion = false;
 
-            item.buffType = BuffApplied;
-            item.buffTime = BuffTime;
+            if (BuffApplied == 0)
+            {
+                item.buffType = BuffID.WellFed;
+                item.buffTime = HungerAmount * 60;
+            }
+            else
+            {
+                item.buffType = BuffApplied;
+                item.buffTime = BuffTime;
+            }
 
             item.useTime = 20;
             item.useAnimation = 20;
@@ -115,8 +123,12 @@ namespace Survivaria.Items
 
         public override bool UseItem(Player player)
         {
-            player.GetModPlayer<SurvivariaPlayer>().AddHunger(HungerAmount);
-            player.GetModPlayer<SurvivariaPlayer>().AddThirst(ThirstAmount);
+            if (CanUseItem(player))
+            {
+                player.GetModPlayer<SurvivariaPlayer>().AddHunger(HungerAmount);
+                player.GetModPlayer<SurvivariaPlayer>().AddThirst(ThirstAmount);
+            }
+
             return base.UseItem(player);
         }
 
@@ -125,10 +137,14 @@ namespace Survivaria.Items
             if (HungerAmount > 0)
                 if (player.HasBuff(ModContent.BuffType<NauseaDebuff>()))
                     return false;
+                else
+                    return true;
 
             if (ThirstAmount > 0)
                 if (player.HasBuff(ModContent.BuffType<HyponatremiaDebuff>()))
                     return false;
+                else
+                    return true;
             return base.CanUseItem(player);
         }
 

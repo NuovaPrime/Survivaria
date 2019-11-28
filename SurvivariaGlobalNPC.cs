@@ -9,6 +9,7 @@ using Terraria.ID;
 using Survivaria.Items.BossItems;
 using Survivaria.Items.Materials;
 using Survivaria.Items.Drinks;
+using Survivaria.Items.CrossMod.Fargos;
 
 namespace Survivaria
 {
@@ -51,6 +52,10 @@ namespace Survivaria
                 {
                     if (Main.rand.Next(10) == 0) Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<RootOfEvil>());
                 }
+            }
+            if (npc.type == ModLoader.GetMod("FargowiltasSouls").NPCType("MutantBoss"))
+            {
+                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<MutantBossFood>());
             }
             int r = 4;
             if (Main.expertMode) r++;

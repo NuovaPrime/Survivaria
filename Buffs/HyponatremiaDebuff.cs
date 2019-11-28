@@ -19,7 +19,7 @@ namespace Survivaria.Buffs
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = true;
             Main.persistentBuff[Type] = true;
-            canBeCleared = false;
+            //canBeCleared = false;
         }
 
 		public override void Update(Player player, ref int buffIndex)

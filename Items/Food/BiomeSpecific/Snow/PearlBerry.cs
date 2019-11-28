@@ -14,7 +14,7 @@ namespace Survivaria.Items.Food.BiomeSpecific.Snow
         public override void SetDefaults()
         {
             base.SetDefaults();
-            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Drinking/FruitEating");
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Eating/FruitEating");
         }
 
     }

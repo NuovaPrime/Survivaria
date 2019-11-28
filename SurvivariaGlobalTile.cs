@@ -79,7 +79,7 @@ namespace Survivaria
         }
         public override void RandomUpdate(int i, int j, int type)
         {
-            int u = 90;
+            int u = 110;
             if (Main.expertMode) u += 10;
             if ((Main.tile[i, j].type == TileID.Grass && Main.tile[i, j + 1].wall != WallID.Cloud && (Main.tile[i, j - 1].type == TileID.Plants || Main.tile[i, j - 1].type == TileID.Plants2 || !Main.tile[i, j - 1].active())) && Main.tile[i, j].slope() == 0 && Main.dayTime && Main.hardMode)
             {

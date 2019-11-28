@@ -64,8 +64,8 @@ namespace Survivaria.Players
                 }
                 if (CurrentHunger < 21)
                 {
-                    if (Main.rand.Next(2000) == 0)
-                        Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/StomachGrowl").WithVolume(1.3f));
+                    if (Main.rand.Next(5000) == 0)
+                        Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/StomachGrowl").WithVolume(1f));
                     if (player.lifeRegen > 1) player.lifeRegen -= 2;
                     player.statLifeMax2 -= 40;
                     player.pickSpeed -= 0.3f;

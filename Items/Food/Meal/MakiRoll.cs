@@ -21,7 +21,7 @@ namespace Survivaria.Items.Food.Meal
         public override void SetDefaults()
         {
             base.SetDefaults();
-            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Drinking/CrunchEating");
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Eating/CrunchEating");
         }
 
 		public override bool UseItem(Player player)
