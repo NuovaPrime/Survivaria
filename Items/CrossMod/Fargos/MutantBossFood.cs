@@ -13,7 +13,7 @@ namespace Survivaria.Items.CrossMod.Fargos
 {
     public class MutantBossFood : SurvivariaItem
     {
-        public MutantBossFood() : base("", "The bowl pulses with unbelievable power, I wonder if it's edible.", 24, 30, Item.buyPrice(1, 0, 0, 0), ItemRarityID.Purple, 1, 1, SoundID.Item2, ModContent.BuffType<MutantBossFoodBuff>(), 300)
+        public MutantBossFood() : base("Bowl of ???", "The bowl pulses with unbelievable power, I wonder if it's edible.", 24, 30, Item.buyPrice(1, 0, 0, 0), ItemRarityID.Purple, 1, 1, SoundID.Item2, ModContent.BuffType<MutantBossFoodBuff>(), 300)
         {
         }
         public override bool Autoload(ref string name)
@@ -54,6 +54,7 @@ namespace Survivaria.Items.CrossMod.Fargos
                     line2.overrideColor = Color.Red;
                 }
             }
+            base.ModifyTooltips(tooltips);
         }
     }
 }

@@ -7,6 +7,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 using Survivaria.Items.Materials;
+using System;
 
 namespace Survivaria
 {
@@ -16,6 +17,8 @@ namespace Survivaria
         private static ResourceMenu _resourceMenu;
         private static UserInterface _resourceMenuInterface;
 
+        internal bool fargoSoulsLoaded;
+        internal bool fargoLoaded;
         public SurvivariaMod()
 		{
             Properties = new ModProperties()
@@ -40,6 +43,20 @@ namespace Survivaria
 
                 ActivateResourceMenu();
             }
+        }
+        public override void PostSetupContent()
+        {
+            try
+            {
+                fargoSoulsLoaded = ModLoader.GetMod("FargowiltasSouls") != null;
+                fargoLoaded = ModLoader.GetMod("Fargowiltas") != null;
+
+            }
+            catch (Exception e)
+            {
+                ErrorLogger.Log("Survivaria PostSetupContent Error: " + e.StackTrace + e.Message);
+            }
+
         }
         public override void Unload()
         {

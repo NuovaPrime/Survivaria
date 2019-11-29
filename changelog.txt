@@ -2,7 +2,7 @@ V0.3.2.2
 
 1) Fixed bug where some foods couldn't be consumed but still gave their buffs, resulting in infinite food or drink.
 2) Added Pop sensation and MRE.
-3) Added new cross content foods with fargo's mutant mod, a drop from the mutant boss and a food sold by the abominationn.
+3) Added new cross content foods with fargo's mutant/soul mod, a drop from the mutant boss and a food sold by the deviantt.
 4) Changed the hunger and thirst drain multipliers to be floats, allowing it to go from x0-x3 instead of number values.
 5) Fixed sounds not playing properly on many foods.
 6) Decreased the chance and volume of the hungry and thirsty sounds.

@@ -15,6 +15,7 @@ namespace Survivaria
 {
     public class SurvivariaGlobalNPC : GlobalNPC
     {
+        public bool FargoDownedFishEX => FargowiltasSouls.FargoSoulsWorld.downedFishronEX;
         public override bool InstancePerEntity
         {
             get
@@ -100,6 +101,22 @@ namespace Survivaria
 					Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<FrozenTears>());
 			}
             base.NPCLoot(npc);
+        }
+        public override void SetupShop(int type, Chest shop, ref int nextSlot)
+        {
+            if (type == ModLoader.GetMod("Fargowiltas").NPCType("Deviantt"))
+            {
+                if (SurvivariaMod.Instance.fargoLoaded && SurvivariaMod.Instance.fargoSoulsLoaded)
+                {
+                    if (FargoDownedFishEX)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<TerrySmoothie>());
+                        nextSlot++;
+                    }
+                }
+            }
+
+            base.SetupShop(type, shop, ref nextSlot);
         }
     }
 }

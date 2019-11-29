@@ -20,6 +20,7 @@ namespace Survivaria.Items.CrossMod.Fargos
             Description.SetDefault("You feel immortal, but you also feel uneasy.");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = false;
+            canBeCleared = false;
         }
         public override bool Autoload(ref string name, ref string texture)
         {
