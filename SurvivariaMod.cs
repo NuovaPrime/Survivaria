@@ -125,17 +125,17 @@ namespace Survivaria
             // Registers the new recipe group with the specified name
             RecipeGroup.RegisterGroup("Survivaria:Seeds", seeds);
 
-			RecipeGroup pears = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Prickly Pear", new int[]
+						RecipeGroup pears = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Prickly Pear", new int[]
             {
                 ModContent.ItemType<PricklyPearMagenta>(),
                 ModContent.ItemType<PricklyPearRed>(),
-				ModContent.ItemType<PricklyPearOrange>(),
-				ModContent.ItemType<PricklyPearYellow>(),
-				ModContent.ItemType<PricklyPearWhite>()
+								ModContent.ItemType<PricklyPearOrange>(),
+								ModContent.ItemType<PricklyPearYellow>(),
+								ModContent.ItemType<PricklyPearWhite>()
             });
             RecipeGroup.RegisterGroup("Survivaria:Pears", pears);
 
-			RecipeGroup ofish = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Ocean Fish", new int[]
+						RecipeGroup ofish = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Ocean Fish", new int[]
             {
                 ItemID.Tuna,
                 ItemID.RedSnapper,
@@ -143,14 +143,14 @@ namespace Survivaria
             });
             RecipeGroup.RegisterGroup("Survivaria:OceanFish", ofish);
 
-			RecipeGroup duck = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Duck", new int[]
+						RecipeGroup duck = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Duck", new int[]
             {
                 ItemID.MallardDuck,
                 ItemID.Duck
             });
             RecipeGroup.RegisterGroup("Survivaria:Ducks", duck);
 
-			RecipeGroup bird = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Bird", new int[]
+						RecipeGroup bird = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Bird", new int[]
             {
                 ItemID.Bird,
                 ItemID.Cardinal,
@@ -158,7 +158,7 @@ namespace Survivaria
             });
             RecipeGroup.RegisterGroup("Survivaria:Birds", bird);
 
-			RecipeGroup squirrel = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Squirrel", new int[]
+						RecipeGroup squirrel = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + "Squirrel", new int[]
             {
                 ItemID.Squirrel,
                 ItemID.SquirrelRed
