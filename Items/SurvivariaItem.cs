@@ -59,7 +59,7 @@ namespace Survivaria.Items
             if (BuffApplied == 0)
             {
                 item.buffType = BuffID.WellFed;
-                item.buffTime = HungerAmount * 60;
+                item.buffTime = 0;
             }
             else
             {
@@ -117,6 +117,16 @@ namespace Survivaria.Items
             {
                 TooltipLine line2 = new TooltipLine(mod, "Survivaria_Tooltip_Thirst", DrinkSize) { overrideColor = new Color(66, 194, 245) };
                 tooltips.Add(line2);
+            }
+            if (item.buffType == BuffID.WellFed)
+            {
+                foreach (TooltipLine line2 in tooltips)
+                {
+                    if (line2.mod == "Terraria" && line2.Name == "WellFedExpert")
+                    {
+                        line2.text = "";
+                    }
+                }
             }
             base.ModifyTooltips(tooltips);
         }

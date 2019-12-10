@@ -25,7 +25,7 @@ namespace Survivaria.Tiles.Plants
             TileObjectData.newTile.WaterDeath = true;
             TileObjectData.newTile.AnchorValidTiles = new[]
 			{
-				23, //TileID.CorruptGrass
+				199, //TileID.FleshGrass
 			};
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Bleed Root");
@@ -51,7 +51,7 @@ namespace Survivaria.Tiles.Plants
             g = 0.07f;
             b = 0f;
         }
-
+        
         public override void RandomUpdate(int i, int j) {
 			if (Main.tile[i, j].frameX == 0) {
                 if (Main.rand.Next(4) == 0) Main.tile[i, j].frameX += 18;
@@ -59,7 +59,12 @@ namespace Survivaria.Tiles.Plants
 			else if (Main.tile[i, j].frameX == 18) {
                 if (Main.rand.Next(4) == 0) Main.tile[i, j].frameX += 18;
 			}
-		}
+            else if (Main.tile[i, j].frameX == 36)
+            {
+                if (Main.rand.Next(20) == 0) WorldGen.KillTile(i, j);
+            }
+
+        }
 		//public override void RightClick(int i, int j)
 		//{
 		//	base.RightClick(i, j);

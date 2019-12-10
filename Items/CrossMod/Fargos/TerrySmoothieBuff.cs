@@ -28,13 +28,21 @@ namespace Survivaria.Items.CrossMod.Fargos
         public override void Update(Player player, ref int buffIndex)
         {
             timer++;
-			player.allDamageMult += 0.5f;
+			player.allDamageMult += 0.2f;
+            player.magicCrit *= (int)0.2f;
+            player.meleeCrit *= (int)0.2f;
+            player.rangedCrit *= (int)0.2f;
+            player.thrownCrit *= (int)0.2f;
             player.statDefense += 10;
-            player.lifeRegen += 2;
+            player.lifeRegen += 4;
+            player.lifeRegenCount += 2;
+            player.lifeRegenTime += 2;
+            player.statDefense += 10;
+            player.endurance += 10;
             if (timer == 600)
             {
                 Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
-                Projectile.NewProjectile(player.position, Vector2.Zero, ModContent.ProjectileType<MutantGrab>(), 1000, 1f, player.whoAmI);
+                Projectile.NewProjectile(player.position, Vector2.Zero, ModContent.ProjectileType<MutantGrab>(), 1000 * (int)player.allDamageMult, 1f, player.whoAmI);
                 timer = 0;
             }
         }

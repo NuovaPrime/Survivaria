@@ -87,9 +87,28 @@ namespace Survivaria.UI
             //if (mod.GetConfig<SurvivariaConfigServer>().SanityEnabled)
             //DrawBar(spriteBatch, player, GFX.sanityIndicatorTexture, 5, (int)(player.CurrentSanity / player.MaximumSanity * 100 / 21), 1, 10);
             if (ModContent.GetInstance<SurvivariaConfigServer>().HungerEnabled)
+            {
                 DrawBar(spriteBatch, player, GFX.hungerIndicatorTexture, 8, (int)(player.CurrentHunger / player.HungerMaximum * 100 / 13 * 1.04 - 0.01));
+                if (player.BloodAnalyzer)
+                    DrawBarText(spriteBatch, "Hunger: " + (int)player.CurrentHunger + " / " + player.HungerMaximum, new Color(255, 153, 51), player, 0.7f, 4.4f, 0.3f);
+            }
+
             if (ModContent.GetInstance<SurvivariaConfigServer>().ThirstEnabled)
-                DrawBar(spriteBatch, player, GFX.thirstIndicatorTexture, 5, (int)(player.CurrentThirst / player.MaximumThirst * 100 / 21), 1.6f, 5);
+            {
+                if (player.BloodAnalyzer)
+                    DrawBar(spriteBatch, player, GFX.thirstIndicatorTexture, 5, (int)(player.CurrentThirst / player.MaximumThirst * 100 / 21), 1.6f, 7);
+                else
+                    DrawBar(spriteBatch, player, GFX.thirstIndicatorTexture, 5, (int)(player.CurrentThirst / player.MaximumThirst * 100 / 21), 1.6f, 5);
+                if (player.HydrolyzerCrystals)
+                {
+                    if (player.BloodAnalyzer)
+                        DrawBarText(spriteBatch, "Thirst: " + (int)player.CurrentThirst + " / " + player.MaximumThirst, Color.LightBlue, player, 1.3f, 11.4f, 0.3f);
+                    else
+                        DrawBarText(spriteBatch, "Thirst: " + (int)player.CurrentThirst + " / " + player.MaximumThirst, Color.LightBlue, player, 1.3f, 9.4f, 0.3f);
+                }
+                    
+
+            }
             //if (mod.GetConfig<SurvivariaConfigServer>().TemperatureEnabled)
             //DrawTemperatureFill(spriteBatch, player, -0.4f, 14.5f);
 
@@ -114,6 +133,11 @@ namespace Survivaria.UI
 
             Rectangle sourceRectangle = new Rectangle(0, frameHeight * frame, texture.Width, frameHeight);
             spriteBatch.Draw(texture, _drawPosition, sourceRectangle, Color.White);
+        }
+        public void DrawBarText(SpriteBatch spriteBatch, string text, Color color, SurvivariaPlayer player, float drawPosX = 1, float drawPosY = 1, float scale = 1f)
+        {
+            _drawPosition = new Vector2(backPanel.Left.Pixels - PaddingX * drawPosX, backPanel.Top.Pixels - PaddingY * drawPosY);
+            spriteBatch.DrawString(Main.fontDeathText, text, _drawPosition, color, 0, new Vector2(0, 0), scale, SpriteEffects.None, 1);
         }
         public void DrawTemperatureIndicator(SpriteBatch spriteBatch, SurvivariaPlayer player, float drawPosX = 1f, float drawPosY = 1f)
         {

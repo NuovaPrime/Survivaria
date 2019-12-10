@@ -17,28 +17,6 @@ namespace Survivaria
 {
     public class SurvivariaWorld : ModWorld
     {
-        /*public override void PostUpdate()
-        {
-            GeneratePlants();
-        }
-
-        public void GeneratePlants()
-        {
-            int tileToPlace = ModContent.TileType<PeppermintPlant>();
-            int x = WorldGen.genRand.Next(0, Main.maxTilesX);
-            int y = WorldGen.genRand.Next(0, );
-            if (WorldGen.genRand.Next(100) == 0)
-            {
-                if (Main.tile[x, y].type == TileID.Grass && !Main.tile[x, y - 1].active())
-                {
-                    WorldGen.PlaceTile(x, y - 1, tileToPlace);
-                    Main.NewText("Plant placed at: " + new Vector2(x, y));
-                }
-                    
-            }
-
-        }*/
-
         public override void PostWorldGen()
         {
             int[] itemsToPlaceInChests = { ModContent.ItemType<EmptyGourd>() };
@@ -56,7 +34,6 @@ namespace Survivaria
                             {
                                 chest.item[inventoryIndex].SetDefaults(itemsToPlaceInChests[itemsToPlaceInChestsChoice]);
                                 itemsToPlaceInChestsChoice = (itemsToPlaceInChestsChoice + 1) % itemsToPlaceInChests.Length;
-                                // Alternate approach: Random instead of cyclical: chest.item[inventoryIndex].SetDefaults(Main.rand.Next(itemsToPlaceInIceChests));
                                 break;
                             }
                         }

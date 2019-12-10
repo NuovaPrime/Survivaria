@@ -2,6 +2,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Space;
 using Terraria;
+using Terraria.DataStructures;
+using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -18,6 +20,8 @@ namespace Survivaria.Tiles.Plants
             Main.tileWaterDeath[Type] = true;
             Main.tileSpelunker[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
+            TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
+            TileObjectData.newTile.AnchorBottom = AnchorData.Empty;
             TileObjectData.newTile.DrawYOffset = -2;
             TileObjectData.newTile.WaterDeath = true;
             TileObjectData.newTile.AnchorValidTiles = new[]
@@ -56,7 +60,11 @@ namespace Survivaria.Tiles.Plants
 			else if (Main.tile[i, j].frameX == 18) {
                 if (Main.rand.Next(4) == 0) Main.tile[i, j].frameX += 18;
 			}
-		}
+            else if (Main.tile[i, j].frameX == 36)
+            {
+                if (Main.rand.Next(20) == 0) WorldGen.KillTile(i, j, false, false, true);
+            }
+        }
 		//public override void RightClick(int i, int j)
 		//{
 		//	base.RightClick(i, j);

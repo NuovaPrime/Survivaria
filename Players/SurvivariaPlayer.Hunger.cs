@@ -5,6 +5,7 @@ using Survivaria.Buffs;
 using Terraria.DataStructures;
 using System.Collections.Generic;
 using Terraria.GameContent.Events;
+using Survivaria.Items.Misc;
 
 namespace Survivaria.Players
 {
@@ -94,6 +95,7 @@ namespace Survivaria.Players
                 }
                 if (player.statLife > player.statLifeMax2) player.statLife = player.statLifeMax2;
                 if (player.HasBuff(BuffID.WellFed)) player.ClearBuff(BuffID.WellFed);
+                if (player.HasItem(ModContent.ItemType<BloodAnalyzer>())) BloodAnalyzer = true;
             }
         }
 
@@ -110,7 +112,7 @@ namespace Survivaria.Players
             if (Main.expertMode) HungerLossMulti += 0.15f;
             if (HungerLossTimer >= 60)//1200, 30 for debug
             {
-                _h = 0.045 * HungerLossMulti * ModContent.GetInstance<SurvivariaConfigServer>().HungerDrainRateMulti;//0.001, 1 for debug
+                _h = 0.045 * HungerLossMulti * ModContent.GetInstance<SurvivariaConfigServer>().HungerDrainRateMulti;//0.045, 1 for debug
 
                 if (player.moveSpeed >= 20 && !player.controlMount)
 					_h *= 2; //Gets doubled;

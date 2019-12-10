@@ -68,6 +68,8 @@ namespace Survivaria.Players
 			ResetSanityEffects();
 			ResetTemperatureEffects();
 			ResetThirstEffects();
+            HydrolyzerCrystals = false;
+            BloodAnalyzer = false;
         }
 
 		public void FailSafes()
@@ -97,6 +99,8 @@ namespace Survivaria.Players
         {
             TagCompound tag = new TagCompound();
             tag.Add(nameof(MenuOffset), MenuOffset);
+            tag.Add(nameof(CurrentHunger), CurrentHunger);
+            tag.Add(nameof(CurrentThirst), CurrentThirst);
 
             return tag;
         }
@@ -104,8 +108,12 @@ namespace Survivaria.Players
         public override void Load(TagCompound tag)
         {
             MenuOffset = tag.Get<Vector2>(nameof(MenuOffset));
+            CurrentHunger = tag.Get<double>(nameof(CurrentHunger));
+            CurrentThirst = tag.Get<double>(nameof(CurrentThirst));
         }
 
+        public bool HydrolyzerCrystals { get; set; }
+        public bool BloodAnalyzer { get; set; }
         public Vector2 MenuOffset { get; set; } = Vector2.Zero;
     }
 }

@@ -5,6 +5,7 @@ using Survivaria.Buffs;
 using Terraria.DataStructures;
 using System.Collections.Generic;
 using Terraria.GameContent.Events;
+using Survivaria.Items.Misc;
 
 namespace Survivaria.Players
 {
@@ -81,6 +82,7 @@ namespace Survivaria.Players
                     }
                     player.AddBuff(ModContent.BuffType<ParchedDebuff>(), 2);
                 }
+                if (player.HasItem(ModContent.ItemType<HydrolyzerCrystals>())) HydrolyzerCrystals = true;
             }
         }
 
@@ -96,7 +98,7 @@ namespace Survivaria.Players
             if (Main.expertMode) ThirstLossMulti += 0.15f;
             if (ThirstLossTimer >= 60)//1200, 30 for debug
             {
-                _t = 0.06 * ThirstLossMulti * ModContent.GetInstance<SurvivariaConfigServer>().ThirstDrainRateMulti;//0.002, 1 for debug
+                _t = 0.05 * ThirstLossMulti * ModContent.GetInstance<SurvivariaConfigServer>().ThirstDrainRateMulti;//0.06, 1 for debug
 
                 if (player.moveSpeed >= 20 && !player.controlMount)
                     _t *= 2; //Gets doubled;

@@ -10,6 +10,7 @@ using Survivaria.Items.BossItems;
 using Survivaria.Items.Materials;
 using Survivaria.Items.Drinks;
 using Survivaria.Items.CrossMod.Fargos;
+using Survivaria.Items.Misc;
 
 namespace Survivaria
 {
@@ -54,9 +55,12 @@ namespace Survivaria
                     if (Main.rand.Next(10) == 0) Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<RootOfEvil>());
                 }
             }
-            if (npc.type == ModLoader.GetMod("FargowiltasSouls").NPCType("MutantBoss"))
+            if (SurvivariaMod.Instance.fargoSoulsLoaded)
             {
-                Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<MutantBossFood>());
+                if (npc.type == ModLoader.GetMod("FargowiltasSouls").NPCType("MutantBoss"))
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<MutantBossFood>());
+                }
             }
             int r = 4;
             if (Main.expertMode) r++;
@@ -104,9 +108,9 @@ namespace Survivaria
         }
         public override void SetupShop(int type, Chest shop, ref int nextSlot)
         {
-            if (type == ModLoader.GetMod("Fargowiltas").NPCType("Deviantt"))
+            if (SurvivariaMod.Instance.fargoLoaded && SurvivariaMod.Instance.fargoSoulsLoaded)
             {
-                if (SurvivariaMod.Instance.fargoLoaded && SurvivariaMod.Instance.fargoSoulsLoaded)
+                if (type == ModLoader.GetMod("Fargowiltas").NPCType("Deviantt"))
                 {
                     if (FargoDownedFishEX)
                     {
@@ -115,8 +119,17 @@ namespace Survivaria
                     }
                 }
             }
-
+            if (type == NPCID.GoblinTinkerer)
+            {
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodAnalyzer>());
+                nextSlot++;
+            }
+            if (type == NPCID.SkeletonMerchant)
+            {
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<HydrolyzerCrystals>());
+                nextSlot++;
+            }
             base.SetupShop(type, shop, ref nextSlot);
-        }
+        } 
     }
 }

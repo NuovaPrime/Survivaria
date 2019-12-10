@@ -46,6 +46,12 @@ namespace Survivaria
         [Range(0f, 3f)]
         public float ThirstDrainRateMulti { get; set; }
 
+        [Label("Adjust Plant Growth Rate")]
+        [Tooltip("Adjusts the rate at which plants grow in the world.\nLower value = faster growth speed")]
+        [DefaultValue(1f)]
+        [Range(0f, 2f)]
+        public float PlantGrowthRateMulti { get; set; }
+
         /*[Label("Temperature enabled")]
         [Tooltip("Toggle the temperature system.")]
         [DefaultValue(true)]*/
