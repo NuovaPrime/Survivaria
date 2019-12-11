@@ -11,7 +11,7 @@ namespace Survivaria.Items.Materials
 {
     public class UnicornMeat : SurvivariaItem
     {
-        public UnicornMeat() : base("Unicorn Meat", "A very real meat from a very surreal creature.", 20, 30, Item.buyPrice(0, 0, 50, 0), ItemRarityID.Blue, 0, 0)
+        public UnicornMeat() : base("Unicorn Meat", "A very real meat from a very surreal creature.", 20, 30, Item.buyPrice(0, 3, 0, 0), ItemRarityID.Pink, 0, 0)
         {
         }
     }
