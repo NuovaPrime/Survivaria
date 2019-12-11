@@ -79,8 +79,8 @@ namespace Survivaria
         }
         public override void RandomUpdate(int i, int j, int type)
         {
-            float u = 110 * ModContent.GetInstance<SurvivariaConfigServer>().PlantGrowthRateMulti;
-            if (Main.expertMode) u += 10;
+            float u = 140 * ModContent.GetInstance<SurvivariaConfigServer>().PlantGrowthRateMulti;
+            if (Main.expertMode) u *= 1.1f;
             if ((Main.tile[i, j].type == TileID.Grass && Main.tile[i, j + 1].wall != WallID.Cloud && (Main.tile[i, j - 1].type == TileID.Plants || Main.tile[i, j - 1].type == TileID.Plants2 || !Main.tile[i, j - 1].active())) && Main.tile[i, j].slope() == 0 && Main.dayTime && Main.hardMode)
             {
                 if (Main.rand.NextFloat(u) < 1)
@@ -112,14 +112,14 @@ namespace Survivaria
             }
             if ((Main.tile[i, j].type == TileID.CorruptGrass && (Main.tile[i, j - 1].type == TileID.CorruptPlants || !Main.tile[i, j - 1].active()) && Main.tile[i, j].slope() == 0 && !Main.dayTime))
             {
-                if (Main.rand.NextFloat(u-15) < 1)
+                if (Main.rand.NextFloat(u*0.9f) < 1)
                 {
                     WorldGen.PlaceTile(i, j - 1, ModContent.TileType<CursedEggplantPlant>(), true, true);
                 }
             }
             if ((Main.tile[i, j].type == TileID.FleshGrass && (Main.tile[i, j - 1].type == TileID.FleshWeeds || !Main.tile[i, j - 1].active()) && Main.tile[i, j].slope() == 0 && !Main.dayTime))
             {
-                if (Main.rand.NextFloat(u-15) < 1)
+                if (Main.rand.NextFloat(u*0.9f) < 1)
                 {
                     WorldGen.PlaceTile(i, j - 1, ModContent.TileType<BleedRootPlant>(), true, true);
                 }
@@ -133,7 +133,7 @@ namespace Survivaria
             }
             if ((Main.tile[i, j].type == TileID.Grass && Main.tile[i, j + 1].wall != WallID.Cloud && (Main.tile[i, j - 1].type == TileID.Plants || Main.tile[i, j - 1].type == TileID.Plants2 || !Main.tile[i, j - 1].active())) && Main.tile[i, j].slope() == 0 && Main.dayTime)
             {
-                if (Main.rand.NextFloat(u-5) < 1)
+                if (Main.rand.NextFloat(u) < 1)
                 {
                     WorldGen.PlaceTile(i, j - 1, ModContent.TileType<ReecePlant>(), true, true);
                 }
@@ -199,7 +199,7 @@ namespace Survivaria
             }
             if ((Main.tile[i, j].type == TileID.Cloud) && !Main.tile[i, j + 1].active() && Main.tile[i, j].slope() == 0)
             {
-                if (Main.rand.NextFloat(u-15) < 1)
+                if (Main.rand.NextFloat(u*0.85f) < 1)
                 {
                     WorldGen.PlaceTile(i, j + 1, ModContent.TileType<CloudstalkPlant>(), true, true);
                 }
