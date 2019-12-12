@@ -32,7 +32,7 @@ namespace Survivaria.Items.Food.Buffet
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ModContent.ItemType<UnicornMeat>());
-            recipe.AddIngredient(ItemID.LifeFruit, 2);
+            recipe.AddIngredient(ItemID.LifeFruit);
             recipe.AddTile(TileID.CookingPots);
             recipe.SetResult(this);
             recipe.AddRecipe();
