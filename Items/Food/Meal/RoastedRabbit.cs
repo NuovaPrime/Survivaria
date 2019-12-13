@@ -11,7 +11,7 @@ namespace Survivaria.Items.Food.Meal
 {
     public class RoastedRabbit : FoodItem
     {
-        public RoastedRabbit() : base("Roasted Rabbit", "A simple yet delicious dish to fill your needs.", 24, 30, Item.buyPrice(0, 0, 20, 0), ItemRarityID.Blue, 22, -2, SoundID.Item2, BuffID.Swiftness, 60 * 30)
+        public RoastedRabbit() : base("Roasted Rabbit", "A simple yet delicious dish to fill your needs.", 24, 30, Item.buyPrice(0, 0, 20, 0), ItemRarityID.Blue, 22, -2, SoundID.Item2, BuffID.Swiftness, 60 * 60)
         {
         }
 

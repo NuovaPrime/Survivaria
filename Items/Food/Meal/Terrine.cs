@@ -11,7 +11,7 @@ namespace Survivaria.Items.Food.Meal
 {
     public class Terrine : FoodItem
     {
-        public Terrine() : base("Terrine", "The gel allows for a good conservation, but it's rarely lasting long enough to matter.", 24, 30, Item.buyPrice(0, 0, 20, 0), ItemRarityID.Blue, 20, 0, SoundID.Item2, BuffID.AmmoReservation, 60 * 30)
+        public Terrine() : base("Terrine", "The gel allows for a good conservation, but it's rarely lasting long enough to matter.", 24, 30, Item.buyPrice(0, 0, 20, 0), ItemRarityID.Blue, 20, 0, SoundID.Item2, BuffID.AmmoReservation, 60 * 60)
         {
         }
 
@@ -25,7 +25,7 @@ namespace Survivaria.Items.Food.Meal
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddRecipeGroup("Survivaria:Ducks");
-            recipe.AddIngredient(ItemID.Gel, 5);
+            recipe.AddIngredient(ItemID.Gel, 3);
             recipe.AddTile(TileID.CookingPots);
             recipe.SetResult(this);
             recipe.AddRecipe();

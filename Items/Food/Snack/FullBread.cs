@@ -14,7 +14,7 @@ namespace Survivaria.Items.Food.Snack
 {
     public class FullBread : FoodItem
     {
-        public FullBread() : base("Full Bread", "A solid addition to any dish.", 24, 30, Item.buyPrice(0, 0, 1, 0), ItemRarityID.Blue, 12, -1, SoundID.Item2, BuffID.Ironskin, 60 * 30)
+        public FullBread() : base("Full Bread", "A solid addition to any dish.", 24, 30, Item.buyPrice(0, 0, 1, 0), ItemRarityID.Blue, 12, -1, SoundID.Item2, BuffID.Ironskin, 60 * 60)
         {
         }
 

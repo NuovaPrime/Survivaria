@@ -12,7 +12,7 @@ namespace Survivaria.Items.Food.Meal
 {
     public class ToadstoolSauteVile : FoodItem
     {
-        public ToadstoolSauteVile() : base("Toadstool Sauté", "It gives off a slightly bad vibe, maybe you shouldn't eat it.", 24, 30, Item.buyPrice(0, 0, 40, 0), ItemRarityID.Green, 24, 0, SoundID.Item2, BuffID.Merfolk, 60 * 180)
+        public ToadstoolSauteVile() : base("Toadstool Sauté", "It gives off a slightly bad vibe, maybe you shouldn't eat it.", 24, 30, Item.buyPrice(0, 0, 40, 0), ItemRarityID.Green, 24, 0, SoundID.Item2, BuffID.Bewitched, 60 * 180)
         {
         }
 
@@ -24,7 +24,6 @@ namespace Survivaria.Items.Food.Meal
 
 		public override bool UseItem(Player player)
         {
-            player.AddBuff(BuffID.Bewitched, 60 * 180);
             player.AddBuff(BuffID.Wrath, 60 * 180);
             return base.UseItem(player);
         }

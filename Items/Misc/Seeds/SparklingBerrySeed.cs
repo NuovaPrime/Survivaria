@@ -1,4 +1,4 @@
-﻿using Survivaria.Tiles.Plants;
+using Survivaria.Tiles.Plants;
 using Survivaria.Tiles.Stations;
 using System.Threading.Tasks;
 using Terraria;
@@ -7,16 +7,16 @@ using Terraria.ModLoader;
 
 namespace Survivaria.Items.Misc.Seeds
 {
-    public class AmalgaeSeed : SurvivariaItem
+    public class SparklingBerrySeed : SurvivariaItem
     {
-        public AmalgaeSeed() : base("Amalgae Seed", "A greasy and damp seed used to plant amalgae in underwater sand.", 28, 26, Item.buyPrice(0, 0, 1, 0), ItemRarityID.Blue)
+        public SparklingBerrySeed() : base("Sparkling Berry Seed", "A shimmering seed used to plant sparkling berry in hallowed soil.", 28, 26, Item.buyPrice(0, 0, 25, 0), ItemRarityID.Blue)
         {
         }
 
         public override void SetDefaults()
         {
             item.consumable = true;
-            item.createTile = ModContent.TileType<AmalgaePlant>();
+            item.createTile = ModContent.TileType<SparklingBerryPlant>();
             item.useStyle = ItemUseStyleID.SwingThrow;
             base.SetDefaults();
         }
