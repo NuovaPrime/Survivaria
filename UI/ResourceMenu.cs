@@ -90,7 +90,7 @@ namespace Survivaria.UI
             {
                 DrawBar(spriteBatch, player, GFX.hungerIndicatorTexture, 8, (int)(player.CurrentHunger / player.HungerMaximum * 100 / 13 * 1.04 - 0.01));
                 if (player.BloodAnalyzer)
-                    DrawBarText(spriteBatch, "Hunger: " + (int)player.CurrentHunger + " / " + player.HungerMaximum, new Color(255, 153, 51), player, 0.7f, 4.4f, 0.3f);
+                    DrawBarText(spriteBatch, "" + (int)player.CurrentHunger, new Color(255, 153, 51), player, 0.7f, 4.4f, 0.3f);
             }
 
             if (ModContent.GetInstance<SurvivariaConfigServer>().ThirstEnabled)
@@ -102,9 +102,9 @@ namespace Survivaria.UI
                 if (player.HydrolyzerCrystals)
                 {
                     if (player.BloodAnalyzer)
-                        DrawBarText(spriteBatch, "Thirst: " + (int)player.CurrentThirst + " / " + player.MaximumThirst, Color.LightBlue, player, 1.3f, 11.4f, 0.3f);
+                        DrawBarText(spriteBatch, "" + (int)player.CurrentThirst, Color.LightBlue, player, 1.3f, 11.4f, 0.3f);
                     else
-                        DrawBarText(spriteBatch, "Thirst: " + (int)player.CurrentThirst + " / " + player.MaximumThirst, Color.LightBlue, player, 1.3f, 9.4f, 0.3f);
+                        DrawBarText(spriteBatch, "" + (int)player.CurrentThirst, Color.LightBlue, player, 1.3f, 9.4f, 0.3f);
                 }
                     
 

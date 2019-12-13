@@ -80,6 +80,10 @@ namespace Survivaria.Tiles.Plants
                     }
                 }
             }
+            else if (Main.tile[i, j].frameX == 36)
+            {
+                if (Main.rand.Next(20) == 0) WorldGen.KillTile(i, j, false, false, true);
+            }
             NetMessage.SendTileSquare(-1, x + 1, y, 3);
         }
     }

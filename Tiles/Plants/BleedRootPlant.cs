@@ -61,7 +61,7 @@ namespace Survivaria.Tiles.Plants
 			}
             else if (Main.tile[i, j].frameX == 36)
             {
-                if (Main.rand.Next(20) == 0) WorldGen.KillTile(i, j);
+                if (Main.rand.Next(20) == 0) WorldGen.KillTile(i, j, false, false, true);
             }
 
         }
