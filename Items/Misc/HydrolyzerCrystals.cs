@@ -11,7 +11,7 @@ namespace Survivaria.Items.Misc
 {
     public class HydrolyzerCrystals : SurvivariaItem
     {
-        public HydrolyzerCrystals() : base("Hydrolyzer Crystals", "A handful of rare crystals that react with saliva to dictate the dehydration levels of the user.\nDisplays current thirst levels in detail when held in inventory or equipped.", 28, 26, Item.buyPrice(0, 10, 0, 0), ItemRarityID.Blue)
+        public HydrolyzerCrystals() : base("Hydrolyzer Crystals", "A handful of rare crystals that react with saliva to reveal the dehydration level of the user.\nDisplays current thirst levels in detail when held in inventory or equipped.", 28, 26, Item.buyPrice(0, 10, 0, 0), ItemRarityID.Blue)
         {
         }
 
