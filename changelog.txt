@@ -1,7 +1,7 @@
 V0.3.3.0
 
 1) Added the Blood Analyzer and the Hydrolyzer Crystals, sold by the goblin tinkerer and skeleton merchant respectively.
-2) Fixed bleed root not spawning.
+2) Added seeds for all existing survivaria plants, you can harvest them using the new iron or lead trowels, or the rare dynasty trowel sold by the traveling merchant.
 3) Fixed Cloudstalk generating only between two cloud blocks, instead of just hanging from them.
 4) Fixed Cocolate not dropping if it's not a pure palm tree.
 5) Changed the mutating smoothie to make it more pog.
@@ -11,6 +11,10 @@ V0.3.3.0
 9) Fixed bug where enemies dropped nothing if you didn't have fargo's soul mod enabled.
 10) All plants now have a rare chance to decay off if left alive too long, this should help with the overabundance of plant spawns.
 11) Added a config option to adjust plant spawn rates in the world.
+12) Made fiery tuber an upside-down plant.
+13) Fixed bleed root not spawning.
+14) Lowered the chance for plants to spawn even more.
+15) Minor tweaks.
 
 V0.3.2.2
 
@@ -54,7 +58,7 @@ V0.3
 
 1) Hunger and thirst drain slightly slower in general and 15% faster in expert mode.
 2) Frozen tears are no longer consumable.
-3) Added crimson blaze, hot blooded pot, living legend, marrow soup, serpentine burger, stir fried snake, wormy curry, cool duck, damned breakfast, fluffy taco, honey partridge, jellyfilled delight, maki roll, mushroom medley, pengu wings, roasted rabbit, scent of the sea, spicy ribs, stuffed devil, terrine, toadstool sauté, disc pizza and turtle potpourri.
+3) Added crimson blaze, hot blooded pot, living legend, marrow soup, serpentine burger, stir fried snake, wormy curry, cool duck, damned breakfast, fluffy taco, honey partridge, jellyfilled delight, maki roll, mushroom medley, pengu wings, roasted rabbit, scent of the sea, spicy ribs, stuffed devil, terrine, toadstool sautï¿½, disc pizza and turtle potpourri.
 4) Fixed the gourd not giving any thirst.
 5) Fixed reece not generating.
 6) Fixed some food drops from trees showing up but not going into your inventory.

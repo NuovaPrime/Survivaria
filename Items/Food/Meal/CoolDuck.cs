@@ -12,7 +12,7 @@ namespace Survivaria.Items.Food.Meal
 {
     public class CoolDuck : FoodItem
     {
-        public CoolDuck() : base("Cool Duck", "The perfect dish for a revenge.", 24, 30, Item.buyPrice(0, 0, 30, 0), ItemRarityID.Green, 28, 0, SoundID.Item2, BuffID.AmmoReservation, 60 * 180)
+        public CoolDuck() : base("Cool Duck", "The perfect dish for a revenge.", 24, 30, Item.buyPrice(0, 0, 30, 0), ItemRarityID.Green, 28, 0, SoundID.Item2, BuffID.AmmoReservation, 60 * 360)
         {
         }
 

@@ -1,7 +1,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Hell;
+using Survivaria.Items.Misc.Seeds;
 using Terraria;
+using Terraria.DataStructures;
+using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -19,7 +22,9 @@ namespace Survivaria.Tiles.Plants
             Main.tileWaterDeath[Type] = true;
             Main.tileSpelunker[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
-            TileObjectData.newTile.DrawYOffset = 1;
+            TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
+            TileObjectData.newTile.AnchorBottom = AnchorData.Empty;
+            TileObjectData.newTile.DrawYOffset = -2;
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.newTile.WaterDeath = true;
             TileObjectData.newTile.AnchorValidTiles = new[]
@@ -38,7 +43,23 @@ namespace Survivaria.Tiles.Plants
 		}
 
 		public override bool Drop(int i, int j) {
-			int stage = Main.tile[i, j].frameX / 18;
+            int stage = Main.tile[i, j].frameX / 18;
+            Player player = Main.LocalPlayer;
+            if (player.HeldItem.type == ModContent.ItemType<DynastyTrowel>())
+            {
+                if (stage == 2)
+                {
+                    Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<FireTuberSeed>());
+                }
+            }
+            else if (player.HeldItem.type == ModContent.ItemType<LeadTrowel>() || player.HeldItem.type == ModContent.ItemType<IronTrowel>())
+            {
+                if (stage == 2 && Main.rand.Next(3) == 0)
+                {
+                    Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<FireTuberSeed>());
+                }
+            }
+
 			if (stage == 2) {
 				Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<FieryTuber>());
 			}

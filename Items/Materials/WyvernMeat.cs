@@ -11,7 +11,7 @@ namespace Survivaria.Items.Materials
 {
     public class WyvernMeat : SurvivariaItem
     {
-        public WyvernMeat() : base("Wyvern Meat", "Of all who seeked, rare are the ones who could taste it, too often ending up as food themselves.", 20, 30, Item.buyPrice(0, 0, 50, 0), ItemRarityID.Blue, 0, 0)
+        public WyvernMeat() : base("Wyvern Meat", "Of all who seeked, rare are the ones who could taste it, too often ending up as food themselves.", 20, 30, Item.buyPrice(0, 2, 0, 0), ItemRarityID.LightRed, 0, 0)
         {
         }
     }

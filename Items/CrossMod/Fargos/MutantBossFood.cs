@@ -30,7 +30,7 @@ namespace Survivaria.Items.CrossMod.Fargos
         {
             int num = random.Next(0, 26);
             char let;
-            if (random.Next(1) == 0)
+            if (random.Next(2) == 0)
                 let = (char)('a' + num);
             else
                 let = (char)('A' + num);

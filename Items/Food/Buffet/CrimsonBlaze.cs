@@ -39,7 +39,7 @@ namespace Survivaria.Items.Food.Buffet
             recipe.AddIngredient(ModContent.ItemType<AshStraws>());
             recipe.AddIngredient(ModContent.ItemType<BlossomWheat>(), 2);
             recipe.AddIngredient(ModContent.ItemType<Greneyede>(), 2);
-            recipe.AddIngredient(ModContent.ItemType<Peppermint>(), 2);
+            recipe.AddIngredient(ModContent.ItemType<Peppermint>());
             recipe.AddTile(TileID.Furnaces);
             recipe.SetResult(this);
             recipe.AddRecipe();

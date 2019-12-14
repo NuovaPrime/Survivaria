@@ -11,7 +11,7 @@ namespace Survivaria.Items.Materials
 {
     public class SnakeMeat : SurvivariaItem
     {
-        public SnakeMeat() : base("Snake Meat", "Surprisingly tender considering the mass of muscles composing it.", 20, 30, Item.buyPrice(0, 0, 50, 0), ItemRarityID.Blue, 0, 0)
+        public SnakeMeat() : base("Snake Meat", "Surprisingly tender considering the mass of muscles composing it.", 20, 30, Item.buyPrice(0, 2, 0, 0), ItemRarityID.LightRed, 0, 0)
         {
         }
     }
