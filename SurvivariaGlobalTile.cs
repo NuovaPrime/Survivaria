@@ -126,7 +126,7 @@ namespace Survivaria
             }
             if (Main.tile[i, j].type == TileID.SnowBlock && Main.tile[i, j].slope() == 0 && !Main.tile[i, j - 1].active() && Main.dayTime)
             {
-                if (Main.rand.NextFloat(u) < 1)
+                if (Main.rand.NextFloat(u*1.15f) < 1)
                 {
                     WorldGen.PlaceTile(i, j - 1, ModContent.TileType<PearlBerryPlant>(), true, true);
                 }
