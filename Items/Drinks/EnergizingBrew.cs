@@ -35,7 +35,7 @@ namespace Survivaria.Items.Drinks
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ModContent.ItemType<FrostPlum>());
             recipe.AddIngredient(ModContent.ItemType<FieryTuber>());
-            recipe.AddIngredient(ItemID.Bottle);
+            recipe.AddIngredient(ItemID.Mug);
             recipe.AddTile(TileID.Kegs);
             recipe.SetResult(this);
             recipe.AddRecipe();
