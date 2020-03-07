@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Hell;
+using Survivaria.Items.Misc;
 using Survivaria.Items.Misc.Seeds;
 using Terraria;
 using Terraria.DataStructures;

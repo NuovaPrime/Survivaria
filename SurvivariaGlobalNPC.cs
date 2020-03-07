@@ -10,6 +10,7 @@ using Survivaria.Items.BossItems;
 using Survivaria.Items.Materials;
 using Survivaria.Items.Drinks;
 using Survivaria.Items.CrossMod.Fargos;
+using Survivaria.Items.Food.Snack;
 using Survivaria.Items.Misc;
 
 namespace Survivaria
