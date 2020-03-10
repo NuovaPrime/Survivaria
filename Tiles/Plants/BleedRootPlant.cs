@@ -4,6 +4,8 @@ using Survivaria.Items.Food.BiomeSpecific.Corruption;
 using Survivaria.Items.Food.BiomeSpecific.Crimson;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
 using Survivaria.Items.Food.BiomeSpecific.Underground;
+using Survivaria.Items.Misc;
+using Survivaria.Items.Misc.Seeds;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -40,6 +42,21 @@ namespace Survivaria.Tiles.Plants
 
 		public override bool Drop(int i, int j) {
 			int stage = Main.tile[i, j].frameX / 18;
+			Player player = Main.LocalPlayer;
+			if (player.HeldItem.type == ModContent.ItemType<DynastyTrowel>())
+			{
+					if (stage == 2)
+					{
+							Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<BleedRootSeed>());
+					}
+			}
+			else if (player.HeldItem.type == ModContent.ItemType<LeadTrowel>() || player.HeldItem.type == ModContent.ItemType<IronTrowel>())
+			{
+					if (stage == 2 && Main.rand.Next(3) == 0)
+					{
+							Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<BleedRootSeed>());
+					}
+			}
 			if (stage == 2) {
 				Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<BleedRoot>());
 			}
@@ -51,7 +68,7 @@ namespace Survivaria.Tiles.Plants
             g = 0.07f;
             b = 0f;
         }
-        
+
         public override void RandomUpdate(int i, int j) {
 			if (Main.tile[i, j].frameX == 0) {
                 if (Main.rand.Next(4) == 0) Main.tile[i, j].frameX += 18;

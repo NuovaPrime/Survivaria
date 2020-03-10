@@ -2,6 +2,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Survivaria.Items.Food.BiomeSpecific.Purity;
 using Survivaria.Items.Materials;
+using Survivaria.Items.Misc;
+using Survivaria.Items.Misc.Seeds;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -35,6 +37,21 @@ namespace Survivaria.Tiles.Plants
 
 		public override bool Drop(int i, int j) {
 			int stage = Main.tile[i, j].frameX / 18;
+			Player player = Main.LocalPlayer;
+			if (player.HeldItem.type == ModContent.ItemType<DynastyTrowel>())
+			{
+					if (stage == 2 && Main.tile[i, j].frameX == 36 && Main.tile[i, j].frameY == 18)
+					{
+							Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<EnigmaticRootSeed>());
+					}
+			}
+			else if (player.HeldItem.type == ModContent.ItemType<LeadTrowel>() || player.HeldItem.type == ModContent.ItemType<IronTrowel>())
+			{
+					if (stage == 2 && Main.tile[i, j].frameX == 36 && Main.tile[i, j].frameY == 18 && Main.rand.Next(3) == 0)
+					{
+							Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<EnigmaticRootSeed>());
+					}
+			}
             if (stage == 2 && Main.tile[i, j].frameX == 36 && Main.tile[i, j].frameY == 18)
             {
 				Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<EnigmaticRoot>());
