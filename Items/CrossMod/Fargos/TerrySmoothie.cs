@@ -13,7 +13,7 @@ namespace Survivaria.Items.CrossMod.Fargos
 {
     public class TerrySmoothie : FoodItem
     {
-        public TerrySmoothie() : base("Mutating Smoothie", "A smoothie filled with various types of blended brain, only a smug loli would eat something like this.", 24, 30, Item.buyPrice(0, 0, 0, 0), ItemRarityID.Purple, 1, 1, SoundID.Item2, ModContent.BuffType<TerrySmoothieBuff>(), 60 * 30)
+        public TerrySmoothie() : base("Mutating Smoothie", "A smoothie containing a scoop of a certain mutant's brain.", 24, 30, Item.buyPrice(1, 0, 0, 0), ItemRarityID.Purple, 1, 1, SoundID.Item2, ModContent.BuffType<TerrySmoothieBuff>(), 60 * 30)
         {
         }
         public override bool Autoload(ref string name)
