@@ -16,6 +16,7 @@ namespace Survivaria.Items.BossItems
         public override void SetDefaults()
         {
             item.consumable = true;
+            item.useStyle = 2;
             base.SetDefaults();
         }
     }

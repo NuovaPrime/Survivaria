@@ -20,6 +20,7 @@ namespace Survivaria.Items.Food
             item.useTime = 20;
             item.useAnimation = 20;
             item.useStyle = 2;
+            item.UseSound = EatSound;
 
             base.SetDefaults();
         }

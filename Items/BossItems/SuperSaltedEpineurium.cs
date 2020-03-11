@@ -17,6 +17,7 @@ namespace Survivaria.Items.BossItems
         {
             base.SetDefaults();
             item.consumable = true;
+            item.useStyle = 2;
             item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Eating/MeatEating");
         }
     }

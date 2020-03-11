@@ -18,8 +18,8 @@ namespace Survivaria.Items.Misc
         public override void SetDefaults()
         {
             item.accessory = true;
-            item.maxStack = 1;
             base.SetDefaults();
+            item.maxStack = 1;
         }
 
 		public override void UpdateEquip(Player player)

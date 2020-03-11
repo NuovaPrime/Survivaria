@@ -52,7 +52,6 @@ namespace Survivaria.Items
 
             item.value = Value;
             item.rare = Rarity;
-            item.UseSound = EatSound;
             item.maxStack = MaxStack;
             item.potion = false;
 
@@ -69,43 +68,50 @@ namespace Survivaria.Items
 
             item.useTime = 20;
             item.useAnimation = 20;
-            item.useStyle = 2;
 
             base.SetDefaults();
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            if (HungerAmount < 10)
+            if (HungerAmount < 0)
+            {
+                FoodSize = "Starving";
+            }
+            if (HungerAmount > 0)
             {
                 FoodSize = "Nibble";
-            }
-            if (HungerAmount >= 10)
-            {
-                FoodSize = "Snack";
-                if (HungerAmount >= 20)
+                if (HungerAmount >= 10)
                 {
-                    FoodSize = "Meal";
-                    if (HungerAmount >= 40)
+                    FoodSize = "Snack";
+                    if (HungerAmount >= 20)
                     {
-                        FoodSize = "Buffet";
-                        if (HungerAmount >= 70)
-                            FoodSize = "Feast";
+                        FoodSize = "Meal";
+                        if (HungerAmount >= 40)
+                        {
+                            FoodSize = "Buffet";
+                            if (HungerAmount >= 70)
+                                FoodSize = "Feast";
+                        }
                     }
                 }
             }
-            if (ThirstAmount <= 15)
+            if (ThirstAmount < 0)
+            {
+                DrinkSize = "Dehydrating";
+            }
+            if (ThirstAmount > 0)
             {
                 DrinkSize = "Sip";
-            }
-            if (ThirstAmount > 15)
-            {
-                DrinkSize = "Refreshing";
-                if (ThirstAmount >= 40)
+                if (ThirstAmount > 15)
                 {
-                    DrinkSize = "Hydrating";
-                    if (ThirstAmount >= 70)
-                        DrinkSize = "Quenching";
+                    DrinkSize = "Refreshing";
+                    if (ThirstAmount >= 40)
+                    {
+                        DrinkSize = "Hydrating";
+                        if (ThirstAmount >= 70)
+                            DrinkSize = "Quenching";
+                    }
                 }
             }
             if (FoodSize != null && HungerAmount > 0)
@@ -113,9 +119,19 @@ namespace Survivaria.Items
                 TooltipLine line = new TooltipLine(mod, "Survivaria_Tooltip_Food", FoodSize) { overrideColor = new Color(69, 255, 56) };
                 tooltips.Add(line);
             }
+            else if (FoodSize != null && HungerAmount < 0)
+            {
+                TooltipLine line = new TooltipLine(mod, "Survivaria_Tooltip_Food", FoodSize) { overrideColor = new Color(210, 64, 64) };
+                tooltips.Add(line);
+            }
             if (DrinkSize != null && ThirstAmount > 0)
             {
                 TooltipLine line2 = new TooltipLine(mod, "Survivaria_Tooltip_Thirst", DrinkSize) { overrideColor = new Color(66, 194, 245) };
+                tooltips.Add(line2);
+            }
+            else if (DrinkSize != null && ThirstAmount < 0)
+            {
+                TooltipLine line2 = new TooltipLine(mod, "Survivaria_Tooltip_Thirst", DrinkSize) { overrideColor = new Color(153, 164, 175) };
                 tooltips.Add(line2);
             }
             if (item.buffType == BuffID.WellFed)
