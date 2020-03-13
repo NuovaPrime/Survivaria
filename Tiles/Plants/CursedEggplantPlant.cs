@@ -74,10 +74,10 @@ namespace Survivaria.Tiles.Plants
 
         public override void RandomUpdate(int i, int j) {
 			if (Main.tile[i, j].frameX == 0) {
-                if (Main.rand.Next(4) == 0) Main.tile[i, j].frameX += 18;
+                if (Main.rand.Next(5) == 0) Main.tile[i, j].frameX += 18;
 			}
 			else if (Main.tile[i, j].frameX == 18) {
-                if (Main.rand.Next(4) == 0) Main.tile[i, j].frameX += 18;
+                if (Main.rand.Next(5) == 0) Main.tile[i, j].frameX += 18;
 			}
             else if (Main.tile[i, j].frameX == 36)
             {

@@ -7,6 +7,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 using Survivaria.Items.Materials;
+using Survivaria.Items.Misc.Seeds;
 using System;
 
 namespace Survivaria
@@ -120,7 +121,30 @@ namespace Survivaria
                 ItemID.MoonglowSeeds,
                 ItemID.MushroomGrassSeeds,
                 ItemID.ShiverthornSeeds,
-                ItemID.WaterleafSeeds
+                ItemID.WaterleafSeeds,
+                ModContent.ItemType<AmalgaeSeed>(),
+                ModContent.ItemType<AshStrawSeed>(),
+                ModContent.ItemType<BleedRootSeed>(),
+                ModContent.ItemType<BlossomWheatSeed>(),
+                ModContent.ItemType<CloudstalkSeed>(),
+                ModContent.ItemType<CorneySeed>(),
+                ModContent.ItemType<CursedEggplantSeed>(),
+                ModContent.ItemType<EnigmaticRootSeed>(),
+                ModContent.ItemType<FieryTuberSeed>(),
+                ModContent.ItemType<FrambosiaSeed>(),
+                ModContent.ItemType<GranutSeed>(),
+                ModContent.ItemType<GuarleekSeed>(),
+                ModContent.ItemType<MushyCarrotSeed>(),
+                ModContent.ItemType<PearlBerrySeed>(),
+                ModContent.ItemType<PeppermintSeed>(),
+                ModContent.ItemType<PricklyPearMagentaSeed>(),
+                ModContent.ItemType<PricklyPearOrangeSeed>(),
+                ModContent.ItemType<PricklyPearRedSeed>(),
+                ModContent.ItemType<PricklyPearWhiteSeed>(),
+                ModContent.ItemType<PricklyPearYellowSeed>(),
+                ModContent.ItemType<ReeceSeed>(),
+                ModContent.ItemType<SparklingBerrySeed>(),
+                ModContent.ItemType<StarfruitSeed>()
             });
             // Registers the new recipe group with the specified name
             RecipeGroup.RegisterGroup("Survivaria:Seeds", seeds);

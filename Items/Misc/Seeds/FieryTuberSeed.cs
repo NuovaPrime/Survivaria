@@ -7,9 +7,9 @@ using Terraria.ModLoader;
 
 namespace Survivaria.Items.Misc.Seeds
 {
-    public class FireTuberSeed : SurvivariaItem
+    public class FieryTuberSeed : SurvivariaItem
     {
-        public FireTuberSeed() : base("Fiery Tuber Seed", "A burning seed used to plant fiery tuber under ashes.", 28, 26, Item.buyPrice(0, 0, 1, 25), ItemRarityID.Blue)
+        public FieryTuberSeed() : base("Fiery Tuber Seed", "A burning seed used to plant fiery tuber under ashes.", 28, 26, Item.buyPrice(0, 0, 1, 25), ItemRarityID.Blue)
         {
         }
 

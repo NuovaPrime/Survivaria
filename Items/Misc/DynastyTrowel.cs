@@ -8,7 +8,7 @@ namespace Survivaria.Items.Misc
 	public class DynastyTrowel : SurvivariaItem
 	{
 
-    public DynastyTrowel() : base("Dynasty Trowel", "Passed down generations of gardeners, it brings fertility to the plants it touches.\nCan be used to harvest seeds from grown plants.", 28, 26, Item.buyPrice(0, 1, 0, 0), ItemRarityID.Green)
+    public DynastyTrowel() : base("Dynasty Trowel", "Passed down generations of gardeners, it brings fertility to the plants it touches.\nCan be used to harvest seeds from grown plants.", 28, 26, Item.buyPrice(0, 10, 0, 0), ItemRarityID.Green)
     {
     }
 

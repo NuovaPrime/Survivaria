@@ -19,7 +19,8 @@ namespace Survivaria.Items.Drinks
         public override void SetDefaults()
         {
             base.SetDefaults();
-            item.consumable = false;
+            item.consumable = true;
+            item.useStyle = 2;
             item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Drinking/GourdDrink");
             item.maxStack = 1;
         }
@@ -42,9 +43,8 @@ namespace Survivaria.Items.Drinks
         public override bool UseItem(Player player)
         {
             player.GetModPlayer<SurvivariaPlayer>().AddThirst(8);
-            item.TurnToAir();
             player.PutItemInInventory(ModContent.ItemType<HalfGourd>());
-            return false;
+            return true;
         }
     }
 }

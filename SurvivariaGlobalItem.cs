@@ -22,7 +22,7 @@ using Terraria.ModLoader;
 namespace Survivaria
 {
     public class SurvivariaGlobalRecipeItem : GlobalItem
-    {       
+    {
         public override bool InstancePerEntity => true;
         public override bool CloneNewInstances => true;
         public override void OpenVanillaBag(string context, Player player, int arg)
@@ -56,53 +56,83 @@ namespace Survivaria
         {
             string FoodSize = "";
             string DrinkSize = "";
-            if (HungerAmount < 10)
+            if (HungerAmount < 0)
+            {
+                FoodSize = "Starving";
+            }
+            if (HungerAmount > 0)
             {
                 FoodSize = "Nibble";
-            }
-            if (HungerAmount >= 10)
-            {
-                FoodSize = "Snack";
-                if (HungerAmount >= 20)
+                if (HungerAmount >= 10)
                 {
-                    FoodSize = "Meal";
-                    if (HungerAmount >= 40)
+                    FoodSize = "Snack";
+                    if (HungerAmount >= 20)
                     {
-                        FoodSize = "Buffet";
-                        if (HungerAmount >= 70)
-                            FoodSize = "Feast";
+                        FoodSize = "Meal";
+                        if (HungerAmount >= 40)
+                        {
+                            FoodSize = "Buffet";
+                            if (HungerAmount >= 70)
+                                FoodSize = "Feast";
+                        }
                     }
                 }
             }
-            if (ThirstAmount <= 15)
+            if (ThirstAmount < 0)
             {
-                DrinkSize = "Sip"; 
+                DrinkSize = "Dehydrating";
             }
-            if (ThirstAmount > 15)
+            if (ThirstAmount > 0)
             {
-                DrinkSize = "Refreshing";
-                if (ThirstAmount >= 40)
+                DrinkSize = "Sip";
+                if (ThirstAmount > 15)
                 {
-                    DrinkSize = "Hydrating";
-                    if (ThirstAmount >= 70)
-                        DrinkSize = "Quenching";
+                    DrinkSize = "Refreshing";
+                    if (ThirstAmount >= 40)
+                    {
+                        DrinkSize = "Hydrating";
+                        if (ThirstAmount >= 70)
+                            DrinkSize = "Quenching";
+                    }
                 }
             }
             if (FoodSize != null && HungerAmount > 0)
             {
-                TooltipLine line = new TooltipLine(mod, "Survivaria_Global_Tooltip_Food", FoodSize) { overrideColor = new Color(69, 255, 56) };
+                TooltipLine line = new TooltipLine(mod, "Survivaria_Tooltip_Food", FoodSize) { overrideColor = new Color(69, 255, 56) };
+                tooltips.Add(line);
+            }
+            else if (FoodSize != null && HungerAmount < 0)
+            {
+                TooltipLine line = new TooltipLine(mod, "Survivaria_Tooltip_Food", FoodSize) { overrideColor = new Color(210, 64, 64) };
                 tooltips.Add(line);
             }
             if (DrinkSize != null && ThirstAmount > 0)
             {
-                TooltipLine line2 = new TooltipLine(mod, "Survivaria_Global_Tooltip_Thirst", DrinkSize) { overrideColor = new Color(66, 194, 245) };
+                TooltipLine line2 = new TooltipLine(mod, "Survivaria_Tooltip_Thirst", DrinkSize) { overrideColor = new Color(66, 194, 245) };
                 tooltips.Add(line2);
+            }
+            else if (DrinkSize != null && ThirstAmount < 0)
+            {
+                TooltipLine line2 = new TooltipLine(mod, "Survivaria_Tooltip_Thirst", DrinkSize) { overrideColor = new Color(153, 164, 175) };
+                tooltips.Add(line2);
+            }
+            if (item.buffType == BuffID.WellFed)
+            {
+                foreach (TooltipLine line2 in tooltips)
+                {
+                    if(line2.mod == "Terraria")
+                    {
+                        if (line2.Name == "WellFedExpert") line2.text = "";
+                        if (line2.Name == "Tooltip0") line2.text = "";
+                        if (line2.Name == "BuffTime") line2.text = "";
+                    }
+                }
             }
         }
 
         public override void SetDefaults(Item item)
         {
-            
+
             if (item.type == ItemID.BottledWater)
                 ThirstAmount = 16;
             if (item.type == ItemID.BottledHoney)
@@ -473,7 +503,7 @@ namespace Survivaria
                     resultType = ModContent.ItemType<Salt>();
                     resultStack = 1;
                 }
-            }       
+            }
             base.ExtractinatorUse(extractType, ref resultType, ref resultStack);
         }
     }

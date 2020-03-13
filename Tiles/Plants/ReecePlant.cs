@@ -65,7 +65,7 @@ namespace Survivaria.Tiles.Plants
             int y = j - Main.tile[i, j].frameY / 18 % 2;
 
             Tile tile;
-            if (Main.rand.Next(4) == 0)
+            if (Main.rand.Next(5) == 0)
             {
                 for (int l = x; l < x + 1; l++)
                 {
@@ -83,13 +83,13 @@ namespace Survivaria.Tiles.Plants
                             {
                                 tile.frameX += 18;
                             }
+								            else if (Main.tile[i, j].frameX == 36 && Main.tile[i, j].frameY == 18)
+								            {
+								                if (Main.rand.Next(4) == 0) WorldGen.KillTile(i, j, false, false, true);
+								            }
                         }
                     }
                 }
-            }
-            else if (Main.tile[i, j].frameX == 36)
-            {
-                if (Main.rand.Next(20) == 0) WorldGen.KillTile(i, j, false, false, true);
             }
             NetMessage.SendTileSquare(-1, x + 1, y, 3);
         }

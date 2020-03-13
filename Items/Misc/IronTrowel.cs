@@ -8,7 +8,7 @@ namespace Survivaria.Items.Misc
 	public class IronTrowel : SurvivariaItem
 	{
 
-    public IronTrowel() : base("Iron Trowel", "The perfect tool to unearth the secrets of the plants.\nCan be used to harvest seeds from grown plants.", 28, 26, Item.buyPrice(0, 0, 9, 50), ItemRarityID.Blue)
+    public IronTrowel() : base("Iron Trowel", "The perfect tool to unearth the secrets of the plants.\nCan be used to harvest seeds from grown plants.", 28, 26, Item.buyPrice(0, 0, 50, 0), ItemRarityID.Blue)
     {
     }
 
