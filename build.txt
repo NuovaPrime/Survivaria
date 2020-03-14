@@ -1,8 +1,8 @@
 author = NuovaPrime, orian34, THEREDSTONEBRO, Amber
-version = 0.3.2.2
+version = 0.4.0.0
 displayName = Survivaria - A Survival Mod
 homepage = https://forums.terraria.org/index.php?threads/survivaria-a-survival-mode-mod.81756/
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, .git\*, *.db
 includePDB = true
-weakReferences = FargowiltasSouls@1.2.1.3, Fargowiltas@2.0.1.2
+weakReferences = FargowiltasSouls@1.2.1.3, Fargowiltas@2.0.1.2, TerrariaOverhaul@4.3.2.1
 includeSource = true

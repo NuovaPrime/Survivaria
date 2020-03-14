@@ -12,12 +12,13 @@ using Terraria.ObjectData;
 
 namespace Survivaria.Tiles.Stations
 {
-	public class WaterFilterTile : ModTile
-	{
-		public override void SetDefaults() {
-			Main.tileFrameImportant[Type] = true;
-			Main.tileCut[Type] = false;
-			Main.tileNoFail[Type] = true;
+		public class WaterFilterTile : ModTile
+		{
+				public override void SetDefaults()
+				{
+						Main.tileFrameImportant[Type] = true;
+						Main.tileCut[Type] = false;
+						Main.tileNoFail[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
             disableSmartCursor = true;

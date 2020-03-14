@@ -31,6 +31,7 @@ namespace Survivaria.Tiles.Plants
             TileObjectData.newTile.AnchorValidTiles = new[]
 			{
 				53, //TileID.Sand
+				ModLoader.GetMod("TerrariaOverhaul").TileType("WetSand")
 			};
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Amalgae");

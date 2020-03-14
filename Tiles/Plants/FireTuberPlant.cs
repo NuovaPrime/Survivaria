@@ -31,7 +31,7 @@ namespace Survivaria.Tiles.Plants
 		        TileObjectData.newTile.WaterDeath = true;
 		        TileObjectData.newTile.AnchorValidTiles = new[]
 		        {
-		            57, //TileID.Ash
+		            57, //TileID.Ah
 						};
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Fire Tuber");

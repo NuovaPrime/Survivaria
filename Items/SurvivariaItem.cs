@@ -54,17 +54,8 @@ namespace Survivaria.Items
             item.rare = Rarity;
             item.maxStack = MaxStack;
             item.potion = false;
-
-            if (BuffApplied == 0)
-            {
-                item.buffType = BuffID.WellFed;
-                item.buffTime = 0;
-            }
-            else
-            {
-                item.buffType = BuffApplied;
-                item.buffTime = BuffTime;
-            }
+            item.buffType = BuffApplied;
+            item.buffTime = BuffTime;
 
             item.useTime = 20;
             item.useAnimation = 20;

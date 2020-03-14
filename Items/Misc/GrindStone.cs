@@ -15,10 +15,10 @@ namespace Survivaria.Items.Misc
 
         public override void SetDefaults()
         {
+            base.SetDefaults();
             item.consumable = true;
             item.createTile = ModContent.TileType<GrindStoneTile>();
             item.useStyle = ItemUseStyleID.SwingThrow;
-            base.SetDefaults();
         }
         public override void AddRecipes()
         {

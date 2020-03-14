@@ -14,7 +14,8 @@ namespace Survivaria.Tiles.Stations
 {
     public class MAPTile : ModTile
     {
-        public override void SetDefaults() {
+        public override void SetDefaults()
+        {
             Main.tileFrameImportant[Type] = true;
             Main.tileCut[Type] = false;
             Main.tileNoFail[Type] = true;

@@ -116,7 +116,7 @@ namespace Survivaria
                 TooltipLine line2 = new TooltipLine(mod, "Survivaria_Tooltip_Thirst", DrinkSize) { overrideColor = new Color(153, 164, 175) };
                 tooltips.Add(line2);
             }
-            if (item.buffType == BuffID.WellFed)
+            if (item.buffType == BuffID.WellFed && ModContent.GetInstance<SurvivariaConfigServer>().HungerEnabled)
             {
                 foreach (TooltipLine line2 in tooltips)
                 {
