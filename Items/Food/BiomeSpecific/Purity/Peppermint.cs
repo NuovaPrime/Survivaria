@@ -8,7 +8,7 @@ namespace Survivaria.Items.Food.BiomeSpecific.Purity
 {
     public class Peppermint : FoodItem
     {
-        public Peppermint() : base("Peppermint", "Being too close already makes eyes water and noses run. Caution is advised.", 24, 30, Item.buyPrice(0, 1, 0, 0), ItemRarityID.LightRed, 2, -5, SoundID.Item2, BuffID.Panic, 60 * 30)
+        public Peppermint() : base("Peppermint", "Being too close already makes eyes water and noses run. Caution is advised.", 24, 30, Item.buyPrice(0, 1, 0, 0), ItemRarityID.LightRed, 2, -5, SoundID.Item2, BuffID.Panic, 45 * 30)
         {
         }
 
@@ -20,7 +20,7 @@ namespace Survivaria.Items.Food.BiomeSpecific.Purity
 
 		public override bool UseItem(Player player)
         {
-            player.AddBuff(BuffID.OnFire, 30 * 30);
+            player.AddBuff(BuffID.OnFire, 20 * 30);
             return base.UseItem(player);
         }
     }

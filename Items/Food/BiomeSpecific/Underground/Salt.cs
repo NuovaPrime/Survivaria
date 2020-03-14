@@ -8,7 +8,7 @@ namespace Survivaria.Items.Food.BiomeSpecific.Underground
 {
     public class Salt : FoodItem
     {
-        public Salt() : base("Salt", "It comes in many forms, but serves the same purpose. To use with moderation.", 24, 30, Item.buyPrice(0, 0, 1, 0), ItemRarityID.Blue, -1, -5, SoundID.Item2)
+        public Salt() : base("Salt", "It comes in many forms, but serves the same purpose. To use with moderation.", 24, 30, Item.buyPrice(0, 0, 1, 0), ItemRarityID.Blue, -1, -5, SoundID.Item2, BuffID.Thorns, 1 * 60)
         {
         }
         public override void SetDefaults()

@@ -11,7 +11,7 @@ namespace Survivaria.Items.Drinks
 {
     public class CactusJuice : DrinkItem
     {
-        public CactusJuice() : base("Cactus Juice", "Some concentrated and refreshing cactus juice.", 20, 26, Item.buyPrice(0, 0, 0, 50), ItemRarityID.Blue, 2, 12, SoundID.Item1)
+        public CactusJuice() : base("Cactus Juice", "Some concentrated and refreshing cactus juice.", 20, 26, Item.buyPrice(0, 0, 0, 50), ItemRarityID.Blue, 2, 12, SoundID.Item1, BuffID.Thorns, 5 * 60)
         {
         }
 

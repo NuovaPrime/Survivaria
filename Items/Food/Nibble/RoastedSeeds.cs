@@ -11,7 +11,7 @@ namespace Survivaria.Items.Food.Nibble
 {
     public class RoastedSeeds : FoodItem
     {
-        public RoastedSeeds() : base("Roasted Seeds", "A handful of treats to wait inbetween meals.", 24, 30, Item.buyPrice(0, 0, 1, 0), ItemRarityID.White, 3, -1, SoundID.Item2)
+        public RoastedSeeds() : base("Roasted Seeds", "A handful of treats to wait inbetween meals.", 24, 30, Item.buyPrice(0, 0, 1, 0), ItemRarityID.White, 3, -1, SoundID.Item2, BuffID.Sunflower, 3 * 60)
         {
         }
 

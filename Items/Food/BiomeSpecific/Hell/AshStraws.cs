@@ -8,7 +8,7 @@ namespace Survivaria.Items.Food.BiomeSpecific.Hell
 {
     public class AshStraws : FoodItem
     {
-        public AshStraws() : base("Ash Straws", "A dry and soothing black berry, prized by the most delicate.", 16, 24, Item.buyPrice(0, 0, 40, 0), ItemRarityID.Orange, 4, -5, SoundID.Item2)
+        public AshStraws() : base("Ash Straws", "A dry and soothing black berry, prized by the most delicate.", 16, 24, Item.buyPrice(0, 0, 40, 0), ItemRarityID.Orange, 4, -5, SoundID.Item2, BuffID.Heartreach, 30 * 60)
         {
         }
         public override void SetDefaults()

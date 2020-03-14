@@ -14,7 +14,7 @@ namespace Survivaria.Items.Food.Meal
 {
     public class MRE : FoodItem
     {
-        public MRE() : base("MRE", "A full meal ready to eat for any situation.", 24, 30, Item.buyPrice(0, 0, 0, 0), ItemRarityID.Green, 25, 25, SoundID.Item2, BuffID.WellFed, 60 * 180)
+        public MRE() : base("MRE", "A full meal ready to eat for any situation.", 24, 30, Item.buyPrice(0, 0, 0, 0), ItemRarityID.Green, 25, 25, SoundID.Item2, BuffID.Ironskin, 30 * 60)
         {
         }
 
