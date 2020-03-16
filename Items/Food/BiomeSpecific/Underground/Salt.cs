@@ -3,6 +3,7 @@ using Terraria;
 
 using Terraria.ID;
 using Terraria.ModLoader;
+using Survivaria.Items.Food.BiomeSpecific.Ocean;
 
 namespace Survivaria.Items.Food.BiomeSpecific.Underground
 {
@@ -15,6 +16,14 @@ namespace Survivaria.Items.Food.BiomeSpecific.Underground
         {
             base.SetDefaults();
             item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Eating/CrunchEating");
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ModContent.ItemType<Amalgae>());
+            recipe.AddTile(TileID.AlchemyTable);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
 
     }
