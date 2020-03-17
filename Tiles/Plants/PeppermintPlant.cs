@@ -38,19 +38,19 @@ namespace Survivaria.Tiles.Plants
 			Player player = Main.LocalPlayer;
 			if (player.HeldItem.type == ModContent.ItemType<DynastyTrowel>())
 			{
-					if (stage == 2 && Main.tile[i, j].frameX == 72 && Main.tile[i, j].frameY == 18)
+					if (stage == 2 && Main.rand.Next(3) == 0 && Main.tile[i, j].frameY == 18)
 					{
 							Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<PeppermintSeed>());
 					}
 			}
 			else if (player.HeldItem.type == ModContent.ItemType<LeadTrowel>() || player.HeldItem.type == ModContent.ItemType<IronTrowel>())
 			{
-					if (stage == 2 && Main.tile[i, j].frameX == 72 && Main.tile[i, j].frameY == 18 && Main.rand.Next(3) == 0)
+					if (stage == 2 && Main.rand.Next(5) == 0 && Main.tile[i, j].frameY == 18)
 					{
 							Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<PeppermintSeed>());
 					}
 			}
-            if (stage == 2 && Main.tile[i, j].frameX == 72 && Main.tile[i, j].frameY == 18)
+            if (stage == 2 && Main.tile[i, j].frameY == 18)
             {
 				Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<Peppermint>());
 			}

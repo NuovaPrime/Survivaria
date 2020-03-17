@@ -20,6 +20,7 @@ namespace Survivaria
 
         internal bool fargoSoulsLoaded;
         internal bool fargoLoaded;
+        internal bool overLoaded;
         public SurvivariaMod()
 		{
             Properties = new ModProperties()
@@ -51,6 +52,7 @@ namespace Survivaria
             {
                 fargoSoulsLoaded = ModLoader.GetMod("FargowiltasSouls") != null;
                 fargoLoaded = ModLoader.GetMod("Fargowiltas") != null;
+                overLoaded = ModLoader.GetMod("TerrariaOverhaul") != null;
 
             }
             catch (Exception e)

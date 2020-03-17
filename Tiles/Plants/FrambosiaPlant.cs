@@ -41,14 +41,14 @@ namespace Survivaria.Tiles.Plants
 			Player player = Main.LocalPlayer;
 			if (player.HeldItem.type == ModContent.ItemType<DynastyTrowel>())
 			{
-					if (stage == 2)
+					if (stage == 2 && Main.rand.Next(3) == 0)
 					{
 							Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<FrambosiaSeed>());
 					}
 			}
 			else if (player.HeldItem.type == ModContent.ItemType<LeadTrowel>() || player.HeldItem.type == ModContent.ItemType<IronTrowel>())
 			{
-					if (stage == 2 && Main.rand.Next(3) == 0)
+					if (stage == 2 && Main.rand.Next(5) == 0)
 					{
 							Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<FrambosiaSeed>());
 					}

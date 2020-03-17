@@ -80,6 +80,11 @@ namespace Survivaria
         public override void RandomUpdate(int i, int j, int type)
         {
             float u = 160 * ModContent.GetInstance<SurvivariaConfigServer>().PlantGrowthRateMulti;
+            bool wetSand = false;
+            if (SurvivariaMod.Instance.overLoaded)
+            {
+                if (Main.tile[i, j].type == ModLoader.GetMod("TerrariaOverhaul").TileType("WetSand")) wetSand = true;
+            }
             if (Main.expertMode) u *= 1.1f;
             if ((Main.tile[i, j].type == TileID.Grass && Main.tile[i, j + 1].wall != WallID.Cloud && (Main.tile[i, j - 1].type == TileID.Plants || Main.tile[i, j - 1].type == TileID.Plants2 || !Main.tile[i, j - 1].active())) && Main.tile[i, j].slope() == 0 && j < Main.worldSurface && Main.dayTime && Main.hardMode && NPC.downedMechBossAny)
             {
@@ -145,14 +150,14 @@ namespace Survivaria
                     WorldGen.PlaceTile(i, j - 2, ModContent.TileType<SparklingBerryPlant>(), true, true);
                 }
             }
-            if ((Main.tile[i, j].type == TileID.Sand || Main.tile[i, j].type == ModLoader.GetMod("TerrariaOverhaul").TileType("WetSand")) && !Main.tile[i, j - 1].active() && Main.tile[i, j - 1].liquid > 0 && Main.tile[i, j].slope() == 0 && (i < 380 || i > Main.maxTilesX - 380) && j < Main.worldSurface && Main.dayTime)
+            if ((Main.tile[i, j].type == TileID.Sand || wetSand) && !Main.tile[i, j - 1].active() && Main.tile[i, j - 1].liquid > 0 && Main.tile[i, j].slope() == 0 && (i < 380 || i > Main.maxTilesX - 380) && j < Main.worldSurface && Main.dayTime)
             {
                 if (Main.rand.NextFloat(u*1.1f) < 1)
                 {
                     WorldGen.PlaceTile(i, j - 3, ModContent.TileType<AmalgaePlant>(), true, true);
                 }
             }
-            if ((Main.tile[i, j].type == TileID.Sand || Main.tile[i, j].type == ModLoader.GetMod("TerrariaOverhaul").TileType("WetSand")) && !Main.tile[i, j - 1].active() && !Main.tile[i + 1, j - 1].active() && Main.tile[i, j].slope() == 0 && 380 < i && i < Main.maxTilesX - 380 && j < Main.worldSurface && Main.dayTime)
+            if ((Main.tile[i, j].type == TileID.Sand || wetSand) && !Main.tile[i, j - 1].active() && !Main.tile[i + 1, j - 1].active() && Main.tile[i, j].slope() == 0 && 380 < i && i < Main.maxTilesX - 380 && j < Main.worldSurface && Main.dayTime)
             {
                 if (Main.rand.NextFloat(u*1.15f) < 1)
                 {

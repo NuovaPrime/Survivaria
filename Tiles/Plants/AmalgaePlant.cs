@@ -14,6 +14,7 @@ namespace Survivaria.Tiles.Plants
 {
 	public class AmalgaePlant : ModTile
 	{
+		public int wetSandID = 53;
 		public override void SetDefaults() {
 			Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -28,11 +29,12 @@ namespace Survivaria.Tiles.Plants
             TileObjectData.newTile.DrawYOffset = 2;
             TileObjectData.newTile.WaterPlacement = LiquidPlacement.OnlyInLiquid;
             TileObjectData.newTile.WaterDeath = false;
+						if (ModLoader.GetMod("TerrariaOverhaul") != null) wetSandID = ModLoader.GetMod("TerrariaOverhaul").TileType("WetSand");
             TileObjectData.newTile.AnchorValidTiles = new[]
-			{
-				53, //TileID.Sand
-				ModLoader.GetMod("TerrariaOverhaul").TileType("WetSand")
-			};
+						{
+								53, //TileID.Sand
+								wetSandID
+						};
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Amalgae");
             AddMapEntry(new Color(35, 79, 35), name);
@@ -44,19 +46,19 @@ namespace Survivaria.Tiles.Plants
 			Player player = Main.LocalPlayer;
 			if (player.HeldItem.type == ModContent.ItemType<DynastyTrowel>())
 			{
-					if (stage == 2 && Main.tile[i, j].frameX == 36 && Main.tile[i, j].frameY == 18)
+					if (stage == 2 && Main.rand.Next(3) == 0 && Main.tile[i, j].frameY == 18)
 					{
 							Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<AmalgaeSeed>());
 					}
 			}
 			else if (player.HeldItem.type == ModContent.ItemType<LeadTrowel>() || player.HeldItem.type == ModContent.ItemType<IronTrowel>())
 			{
-					if (stage == 2 && Main.rand.Next(3) == 0 && Main.tile[i, j].frameX == 36 && Main.tile[i, j].frameY == 18)
+					if (stage == 2 && Main.rand.Next(5) == 0 && Main.tile[i, j].frameY == 18)
 					{
 							Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<AmalgaeSeed>());
 					}
 			}
-            if (stage == 2 && Main.tile[i, j].frameX == 36 && Main.tile[i, j].frameY == 18)
+            if (stage == 2 && Main.tile[i, j].frameY == 18)
             {
 				Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<Amalgae>());
 			}

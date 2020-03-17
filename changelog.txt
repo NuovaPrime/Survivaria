@@ -7,14 +7,24 @@ V0.4.0.0
 5) Changed the mutating smoothie to make it more pog.
 6) Lowered thirst drain rate a bit.
 7) Made Hunger and Thirst save whenever you leave and rejoin the world, no more rejoining to reset it.
-8) Fixed bug where tooltips would say "Increased Life Regeneration" even if it didn't do that.
+8) Fixed bug where vanilla well fed foods still said the effects even if it didn't do that, only happens with hunger enabled.
 9) Fixed bug where enemies dropped nothing if you didn't have fargo's soul mod enabled.
-10) All plants now have a rare chance to decay off if left alive too long, this should help with the overabundance of plant spawns.
+10) All plants now have a chance to decay off if left alive too long, this should help with the overabundance of plant spawns.
 11) Added a config option to adjust plant spawn rates in the world.
 12) Made fiery tuber an upside-down plant.
 13) Fixed bleed root not spawning.
-14) Lowered the chance for plants to spawn even more.
-15) Minor tweaks.
+14) Lowered the growth and chance for plants to spawn even more.
+15) Various minor tweaks.
+16) Updated some drinks' sprites.
+17) The gold of the capt'n drops.
+18) Updated mod weakrefs.
+19) Fixed item default properties, tiles won't consume for no reason and other weird behaviors.
+20) Added negative stats tooltips.
+21) Gourd is no more broken.
+22) Added books and salt recipes using survivaria plants.
+23) Adjusted and modified many spawn conditions for plants.
+24) Fixed some 2x2 plants not being handled correctly.
+25) Added Overhaul compatibility for wet sand, now you can grow amalgae properly.
 
 V0.3.2.2
 

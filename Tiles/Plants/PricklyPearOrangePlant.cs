@@ -12,6 +12,7 @@ namespace Survivaria.Tiles.Plants
 {
     public class PricklyPearOrangePlant : ModTile
     {
+        public int wetSandID = 53;
         public override void SetDefaults()
         {
             Main.tileFrameImportant[Type] = true;
@@ -23,10 +24,11 @@ namespace Survivaria.Tiles.Plants
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.DrawYOffset = 2;
             TileObjectData.newTile.WaterDeath = true;
+						if (ModLoader.GetMod("TerrariaOverhaul") != null) wetSandID = ModLoader.GetMod("TerrariaOverhaul").TileType("WetSand");
             TileObjectData.newTile.AnchorValidTiles = new[]
             {
                 53, //TileID.Sand
-        				ModLoader.GetMod("TerrariaOverhaul").TileType("WetSand")
+								wetSandID
 			};
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Prickly Pear");
@@ -40,19 +42,19 @@ namespace Survivaria.Tiles.Plants
       			Player player = Main.LocalPlayer;
       			if (player.HeldItem.type == ModContent.ItemType<DynastyTrowel>())
       			{
-      					if (stage == 2 && Main.tile[i, j].frameX == 72 && Main.tile[i, j].frameY == 18)
+      					if (stage == 2 && Main.rand.Next(3) == 0 && Main.tile[i, j].frameY == 18)
       					{
       							Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<PricklyPearOrangeSeed>());
       					}
       			}
       			else if (player.HeldItem.type == ModContent.ItemType<LeadTrowel>() || player.HeldItem.type == ModContent.ItemType<IronTrowel>())
       			{
-      					if (stage == 2 && Main.tile[i, j].frameX == 72 && Main.tile[i, j].frameY == 18 && Main.rand.Next(3) == 0)
+      					if (stage == 2 && Main.rand.Next(5) == 0 && Main.tile[i, j].frameY == 18)
       					{
       							Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<PricklyPearOrangeSeed>());
       					}
       			}
-            if (stage == 2 && Main.tile[i, j].frameX == 72 && Main.tile[i, j].frameY == 18)
+            if (stage == 2 && Main.tile[i, j].frameY == 18)
             {
                 Item.NewItem(i * 16, j * 16, 0, 0, ModContent.ItemType<PricklyPearOrange>());
             }
