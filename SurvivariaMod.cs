@@ -124,6 +124,7 @@ namespace Survivaria
                 ItemID.MushroomGrassSeeds,
                 ItemID.ShiverthornSeeds,
                 ItemID.WaterleafSeeds,
+                ItemID.Acorn,
                 ModContent.ItemType<AmalgaeSeed>(),
                 ModContent.ItemType<AshStrawSeed>(),
                 ModContent.ItemType<BleedRootSeed>(),
